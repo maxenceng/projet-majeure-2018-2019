@@ -22,7 +22,9 @@
     "prod:build": "next build",
     "prod:start": "next start",
     "script:routes": "node scripts/routes",
-    "test:lint": "eslint ."
+    "test:lint": "eslint .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -34,7 +36,13 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "ghooks": "^2.0.4"
+    "ghooks": "^2.0.4",
+    "@storybook/react": "^4.1.2",
+    "@storybook/addon-actions": "^4.1.2",
+    "@storybook/addon-links": "^4.1.2",
+    "@storybook/addons": "^4.1.2",
+    "@babel/core": "^7.2.2",
+    "babel-loader": "^8.0.4"
   },
   "config": {
     "ghooks": {
