@@ -46,4 +46,4 @@ storiesOf('Button', module)
   .add('picture event', () => <PictureEvent pictureEvent={pictureBox} />)
   .add('datebox', () => <DateBox />)
   .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />)
-  .add('Top Frame Connexion', () => <TopFrameCo />);
+  .add('Top Frame Connexion', () => <TopFrameCo onclickEvent={action('button evenement')} onclickDeco={action('button Deco')} onclickAgenda={action('button Agenda')} onclickMessage={action('button Message')} onclickProfile={action('button Profile')} />);
