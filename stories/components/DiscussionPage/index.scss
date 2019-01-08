@@ -1,0 +1,11 @@
+.DiscussionPage {
+  display: flex;
+  & .first {
+    width: 40%;
+  }
+  & .second {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+  }
+}

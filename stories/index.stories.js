@@ -14,6 +14,58 @@ import StandardPage from './components/StandardPage';
 import DateBox from './components/DateBox';
 import EventComponent from './components/EventComponent';
 import TopFrameCo from './components/TopFrameCo';
+import DiscussionBox from './components/DiscussionBox';
+import DiscussionList from './components/DiscussionList';
+import DiscussionMessage from './components/DiscussionMessage';
+import DiscussionDetails from './components/DiscussionDetails';
+import DiscussionPage from './components/DiscussionPage';
+
+const discussionList = [
+  {
+    active: true,
+    person: 'Skydread1',
+    time: '11:23am',
+    lastMessage: 'Salut, j\'ai vu que tu participais...',
+    onClick: null,
+  },
+  {
+    active: false,
+    person: 'Cissoudu69',
+    time: '10:09am',
+    lastMessage: 'Oui c\'est une bonne idée ! On...',
+    onClick: null,
+  },
+  {
+    active: false,
+    person: 'Grillzoo',
+    time: '08:10am',
+    lastMessage: 'Je pense que ça va être compli...',
+    onClick: null,
+  },
+];
+
+const discussionMessages = [
+  {
+    timestamp: 12,
+    person: 'User',
+    text: 'Oui, j\'adore Ariana Grande!!',
+  },
+  {
+    timestamp: 0,
+    person: 'Skydread1',
+    text: 'Salut, j\'ai vu que tu participais au concert d\'Ariana Grande.',
+  },
+  {
+    timestamp: 24,
+    person: 'Skydread1',
+    text: 'Ok super',
+  },
+  {
+    timestamp: 36,
+    person: 'Skydread1',
+    text: 'dac dac',
+  },
+];
 
 storiesOf('Basic Components', module)
   .add('Generic Button', () => <Button content="Inscription" onclicktype={action('clicked Inscription')} />)
@@ -21,13 +73,31 @@ storiesOf('Basic Components', module)
   .add('searchBar', () => <SearchBar onClicktype={action('clicked')} />)
   .add('ImgHome', () => <ImgHome />)
   .add('Parallax', () => <Parallax />)
-  .add('datebox', () => <DateBox />);
+  .add('datebox', () => <DateBox />)
+  .add('Discussion Box', () => (
+    <DiscussionBox
+      active={false}
+      person="Skydread1"
+      time="11:23am"
+      lastMessage="Salut, j'ai vu que tu participais..."
+      onClick={null}
+    />))
+  .add('Discussion Message', () => <DiscussionMessage className="other" text="Salut, j'ai vu que tu participais..." />);
 
 storiesOf('Groups', module)
   .add('topFrame', () => <TopFrame />)
   .add('Top Frame Connexion', () => <TopFrameCo />)
-  .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />);
+  .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />)
+  .add('Discussion List', () => <DiscussionList list={discussionList} />)
+  .add('Discussion Details', () => (
+    <DiscussionDetails
+      messages={discussionMessages}
+      contact="Skydread1"
+      event="Concert Ariana Grande"
+    />
+  ));
 
 storiesOf('Pages', module)
   .add('HomePage', () => <HomePage />)
-  .add('Standard Page', () => <StandardPage />);
+  .add('Standard Page', () => <StandardPage />)
+  .add('Discussion Page', () => <DiscussionPage />);
