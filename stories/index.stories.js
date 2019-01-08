@@ -8,7 +8,21 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import { Button, Welcome } from '@storybook/react/demo';
-import ButtonExample from './components/Button';
+import ButtonHaut2 from './components/ButtonHaut2';
+import ButtonHaut from './components/ButtonHaut';
+import TopFrame from './components/TopFrame';
+import SearchBar from './components/SearchBar';
+import ImgHome from './components/ImgHome';
+import Parallax from './components/Parallax';
+import HomePage from './components/HomePage';
+import StandardPage from './components/StandardPage';
+import PictureEvent from './components/PictureEvent';
+import DateBox from './components/DateBox';
+import EventComponent from './components/EventComponent';
+import pictureBox from '../src/party.jpg';
+import TopFrameCo from './components/TopFrameCo';
+
+const connexion = 'Connexion';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -21,4 +35,15 @@ storiesOf('Button', module)
       </span>
     </Button>
   ))
-  .add('new', () => <ButtonExample />);
+  .add('Inscription', () => <ButtonHaut2 content="Inscription" onclicktype={action('clicked')} />)
+  .add('connexion', () => <ButtonHaut content={connexion} onclicktype={action('clicked')} />)
+  .add('topFrame', () => <TopFrame />)
+  .add('searchBar', () => <SearchBar onClicktype={action('clicked')} />)
+  .add('ImgHome', () => <ImgHome />)
+  .add('Parallax', () => <Parallax />)
+  .add('HomePage', () => <HomePage />)
+  .add('Standard Page', () => <StandardPage />)
+  .add('picture event', () => <PictureEvent pictureEvent={pictureBox} />)
+  .add('datebox', () => <DateBox />)
+  .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />)
+  .add('Top Frame Connexion', () => <TopFrameCo />);

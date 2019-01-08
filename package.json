@@ -15,7 +15,8 @@
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",
     "redux-devtools-extension": "^2.13.7",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "url-loader": "^1.1.2"
   },
   "scripts": {
     "dev:start": "next",
@@ -27,7 +28,13 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@storybook/addon-actions": "^4.1.2",
+    "@storybook/addon-links": "^4.1.2",
+    "@storybook/addons": "^4.1.2",
+    "@storybook/react": "^4.1.2",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
@@ -36,13 +43,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "ghooks": "^2.0.4",
-    "@storybook/react": "^4.1.2",
-    "@storybook/addon-actions": "^4.1.2",
-    "@storybook/addon-links": "^4.1.2",
-    "@storybook/addons": "^4.1.2",
-    "@babel/core": "^7.2.2",
-    "babel-loader": "^8.0.4"
+    "file-loader": "^2.0.0",
+    "ghooks": "^2.0.4"
   },
   "config": {
     "ghooks": {

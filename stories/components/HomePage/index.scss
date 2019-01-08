@@ -1,0 +1,39 @@
+.home{
+  height: 100vh;
+  margin:0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-perspective: 1px;
+  perspective: 1px;
+  background-color: rgb(250, 246, 242);
+  .parallax{
+    overflow-y: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .back{
+    overflow: unset;
+    width: 100%;
+    -webkit-transform: translateZ(-1.5px) scale(3);
+    transform: translateZ(-1.5px) scale(3);
+    position: relative;
+    top: calc(((100vh - 75,08vw)/4)*2);
+  }
+
+  .front{
+    margin-top: 200px;
+    background-color: rgb(250, 246, 242);
+    padding: 14em 1em;
+    position: relative;
+    z-index:2;
+  }
+
+  .events{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+  }
+}

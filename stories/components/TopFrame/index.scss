@@ -1,0 +1,22 @@
+#header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4087a3;
+  padding: 20px 0px;
+  .logo{
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    color: #d1be9c;
+    padding: 10px 20px;
+  }
+  .connexion{
+    padding: 10px 20px;
+  }
+
+
+
+
+}

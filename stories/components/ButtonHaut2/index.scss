@@ -1,0 +1,12 @@
+.ButtonHaut2 {
+  background-color: #967660;
+  color:white;
+  border:1px solid #967660;
+  border-radius:12px;
+  padding: 4px 14px;
+  font-family:'Comic Sans';
+  font-size:14px;
+  &:hover{
+      color:#d6b095;
+  }
+}
