@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Variane";
+  src: url("../../../src/assets/fonts/fontvariane/varianescript-webfont.woff") format("woff"),
+        url("../../../src/assets/fonts/fontvariane/varianescript-webfont.woff2") format("woff2");
+};
+
+.Button {
+  background-color: transparent;
+  color: #e6bc9e;
+  border: 1px solid #e6bc9e;
+  border-radius: 12px;
+  padding: 4px 14px;
+  font-size: 14px;
+  font-family: "Variane", serif;
+  &:hover {
+      color: #715b4c;
+  }
+
+  &.inverse {
+    background-color: #967660;
+    color:white;
+    border:1px solid #967660;
+    &:hover{
+      color:#d6b095;
+    }
+  }
+}

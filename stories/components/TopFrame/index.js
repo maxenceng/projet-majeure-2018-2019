@@ -1,13 +1,13 @@
 import React from 'react';
 import './index.scss';
-import ButtonHaut from '../ButtonHaut';
+import Button from '../Button';
 
 const TopFrame = () => (
   <div id="header">
     <div className="logo">WeMe</div>
     <div className="connexion">
-      <ButtonHaut content="connexion" onclicktype={null} />
-      <ButtonHaut content="Inscription" onclicktype={null} />
+      <Button content="connexion" onclicktype={null} />
+      <Button content="Inscription" onclicktype={null} />
     </div>
   </div>
 );

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import ButtonComponent from '../../components/Button';
+import ButtonComponent from '../../components/Button/index';
 import messageAction from '../../actions/messageAction';
 
 class Index extends React.Component {

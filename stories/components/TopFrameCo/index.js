@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
-import ButtonHaut from '../ButtonHaut';
+import Button from '../Button';
 
 const TopFrameCo = ({
   onclickEvent,
@@ -29,7 +29,7 @@ const TopFrameCo = ({
         </button>
       </div>
       <div className="decoButton">
-        <ButtonHaut content="Deconnexion" onclicktype={onclickDeco} />
+        <Button content="Deconnexion" onclicktype={onclickDeco} />
       </div>
     </div>
   </div>
