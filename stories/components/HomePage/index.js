@@ -14,11 +14,11 @@ const HomePage = () => (
           <h1>Filter here</h1>
         </div>
         <div className="events">
-          <EventComponent />
-          <EventComponent />
-          <EventComponent />
-          <EventComponent />
-          <EventComponent />
+          <div className="eventCompo"><EventComponent /></div>
+          <div className="eventCompo"><EventComponent /></div>
+          <div className="eventCompo"><EventComponent /></div>
+          <div className="eventCompo"><EventComponent /></div>
+          <div className="eventCompo"><EventComponent /></div>
         </div>
       </div>
     </div>

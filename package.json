@@ -22,7 +22,6 @@
     "dev:start": "next",
     "prod:build": "next build",
     "prod:start": "next start",
-    "script:routes": "node scripts/routes",
     "script:routes": "node src/scripts/routes",
     "test:lint": "eslint .",
     "storybook": "start-storybook -p 6006",
