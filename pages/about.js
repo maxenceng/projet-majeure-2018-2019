@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Wrapper from '../helpers/Wrapper';
-import Button from '../containers/Button';
-import Message from '../containers/Message';
-import DynamicHead from '../components/DynamicHead';
+import Wrapper from '../src/helpers/Wrapper';
+import Button from '../src/containers/Button';
+import Message from '../src/containers/Message';
+import DynamicHead from '../src/components/DynamicHead';
 
 const About = () => (
   <div>
