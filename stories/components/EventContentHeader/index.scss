@@ -1,0 +1,17 @@
+.event_header{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+
+  .event_header_item{
+    flex-grow: 1;
+    margin : 2%;
+  }
+  h1{
+    margin: 2%;
+  }
+  h2{
+    margin: 2%;
+  }
+}

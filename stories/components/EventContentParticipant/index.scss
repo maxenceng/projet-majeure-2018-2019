@@ -1,0 +1,19 @@
+.event_participant{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  
+    .event_participant_item{
+      flex-grow: 1;
+      margin : 2%;
+    }
+
+    .pp{
+      height: auto; 
+      width: auto; 
+      max-width: 100px; 
+      max-height: 100px;
+    }
+  }

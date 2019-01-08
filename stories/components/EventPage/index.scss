@@ -1,0 +1,16 @@
+.event_content_info{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  
+    .event_details, .event_participant_list{
+      flex-grow: 1;
+      margin : 1%;
+      width: 50%;
+    }
+  }
+
+
+
