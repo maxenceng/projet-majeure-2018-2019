@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 import TopFrame from '../TopFrame';
 import Button from '../Button';
 
-const ConnexionPage = () => (
-  <div className="subPage">
+const ConnectionPage = ({ onclicktype }) => (
+  <div className="connexionPage">
     <div className="header"><TopFrame /></div>
-    <div className="subForm">
+    <div className="connexionForm">
       <div className="formulaire">
-        <div className="inscription">Connexion</div>
+        <div className="connexion">Connexion</div>
         <div className="mail">
           <input className="inputMail" type="text" placeholder="email" />
         </div>
@@ -16,10 +17,15 @@ const ConnexionPage = () => (
           <input className="inputPassword" type="text" placeholder="password" />
         </div>
         <div className="validation">
-          <Button content="Validation" onClickType={null} />
+          <Button content="Validation" onclicktype={onclicktype} />
         </div>
       </div>
     </div>
   </div>
 );
-export default ConnexionPage;
+
+ConnectionPage.propTypes = {
+  onclicktype: PropTypes.func.isRequired,
+};
+
+export default ConnectionPage;

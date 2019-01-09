@@ -1,0 +1,65 @@
+.eventPage{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  //background-color: aquamarine;
+  .filter{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    //background-color: #c1b59f;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    .topFilter{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      .locationFilter{
+        border: 1px solid #80664f;
+        height: 20px;
+        border-radius: 5px;
+        outline: none;
+        color: #9DBFAF;
+      }    
+      .dateFilter{
+        border: 1px solid #80664f;
+        height: 20px;
+        border-radius: 5px;
+        outline: none;
+        color: #9DBFAF;
+      }
+    }
+  }
+  
+  .events{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    //background-color: brown;
+    justify-content: flex-start;
+    .eventCompo{
+      //background-color:cadetblue;
+      padding: 2%;
+
+    
+    }
+  }
+}
+
+  .btn {
+        border: none;
+        outline: none;
+        padding: 12px 16px;
+        background-color: #c1b59f;
+        cursor: pointer;
+      }
+      
+      .btn:hover {
+        background-color: rgb(232, 223, 215);
+      }
+      
+      .btn.active {
+        background-color: rgb(120, 98, 74);
+        color: white;
+      }
