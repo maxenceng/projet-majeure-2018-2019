@@ -1,0 +1,27 @@
+.boxDate{
+  display: flex;
+  flex-direction: row;
+  width:98%;
+  height: 50px;
+  margin: auto;
+  .dateEvent{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background-color: white;     
+    border-bottom-left-radius: 7px;
+    #dayEvent{
+      margin:auto;
+    }
+    #monthEvent{
+      margin:auto;
+    }
+  }
+  .descriptionEvent{
+    width: 80%;
+    padding-left:5%;
+    padding-top:1%;
+    background-color: white;
+    border-bottom-right-radius: 7px;
+  }
+}
