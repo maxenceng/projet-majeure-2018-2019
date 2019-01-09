@@ -7,6 +7,9 @@ const EventContentParticipantList = () => (
     <EventContentParticipant>a</EventContentParticipant>
     <EventContentParticipant>a</EventContentParticipant>
     <EventContentParticipant>a</EventContentParticipant>
+    <EventContentParticipant>a</EventContentParticipant>
+    <EventContentParticipant>a</EventContentParticipant>
+    <EventContentParticipant>a</EventContentParticipant>
   </div>
 );
 

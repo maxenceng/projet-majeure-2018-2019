@@ -3,6 +3,7 @@
   flex-wrap: nowrap;
   flex-direction: row;
   align-items: center;
+  border-bottom: solid 2px #4087a3;
 
   .event_header_item{
     flex-grow: 1;
@@ -13,5 +14,9 @@
   }
   h2{
     margin: 2%;
+    color: #e6bc9e;
+  }
+  button{
+    margin:2%;
   }
 }

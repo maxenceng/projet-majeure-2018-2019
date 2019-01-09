@@ -15,7 +15,6 @@ import DateBox from './components/DateBox';
 import EventComponent from './components/EventComponent';
 import TopFrameCo from './components/TopFrameCo';
 import EventPage from './components/EventPage';
-
 import SubscribePage from './components/SubscribePage';
 import ConnexionPage from './components/ConnexionPage';
 
