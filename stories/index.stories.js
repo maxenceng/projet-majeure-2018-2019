@@ -24,6 +24,7 @@ import SubscribePage from './components/SubscribePage';
 import ConnectionPage from './components/ConnectionPage';
 import ProfilePage from './components/ProfilePage';
 import AllEventPage from './components/AllEventPage';
+import EventHistory from './components/EventHistory';
 
 const discussionList = [
   {
@@ -118,4 +119,5 @@ storiesOf('Pages', module)
   .add('Connexion Page', () => <ConnectionPage onclicktype={action('clicked')} />)
   .add('Profile Page', () => <ProfilePage />)
   .add('events Page', () => <EventPage />)
+  .add('History Event Feature', () => <EventHistory />)
   .add('All events Page', () => <AllEventPage />);
