@@ -38,6 +38,6 @@ storiesOf('Pages', module)
   .add('datebox', () => <DateBox />)
   .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />)
   .add('Top Frame Connexion', () => <TopFrameCo />)
-  .add('EventPage', () => <EventPage />);
+  .add('EventPage', () => <EventPage />)
   .add('Subscribe Page', () => <SubscribePage />)
   .add('Connexion Page', () => <ConnexionPage />);
