@@ -2,13 +2,15 @@
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
   
     .event_details, .event_participant_list{
       flex-grow: 1;
       margin : 1%;
       width: 50%;
+      border-top: solid 1px #e6bc9e;
+      border-bottom: solid 1px #e6bc9e;
     }
   }
 
