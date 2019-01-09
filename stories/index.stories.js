@@ -16,6 +16,8 @@ import EventComponent from './components/EventComponent';
 import TopFrameCo from './components/TopFrameCo';
 import EventPage from './components/EventPage';
 
+import SubscribePage from './components/SubscribePage';
+import ConnexionPage from './components/ConnexionPage';
 
 storiesOf('Basic Components', module)
   .add('Generic Button', () => <Button content="Inscription" onclicktype={action('clicked Inscription')} />)
@@ -27,7 +29,7 @@ storiesOf('Basic Components', module)
 
 storiesOf('Groups', module)
   .add('topFrame', () => <TopFrame />)
-  .add('Top Frame Connexion', () => <TopFrameCo />)
+  .add('Top Frame Connexion', () => <TopFrameCo onclickEvent={action('Event')} onclickDeco={action('Deconnexion')} onclickAgenda={action('Agenda')} onclickMessage={action('Message')} onclickProfile={action('Profile')} />)
   .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />);
 
 storiesOf('Pages', module)
@@ -37,3 +39,5 @@ storiesOf('Pages', module)
   .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />)
   .add('Top Frame Connexion', () => <TopFrameCo />)
   .add('EventPage', () => <EventPage />);
+  .add('Subscribe Page', () => <SubscribePage />)
+  .add('Connexion Page', () => <ConnexionPage />);

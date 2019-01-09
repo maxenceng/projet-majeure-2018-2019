@@ -3,11 +3,15 @@ import './index.scss';
 import Button from '../Button';
 
 const TopFrame = () => (
-  <div id="header">
+  <div className="topFrame">
     <div className="logo">WeMe</div>
     <div className="connexion">
-      <Button content="connexion" onclicktype={null} />
-      <Button content="Inscription" onclicktype={null} />
+      <div className="coButton">
+        <Button content="connexion" onclicktype={null} />
+      </div>
+      <div className="insbutton">
+        <Button content="Inscription" onclicktype={null} />
+      </div>
     </div>
   </div>
 );
