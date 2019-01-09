@@ -6,11 +6,6 @@
 
 .subPage{
   background-color: rgb(250, 246, 242);
-  .header{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
   .subForm{
     height: 100vh;
     margin:0;
@@ -22,7 +17,6 @@
       margin-left: auto;
       margin-right: auto;
       width: 50%;
-      padding:10%;
       .inscription{
         font-family: "Variane", serif;
         font-size:40px;

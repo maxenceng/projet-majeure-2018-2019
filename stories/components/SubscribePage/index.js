@@ -10,13 +10,13 @@ const SubscribePage = () => (
       <div className="formulaire">
         <div className="inscription">Inscription</div>
         <div className="username">
-          <input className="inputUsername" type="text" placeholder="username" />
+          <input type="text" className="inputUsername" placeholder="username" />
         </div>
         <div className="mail">
-          <input className="inputMail" type="text" placeholder="email" />
+          <input type="text" className="inputMail" placeholder="email" />
         </div>
         <div className="password">
-          <input className="inputPassword" type="text" placeholder="password" />
+          <input type="text" className="inputPassword" placeholder="password" />
         </div>
         <div className="validation">
           <Button content="Validation" onClickType={null} />
