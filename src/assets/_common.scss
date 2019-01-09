@@ -1,0 +1,30 @@
+/* Variables */
+// TODO: Redefine variables with correct values
+$font-family: "Variane", serif;
+$color-primary: #fff;
+$color-secondary: #fff;
+$header-height: 74px;
+
+
+/* Mixins */
+@mixin transition() {
+  transition: all 0.3s linear;
+}
+
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin buttonAsDiv() {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin fitRemainingSpace($border, $margin, $padding) {
+  width: calc(100% - 2 * #{$border} - 2 * #{$margin} - 2 * #{$padding});
+  height: calc(100% - 2 * #{$border} - 2 * #{$margin} - 2 * #{$padding});
+}

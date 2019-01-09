@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import Layout from './Layout';
+import Index from '../Layout';
 import store from '../store';
 
 export default Component => (
@@ -10,9 +10,9 @@ export default Component => (
     render() {
       return (
         <Provider store={store}>
-          <Layout>
+          <Index>
             <Component />
-          </Layout>
+          </Index>
         </Provider>
       );
     }
