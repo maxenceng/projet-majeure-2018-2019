@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar';
 
 const ImgHome = () => (
   <div className="imgHome">
-    <SearchBar onClicktype={null} />
+    <SearchBar onclicktype={null} />
   </div>
 );
 

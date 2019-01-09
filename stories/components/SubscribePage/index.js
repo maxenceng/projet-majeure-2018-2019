@@ -19,7 +19,7 @@ const SubscribePage = () => (
           <input type="text" className="inputPassword" placeholder="password" />
         </div>
         <div className="validation">
-          <Button content="Validation" onClickType={null} />
+          <Button content="Validation" onclicktype={null} />
         </div>
       </div>
     </div>
