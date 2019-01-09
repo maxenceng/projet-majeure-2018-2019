@@ -18,6 +18,7 @@ import SubscribePage from './components/SubscribePage';
 import ConnectionPage from './components/ConnectionPage';
 import ProfilePage from './components/ProfilePage';
 import EventPage from './components/EventPage';
+import AllEventPage from './components/AllEventPage';
 
 storiesOf('Basic Components', module)
   .add('Generic Button', () => <Button content="Inscription" onclicktype={action('clicked Inscription')} />)
@@ -38,4 +39,5 @@ storiesOf('Pages', module)
   .add('Subscribe Page', () => <SubscribePage />)
   .add('Connexion Page', () => <ConnectionPage onclicktype={action('clicked')} />)
   .add('Profile Page', () => <ProfilePage />)
-  .add('events Page', () => <EventPage />);
+  .add('events Page', () => <EventPage />)
+  .add('All events Page', () => <AllEventPage />);
