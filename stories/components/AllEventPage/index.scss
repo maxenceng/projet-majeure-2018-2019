@@ -36,16 +36,15 @@
       padding: 12px 16px;
       background-color: #c1b59f;
       cursor: pointer;
-        
-      .btn:hover {
-        background-color: rgb(232, 223, 215);
-      }
-      
-      .btn.active {
-        background-color: rgb(120, 98, 74);
-        color: white;
-        }
-    }    
+    }
+    .btn:hover {
+      background-color: rgb(232, 223, 215);
+    }
+    
+    .btn.active {
+      background-color: rgb(120, 98, 74);
+      color: white;
+    }
   }
   
   .events{

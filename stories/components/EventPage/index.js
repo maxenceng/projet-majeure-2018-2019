@@ -8,10 +8,10 @@ import TopFrameCo from '../TopFrameCo';
 const EventPage = () => (
   <div className="event_page">
     <TopFrameCo>a</TopFrameCo>
-    <EventContentHeader>a</EventContentHeader>
+    <EventContentHeader />
     <div className="event_content_info">
-      <EventContentDetails>a</EventContentDetails>
-      <EventContentParticipantList>a</EventContentParticipantList>
+      <EventContentDetails />
+      <EventContentParticipantList />
     </div>
   </div>
 );

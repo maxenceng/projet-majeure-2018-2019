@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import ImgHome from '../ImgHome';
-import EventComponent from '../EventComponent';
+import AllEventPage from '../AllEventPage';
 
 const HomePage = () => (
   <div className="home">
@@ -10,16 +10,7 @@ const HomePage = () => (
         <ImgHome />
       </div>
       <div className="front">
-        <div className="filter">
-          <h1>Filter here</h1>
-        </div>
-        <div className="events">
-          <div className="eventCompo"><EventComponent /></div>
-          <div className="eventCompo"><EventComponent /></div>
-          <div className="eventCompo"><EventComponent /></div>
-          <div className="eventCompo"><EventComponent /></div>
-          <div className="eventCompo"><EventComponent /></div>
-        </div>
+        <AllEventPage />
       </div>
     </div>
   </div>
