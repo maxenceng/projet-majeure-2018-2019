@@ -1,13 +1,33 @@
-#header {
+@font-face {
+  font-family: "Variane";
+  src: url("../../../src/assets/fonts/fontvariane/varianescript-webfont.woff") format("woff"),
+        url("../../../src/assets/fonts/fontvariane/varianescript-webfont.woff2") format("woff2");
+};
+
+.topFrame{
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   background-color: #4087a3;
+  padding: 20px 20px;
   .logo{
-    font-size: 40px;
+    font-family: "Variane", serif;
+    font-size: 60px;
     font-weight: bold;
     font-style: italic;
-    color: #d1be9c;
+    color: #d4cec1;
+  }
+  .connexion{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 40%;
+    .coButton{
+      width:30%;
+    }
+    .insButton{
+      width:30%;
+    }
   }
 }

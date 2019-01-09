@@ -19,6 +19,11 @@ import DiscussionMessage from './components/DiscussionMessage';
 import DiscussionMessages from './components/DiscussionMessages';
 import DiscussionPage from './components/DiscussionPage';
 import SendBar from './components/SendBar';
+import EventPage from './components/EventPage';
+import SubscribePage from './components/SubscribePage';
+import ConnectionPage from './components/ConnectionPage';
+import ProfilePage from './components/ProfilePage';
+import AllEventPage from './components/AllEventPage';
 
 const discussionList = [
   {
@@ -70,7 +75,7 @@ const discussionMessages = [
 storiesOf('Basic Components', module)
   .add('Generic Button', () => <Button content="Inscription" onclicktype={action('clicked Inscription')} />)
   .add('Generic Button inverse', () => <Button className="inverse" content="Connexion" onclicktype={action('clicked Connexion')} />)
-  .add('searchBar', () => <SearchBar onClicktype={action('clicked')} />)
+  .add('searchBar', () => <SearchBar onclicktype={action('clicked')} />)
   .add('ImgHome', () => <ImgHome />)
   .add('Parallax', () => <Parallax />)
   .add('datebox', () => <DateBox />)
@@ -96,9 +101,21 @@ storiesOf('Groups', module)
       contact="Skydread1"
       event="Concert Ariana Grande"
     />
-  ));
+  ))
+  .add('topFrame', () => <TopFrame onclicktypeConnexion={action('clicked Connexion')} onclicktypeInscription={action('clicked Inscription')} />)
+  .add('Top Frame Connexion', () => <TopFrameCo onclickEvent={action('Event')} onclickDeco={action('Deconnexion')} onclickAgenda={action('Agenda')} onclickMessage={action('Message')} onclickProfile={action('Profile')} />)
+  .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />);
 
 storiesOf('Pages', module)
   .add('HomePage', () => <HomePage />)
   .add('Standard Page', () => <StandardPage />)
-  .add('Discussion Page', () => <DiscussionPage />);
+  .add('Discussion Page', () => <DiscussionPage />)
+  .add('datebox', () => <DateBox />)
+  .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />)
+  .add('Top Frame Connexion', () => <TopFrameCo />)
+  .add('EventPage', () => <EventPage />)
+  .add('Subscribe Page', () => <SubscribePage />)
+  .add('Connexion Page', () => <ConnectionPage onclicktype={action('clicked')} />)
+  .add('Profile Page', () => <ProfilePage />)
+  .add('events Page', () => <EventPage />)
+  .add('All events Page', () => <AllEventPage />);

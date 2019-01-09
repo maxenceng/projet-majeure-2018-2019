@@ -1,14 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 import Button from '../Button';
 
-const TopFrame = () => (
-  <div id="header">
+
+const TopFrame = ({ onclicktypeConnexion, onclicktypeInscription }) => (
+  <div className="topFrame">
     <div className="logo">WeMe</div>
     <div className="connexion">
-      <Button content="connexion" onclicktype={null} />
-      <Button content="Inscription" onclicktype={null} />
+      <div className="coButton">
+        <Button content="connexion" onclicktype={onclicktypeConnexion} />
+      </div>
+      <div className="insbutton">
+        <Button content="Inscription" onclicktype={onclicktypeInscription} />
+      </div>
     </div>
   </div>
 );
+
+TopFrame.propTypes = {
+  onclicktypeConnexion: PropTypes.func.isRequired,
+  onclicktypeInscription: PropTypes.func.isRequired,
+};
+
 export default TopFrame;
