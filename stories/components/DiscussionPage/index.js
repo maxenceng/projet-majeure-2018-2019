@@ -1,7 +1,8 @@
 import React from 'react';
 import './index.scss';
 import DiscussionList from '../DiscussionList';
-import DiscussionDetails from '../DiscussionDetails';
+import DiscussionMessages from '../DiscussionMessages';
+import SendBar from '../SendBar';
 
 const discussionList = [
   {
@@ -50,7 +51,6 @@ const discussionMessages = [
   },
 ];
 
-// TODO: Do SendBar component
 const DiscussionPage = () => (
   <div className="DiscussionPage">
     <DiscussionList
@@ -58,13 +58,12 @@ const DiscussionPage = () => (
       list={discussionList}
     />
     <div className="second">
-      <DiscussionDetails
+      <DiscussionMessages
         contact="Skydread1"
         event="Concert Ariana Grande"
         messages={discussionMessages}
       />
-      {/* Input placeholder */}
-      <input />
+      <SendBar />
     </div>
   </div>
 );

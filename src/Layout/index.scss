@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Variane";
+  src: url("../assets/fonts/fontvariane/varianescript-webfont.woff") format("woff"),
+  url("../assets/fonts/fontvariane/varianescript-webfont.woff2") format("woff2");
+};
+
+html, body {
+  min-height: 100vh;
+  height: 100vh;
+  & header {
+    height: $header-height;
+  }
+  & .container {
+    height: calc(100vh - #{$header-height});
+  }
+}

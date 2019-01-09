@@ -1,43 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DiscussionMessage from '../DiscussionMessage';
 import './index.scss';
 
 const DiscussionDetails = ({
-  className,
-  contact,
-  event,
-  messages,
+  active,
+  person,
+  time,
+  lastMessage,
+  onClick,
 }) => (
-  <div className={`DiscussionDetails ${className}`}>
-    <div className="event-mentioned">Vous et {contact} participez à l&apos;événement : {event}</div>
-    <div className="message-list">
-      {messages.sort((a, b) => a.timestamp - b.timestamp)
-        .map(({ person, text }) => (
-          <DiscussionMessage
-            className={contact === person ? 'other' : 'own'}
-            text={text}
-          />
-        ))
-      }
+  <button
+    className={`DiscussionDetails ${active ? 'active' : ''}`}
+    type="button"
+    onClick={onClick}
+  >
+    <div className="first-line">
+      <span className="person">{person}</span>
+      <span className="time">{time}</span>
     </div>
-  </div>
+    <div className="second-line">{lastMessage}</div>
+  </button>
 );
 
 DiscussionDetails.propTypes = {
-  className: PropTypes.string,
-  contact: PropTypes.string.isRequired,
-  event: PropTypes.string.isRequired,
-  messages: PropTypes.shape(PropTypes.arrayOf({
-    timestamp: PropTypes.number.isRequired,
-    person: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-  })),
+  active: PropTypes.bool,
+  person: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  lastMessage: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 DiscussionDetails.defaultProps = {
-  className: '',
-  messages: [],
+  active: false,
 };
 
 export default DiscussionDetails;

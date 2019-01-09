@@ -1,14 +1,35 @@
 .DiscussionDetails {
-  & .event-mentioned {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: all linear 0.3s;
+  & .first-line {
     display: flex;
-    justify-content: center;
-    color: #555555;
-    padding-bottom: 32px;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    & .person {
+      font-weight: bold;
+    }
+    & .time {
+      color: #00b3ff;
+      font-size: 14px;
+    }
   }
-  & .message-list {
+
+  & .second-line {
     display: flex;
-    flex-direction: column;
-    width: 90%;
-    margin: 0 auto;
+    color: darkgrey;
+    font-size: 14px;
+  }
+
+  &.active {
+    background-color: #dddddd;
+  }
+
+  &:hover:not(.active) {
+    background-color: #eeeeee;
   }
 }

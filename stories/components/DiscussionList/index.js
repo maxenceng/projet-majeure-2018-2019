@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DiscussionBox from '../DiscussionBox';
+import DiscussionDetails from '../DiscussionDetails';
 import './index.scss';
 
 const DiscussionList = ({ className, list }) => (
@@ -11,7 +11,7 @@ const DiscussionList = ({ className, list }) => (
       person,
       time,
     }) => (
-      <DiscussionBox
+      <DiscussionDetails
         active={active}
         key={person}
         person={person}

@@ -14,11 +14,11 @@ import StandardPage from './components/StandardPage';
 import DateBox from './components/DateBox';
 import EventComponent from './components/EventComponent';
 import TopFrameCo from './components/TopFrameCo';
-import DiscussionBox from './components/DiscussionBox';
 import DiscussionList from './components/DiscussionList';
 import DiscussionMessage from './components/DiscussionMessage';
-import DiscussionDetails from './components/DiscussionDetails';
+import DiscussionMessages from './components/DiscussionMessages';
 import DiscussionPage from './components/DiscussionPage';
+import SendBar from './components/SendBar';
 
 const discussionList = [
   {
@@ -75,14 +75,15 @@ storiesOf('Basic Components', module)
   .add('Parallax', () => <Parallax />)
   .add('datebox', () => <DateBox />)
   .add('Discussion Box', () => (
-    <DiscussionBox
+    <DiscussionMessages
       active={false}
       person="Skydread1"
       time="11:23am"
       lastMessage="Salut, j'ai vu que tu participais..."
       onClick={null}
     />))
-  .add('Discussion Message', () => <DiscussionMessage className="other" text="Salut, j'ai vu que tu participais..." />);
+  .add('Discussion Message', () => <DiscussionMessage className="other" text="Salut, j'ai vu que tu participais..." />)
+  .add('Send Bar', () => <SendBar />);
 
 storiesOf('Groups', module)
   .add('topFrame', () => <TopFrame />)
@@ -90,7 +91,7 @@ storiesOf('Groups', module)
   .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />)
   .add('Discussion List', () => <DiscussionList list={discussionList} />)
   .add('Discussion Details', () => (
-    <DiscussionDetails
+    <DiscussionMessages
       messages={discussionMessages}
       contact="Skydread1"
       event="Concert Ariana Grande"
