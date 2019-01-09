@@ -14,13 +14,8 @@ import StandardPage from './components/StandardPage';
 import DateBox from './components/DateBox';
 import EventComponent from './components/EventComponent';
 import TopFrameCo from './components/TopFrameCo';
-<<<<<<< HEAD
-import EventPage from './components/EventPage';
-
-=======
 import SubscribePage from './components/SubscribePage';
 import ConnexionPage from './components/ConnexionPage';
->>>>>>> 7fbca4bc416bbf490ec1c8ce6a438f3395d5c894
 
 storiesOf('Basic Components', module)
   .add('Generic Button', () => <Button content="Inscription" onclicktype={action('clicked Inscription')} />)
@@ -38,12 +33,5 @@ storiesOf('Groups', module)
 storiesOf('Pages', module)
   .add('HomePage', () => <HomePage />)
   .add('Standard Page', () => <StandardPage />)
-<<<<<<< HEAD
-  .add('datebox', () => <DateBox />)
-  .add('Event Component', () => <EventComponent onclicktype={action('clicked')} />)
-  .add('Top Frame Connexion', () => <TopFrameCo />)
-  .add('EventPage', () => <EventPage />);
-=======
   .add('Subscribe Page', () => <SubscribePage />)
   .add('Connexion Page', () => <ConnexionPage />);
->>>>>>> 7fbca4bc416bbf490ec1c8ce6a438f3395d5c894
