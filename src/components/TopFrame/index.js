@@ -54,26 +54,14 @@ export default class TopFrameCo extends React.Component {
                 ))}
               </div>
               <div className="deco-button">
-                <Link href="/deconnexion">
-                  <Button>
-                    Deconnexion
-                  </Button>
-                </Link>
+                <Button content="Deconnexion" route="/deconnexion" />
               </div>
             </React.Fragment>
           )
             : (
               <div className="connexion">
-                <Link href="/connexion">
-                  <Button>
-                    Connexion
-                  </Button>
-                </Link>
-                <Link href="/inscription">
-                  <Button>
-                    Inscription
-                  </Button>
-                </Link>
+                <Button content="Connexion" route="/connexion" />
+                <Button content="Inscription" route="/inscription" />
               </div>
             )}
         </div>
