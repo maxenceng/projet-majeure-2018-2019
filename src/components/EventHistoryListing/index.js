@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import pictureBox from '../../../src/assets/images/party.jpg';
+import pictureBox from '../../assets/images/party.jpg';
 
 const EventHistoryListing = () => (
   <div className="event_history_listing">

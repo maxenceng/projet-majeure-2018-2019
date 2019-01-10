@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import pp from '../../../src/assets/images/mario_profile.jpg';
+import pp from '../../assets/images/mario_profile.jpg';
 
 const EventContentParticipant = () => (
   <div className="event_participant">
