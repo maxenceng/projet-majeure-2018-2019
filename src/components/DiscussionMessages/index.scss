@@ -1,0 +1,16 @@
+.DiscussionMessages {
+  height: calc(100% - 2px);
+  border: 1px solid #00b3ff;
+  & .event-mentioned {
+    display: flex;
+    justify-content: center;
+    color: #555555;
+    padding-bottom: 32px;
+  }
+  & .message-list {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+  }
+}

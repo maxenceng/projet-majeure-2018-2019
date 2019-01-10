@@ -1,12 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
-import TopFrame from '../TopFrame';
-import PictureProfile from '../../../src/assets/images/mario_profile.jpg';
+import PictureProfile from '../../assets/images/mario_profile.jpg';
 import Button from '../Button';
 
-const ProfilePage = () => (
+const Profile = ({ routeProfile }) => (
   <div className="profilePage">
-    <TopFrame onclicktype={null} />
     <div className="profile">
       <div className="yourProfile">Mon profil:</div>
       <div className="topProfile">
@@ -32,10 +31,14 @@ const ProfilePage = () => (
         </div>
       </div>
       <div className="buttonSave">
-        <Button content="Enregistrer" onclicktype={null} />
+        <Button content="Enregistrer" route={routeProfile} />
       </div>
     </div>
   </div>
 );
 
-export default ProfilePage;
+Profile.propTypes = {
+  routeProfile: PropTypes.string.isRequired,
+};
+
+export default Profile;

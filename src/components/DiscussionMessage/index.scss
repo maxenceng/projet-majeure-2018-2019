@@ -1,0 +1,23 @@
+.DiscussionMessage {
+  width: 100%;
+  & span {
+    margin: 2px 0;
+    padding: 8px 16px;
+    width: fit-content;
+    border-radius: 16px;
+    &.own {
+      background-color: #00b3ff;
+      color: white;
+      float: right;
+    }
+
+    &.other {
+      background-color: #eeeeee;
+      color: black;
+      float: left;
+    }
+  }
+  & .clear {
+    clear: both;
+  }
+}
