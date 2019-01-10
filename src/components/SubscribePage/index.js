@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import TopFrame from '../TopFrame';
-import Button from '../Button';
+import Button from '../LinkButton';
 
 const SubscribePage = () => (
   <div className="subPage">

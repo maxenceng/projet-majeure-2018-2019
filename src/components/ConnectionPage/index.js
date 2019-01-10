@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
 import TopFrame from '../TopFrame';
-import Button from '../Button';
+import Button from '../LinkButton';
 
 const ConnectionPage = ({ onclicktype }) => (
   <div className="connexionPage">

@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import Button from '../Button';
+import Button from '../LinkButton';
 
 const EventContentHeader = () => (
   <div className="event_header">

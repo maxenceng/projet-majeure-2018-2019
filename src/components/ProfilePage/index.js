@@ -2,7 +2,7 @@ import React from 'react';
 import './index.scss';
 import TopFrame from '../TopFrame';
 import PictureProfile from '../../assets/images/mario_profile.jpg';
-import Button from '../Button';
+import Button from '../LinkButton';
 
 const ConnexionPage = () => (
   <div className="profilePage">

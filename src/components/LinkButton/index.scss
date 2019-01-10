@@ -1,4 +1,4 @@
-.Button {
+.LinkButton {
   background-color: transparent;
   color: #e6bc9e;
   border: 1px solid #e6bc9e;
@@ -9,7 +9,7 @@
   outline: none;
   cursor: pointer;
   @include transition();
-
+  
   &:hover {
     color: #715b4c;
     border-color: #715b4c;

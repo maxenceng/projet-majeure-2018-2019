@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
-import Button from '../Button';
+import Button from '../LinkButton';
 
 const Subscribe = ({ routeInscription }) => (
   <div className="subPage">

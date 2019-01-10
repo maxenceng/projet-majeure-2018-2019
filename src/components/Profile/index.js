@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
 import PictureProfile from '../../assets/images/mario_profile.jpg';
-import Button from '../Button';
+import Button from '../LinkButton';
 
 const Profile = ({ routeProfile }) => (
   <div className="profilePage">
