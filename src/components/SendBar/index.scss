@@ -1,0 +1,46 @@
+.SendBar {
+  width: calc(100% - 10px);
+  padding: 4px;
+  border: 1px solid #00b3ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  &.x1 {
+    height: 18px;
+  }
+  &.x2 {
+    height: 36px;
+  }
+  &.x3 {
+    height: 54px;
+  }
+  & textarea {
+    width: 90%;
+    height: 100%;
+    padding: 2px;
+    resize: none;
+    border: none;
+    outline: none;
+    &::placeholder {
+      color: #aaaaaa;
+    }
+  }
+  & button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    & svg {
+      & path {
+        fill: black;
+        transition: all linear 0.3s;
+      }
+      &:hover path {
+        fill: darkblue;
+      }
+    }
+  }
+}

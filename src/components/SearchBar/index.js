@@ -13,7 +13,11 @@ const SearchBar = ({ onclicktype }) => (
 );
 
 SearchBar.propTypes = {
-  onclicktype: PropTypes.string.isRequired,
+  onclicktype: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  onclicktype: null,
 };
 
 export default SearchBar;

@@ -30,5 +30,4 @@ const AllEventPage = ({ route }) => (
 AllEventPage.propTypes = {
   route: PropTypes.string.isRequired,
 };
-
 export default AllEventPage;
