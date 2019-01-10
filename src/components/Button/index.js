@@ -1,11 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Index = ({ onClick, text }) => <button type="button" onClick={onClick}>{text}</button>;
+import './index.scss';
 
-Index.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired,
+const Button = ({ className, children, onClick }) => (
+  <button
+    className={`Button ${className}`}
+    onClick={onClick}
+    type="button"
+  >
+    {children}
+  </button>
+);
+
+Button.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
-export default Index;
+Button.defaultProps = {
+  className: '',
+  onClick: null,
+};
+
+export default Button;

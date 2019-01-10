@@ -1,0 +1,35 @@
+.event_header{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  border-bottom: solid 2px #4087a3;
+  height: 100%;
+  .buttonbox{
+    display: flex;
+    flex-direction: column;
+     .backButton{
+      background-color: transparent;
+      border:none;
+      font-size:20px;
+    }
+  }
+ 
+  .event_header_item{
+    flex-grow: 1;
+    margin : 2%;  
+    h1{
+    margin: 2%;
+    }
+    h2{
+      margin: 2%;
+      color: #e6bc9e;
+    }
+    button{
+      margin:2%;
+    } 
+    .fas{
+      font-size:150%;
+      padding: 5%;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+.TopFrame {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #4087a3;
+  padding: 20px 20px;
+  height: $header-height - 2*20px;
+    & .left-side {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;    
+      & .logo {
+        @include buttonAsDiv();
+        @include transition();
+        font-family: "Variane", serif;
+        font-size: 60px;
+        font-weight: bold;
+        font-style: italic;
+        color: #d4cec1;
+        width: 40%;
+        &:hover {
+          color: lighten(#d4cec1, 10%);
+        }
+      }
+      & .event-button-wrapper {
+        @include center();
+        width: 60%;
+        & .event-button {
+          @include buttonAsDiv();
+          @include transition();
+          width: fit-content;
+          font-size: 40px;
+          color: #d5ccbd;
+          font-family: "Variane", serif;
+          &:hover{
+            color: #faf9f8;
+          }
+        }
+      }
+    }
+
+    & .right-side {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      & .button-icons {
+        padding-top: 4px;
+        display: flex;
+        width: 30%;
+        justify-content: space-around;
+        align-items: baseline;
+      }
+      & .deco-button {
+        display: flex;
+        justify-content: flex-end;
+        width: 35%;
+      }
+      & .connexion {
+        display: flex;
+        justify-content: space-between;
+        width: 35%;
+      }
+    }
+}
