@@ -20,5 +20,4 @@ const EventComponent = ({ routeSelected }) => (
 EventComponent.propTypes = {
   routeSelected: PropTypes.string.isRequired,
 };
-
 export default EventComponent;

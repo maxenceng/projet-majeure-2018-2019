@@ -4,9 +4,12 @@
   url("../assets/fonts/fontvariane/varianescript-webfont.woff2") format("woff2");
 };
 
-html, body {
+@import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
+
+html, body, #__next {
   min-height: 100vh;
   height: 100vh;
+  margin: 0;
   & header {
     height: $header-height;
   }
