@@ -4,7 +4,7 @@ import TopFrame from '../TopFrame';
 import PictureProfile from '../../../src/assets/images/mario_profile.jpg';
 import Button from '../Button';
 
-const ConnexionPage = () => (
+const ProfilePage = () => (
   <div className="profilePage">
     <TopFrame onclicktype={null} />
     <div className="profile">
@@ -38,4 +38,4 @@ const ConnexionPage = () => (
   </div>
 );
 
-export default ConnexionPage;
+export default ProfilePage;

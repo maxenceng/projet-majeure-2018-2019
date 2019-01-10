@@ -1,0 +1,15 @@
+body{
+  overflow: auto;
+  background-color: rgb(250, 246, 242);
+}
+
+#standardPage{
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #4087a3;
+  
+  #fixedHeader{
+    flex: 0 0 auto;
+  }
+}

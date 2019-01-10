@@ -1,0 +1,26 @@
+.Button {
+  background-color: transparent;
+  color: #e6bc9e;
+  border: 1px solid #e6bc9e;
+  border-radius: 12px;
+  padding: 4px 14px;
+  font-size: 25px;
+  font-family: "Variane", serif;
+  outline: none;
+  cursor: pointer;
+  @include transition();
+  
+  &:hover {
+    color: #715b4c;
+    border-color: #715b4c;
+  }
+
+  &.inverse {
+    background-color: #967660;
+    color:white;
+    border:1px solid #967660;
+    &:hover{
+      color:#d6b095;
+    }
+  }
+}

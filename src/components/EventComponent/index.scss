@@ -1,0 +1,15 @@
+.boxEvent{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width:320px;
+  height: 230px;
+  border-radius: 10px;
+  border:1px solid rgb(204, 183, 162);
+  .clickedEvent{
+    border:none;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+}

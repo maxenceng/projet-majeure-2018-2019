@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import TopFrame from '../components/TopFrame';
 import './index.scss';
 
 const Index = ({ children }) => (
   <div>
-    <header />
+    <TopFrame />
     <div className="container">
       {children}
     </div>
