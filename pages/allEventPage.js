@@ -5,7 +5,7 @@ import '../styles/allEventPage.scss';
 
 const AllEventPage = () => (
   <div id="allEventPage">
-    <AllEvent />
+    <AllEvent route="/about" />
   </div>
 );
 

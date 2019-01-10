@@ -1,8 +1,9 @@
 import React from 'react';
 import './index.scss';
+import PropTypes from 'prop-types';
 import EventComponent from '../EventComponent';
 
-const AllEventPage = () => (
+const AllEventPage = ({ route }) => (
   <div className="eventPage">
     <div className="filter">
       <div className="topFilter">
@@ -17,7 +18,7 @@ const AllEventPage = () => (
       </div>
     </div>
     <div className="events">
-      <div className="eventCompo"><EventComponent /></div>
+      <div className="eventCompo"><EventComponent routeSelected={route} /></div>
       <div className="eventCompo"><EventComponent /></div>
       <div className="eventCompo"><EventComponent /></div>
       <div className="eventCompo"><EventComponent /></div>
@@ -25,5 +26,9 @@ const AllEventPage = () => (
     </div>
   </div>
 );
+
+AllEventPage.propTypes = {
+  route: PropTypes.string.isRequired,
+};
 
 export default AllEventPage;
