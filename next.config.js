@@ -1,10 +1,11 @@
 const path = require('path');
 const withSass = require('@zeit/next-sass');
 const withFonts = require('next-fonts');
+const withImages = require('next-images');
 
 const globalSass = path.join(process.cwd(), 'src/assets/_common.scss');
 
-module.exports = withFonts(withSass({
+module.exports = withImages(withFonts(withSass({
   webpack(config) {
     config.module.rules.push({
       test: /\.scss$/,
@@ -20,4 +21,4 @@ module.exports = withFonts(withSass({
     });
     return config;
   },
-}));
+})));
