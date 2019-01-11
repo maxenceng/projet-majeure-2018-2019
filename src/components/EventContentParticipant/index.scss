@@ -3,13 +3,20 @@
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom: solid 1px #4087a3;
-    background-color: cornsilk;
+    background-color: transparent;
   
     .event_participant_item{
-      flex-grow: 1;
-      margin : 2%;
+      width:30%;
+      font-size:20px;
+      //background-color: #4087a3;
+      text-align: center;
+    } 
+    
+    .messageIcon{
+      width: 30%;
+      //background-color: white;
       text-align: center;
     }
 
@@ -20,4 +27,5 @@
       max-height: 100px;
       border-radius: 50%;
     }
+
   }
