@@ -1,7 +1,7 @@
 import React from 'react';
 import Wrapper from '../src/helpers/Wrapper';
 import PictureProfile from '../src/assets/images/mario_profile.jpg';
-import Button from '../src/components/Button';
+import ButtonProfile from '../src/containers/ButtonProfile';
 import '../styles/profilePage.scss';
 
 const ProfilePage = () => (
@@ -33,7 +33,7 @@ const ProfilePage = () => (
         </div>
       </div>
       <div className="buttonSave">
-        <Button content="Enregistrer" route="/about" />
+        <ButtonProfile description="description">BOB</ButtonProfile>
       </div>
     </div>
   </div>
