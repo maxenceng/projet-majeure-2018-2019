@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.scss';
-import Link from 'next/link';
 import Button from '../Button';
 
 const EventContentHeader = () => (
@@ -15,12 +14,8 @@ const EventContentHeader = () => (
       <h2 className="event_time">8pm : Doors Open</h2>
     </div>
     <div id="event_header_right" className="event_header_item">
-      <Link href="/about">
-        <Button className="inverse event_participate" content="Participate" />
-      </Link>
-      <Link href="/about">
-        <Button className="inverse event_addtofavorite" content="Add To Favorite" />
-      </Link>
+      <Button className="inverse event_participate" content="Participate" route="/about" />
+      <Button className="inverse event_addtofavorite" content="Add To Favorite" />
     </div>
   </div>
 );
