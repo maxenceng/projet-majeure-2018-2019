@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/userAction/loginAction';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/authAction/loginAction';
 
 const defaultState = {
   err: null,

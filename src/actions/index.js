@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 
-import loginAction from './userAction/loginAction';
+import loginAction from './authAction/loginAction';
 import messageAction from './messageAction';
 
 const allActions = {
