@@ -12,7 +12,7 @@ export default class TopFrameCo extends React.Component {
   iconList = [
     {
       svg: AgendaImage,
-      link: '/agenda',
+      link: '/agendaPage',
     },
     {
       svg: MessageImage,
