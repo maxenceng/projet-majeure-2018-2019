@@ -4,7 +4,7 @@ import Subscribe from '../src/components/Subscribe';
 
 const SubscribePage = () => (
   <div id="subPage">
-    <Subscribe routeInscription="/profilePage" />
+    <Subscribe />
   </div>
 );
 

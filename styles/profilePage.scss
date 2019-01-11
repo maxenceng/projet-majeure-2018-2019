@@ -22,33 +22,54 @@
     .topProfile{
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
       //background-color: lightcoral;
       height:40%;
-      .pictureProfile{
-        width:25%;
-        //background-color: yellowgreen;
-        border-radius: 20%;
+      width:100%;
+      .pic{ 
+        width: 35%;
+        padding: 1%;
+        min-width: 100x;          
+        min-height: 100px;
+        .pictureProfile{
+          width:120px;
+          height: 120px;
+          //background-color: yellowgreen;
+          border-radius: 20%;
+        }
       }
-      .descriptionBox{
+
+      .description{
+        //background-color: bisque;
+        width:65%;
+        min-width:270px;
+        padding: 2%;
+        .descriptionBox{   
         resize:none;
+        }
       }
+      
     }
     .bottomProfile{
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
       //background-color: darkcyan;
       height:60%; 
       width: 100%; 
       .userInfo{
+        min-width: 140px;
+        padding:1%;
         display: flex;
         flex-direction: column;
         //background-color: pink;
         width:35%;
         justify-content: space-around;
       }
-
       .tags{
         width:65%;
+        min-width:270px;
+        padding: 2%;
         .tagsBox{
           resize:none;
         }

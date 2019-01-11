@@ -1,10 +1,19 @@
 import React from 'react';
 import Wrapper from '../src/helpers/Wrapper';
-import HomePage from '../src/components/HomePage';
+import ImgHome from '../src/components/ImgHome';
+import AllEventPage from '../src/components/AllEventPage';
+import '../styles/index.scss';
 
 const Index = () => (
-  <div id="homePage">
-    <HomePage route="/about" />
+  <div className="home">
+    <div id="parallax">
+      <div className="back">
+        <ImgHome />
+      </div>
+      <div className="front">
+        <AllEventPage route="/eventPage" />
+      </div>
+    </div>
   </div>
 );
 

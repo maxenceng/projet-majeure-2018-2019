@@ -9,7 +9,9 @@ const ProfilePage = () => (
     <div className="profile">
       <div className="yourProfile">Mon profil:</div>
       <div className="topProfile">
-        <img src={PictureProfile} alt="imageProfil" className="pictureProfile" />
+        <div className="pic">
+          <img src={PictureProfile} alt="imageProfil" className="pictureProfile" />
+        </div>
         <div className="description">
           <textarea className="descriptionBox" cols="40" rows="7" placeholder="Ma description" />
         </div>

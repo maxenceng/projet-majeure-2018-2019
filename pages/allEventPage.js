@@ -18,11 +18,11 @@ const AllEventPage = () => (
       </div>
     </div>
     <div className="events">
-      <div className="eventCompo"><EventComponent routeSelected="/" /></div>
-      <div className="eventCompo"><EventComponent routeSelected="/" /></div>
-      <div className="eventCompo"><EventComponent routeSelected="/" /></div>
-      <div className="eventCompo"><EventComponent routeSelected="/" /></div>
-      <div className="eventCompo"><EventComponent routeSelected="/" /></div>
+      <div className="eventCompo"><EventComponent routeSelected="/eventPage" /></div>
+      <div className="eventCompo"><EventComponent routeSelected="/eventPage" /></div>
+      <div className="eventCompo"><EventComponent routeSelected="/eventPage" /></div>
+      <div className="eventCompo"><EventComponent routeSelected="/eventPage" /></div>
+      <div className="eventCompo"><EventComponent routeSelected="/eventPage" /></div>
     </div>
   </div>
 );
