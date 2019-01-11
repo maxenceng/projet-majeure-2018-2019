@@ -3,7 +3,7 @@ import Link from 'next/link';
 import './index.scss';
 import LinkButton from '../LinkButton';
 import SvgButton from '../SvgButton';
-import { isConnected } from '../../helpers/commonValues';
+import { isConnected } from '../../helpers/common';
 import AgendaImage from '../../assets/images/calendar-alt-regular.svg';
 import MessageImage from '../../assets/images/envelope-regular.svg';
 import ProfileImage from '../../assets/images/user-regular.svg';
@@ -16,7 +16,7 @@ export default class TopFrame extends React.Component {
     },
     {
       svg: MessageImage,
-      link: '/chatPage',
+      link: '/chat',
     },
     {
       svg: ProfileImage,

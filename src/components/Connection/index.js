@@ -1,29 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
-import Button from '../LinkButton';
+import Button from '../Button';
+import InputList from '../InputList';
 
-const Connection = ({ routeConnection }) => (
-  <div className="connexionPage">
+const Connection = ({ inputList, onChange, onSubmit }) => (
+  <div className="Connection">
     <div className="connexionForm">
-      <div className="formulaire">
+      <form onSubmit={onSubmit} className="formulaire">
         <div className="connexion">Connexion</div>
-        <div className="mail">
-          <input className="inputMail" type="text" placeholder="email" />
-        </div>
-        <div className="password">
-          <input className="inputPassword" type="text" placeholder="password" />
-        </div>
+        <InputList list={inputList} onChange={onChange} />
         <div className="validation">
-          <Button content="Validation" route={routeConnection} />
+          <Button type="submit">Connexion</Button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 );
 
 Connection.propTypes = {
-  routeConnection: PropTypes.string.isRequired,
+  inputList: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+  })).isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Connection;

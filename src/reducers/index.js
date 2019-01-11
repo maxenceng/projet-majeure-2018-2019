@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import message from './messageReducer';
-import user from './userReducer';
+import auth from './authReducer';
+import chat from './chatReducer';
 
 export default combineReducers({
   message,
-  user,
+  auth,
+  chat,
 });

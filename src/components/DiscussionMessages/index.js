@@ -28,7 +28,7 @@ DiscussionMessages.propTypes = {
   className: PropTypes.string,
   contact: PropTypes.string.isRequired,
   event: PropTypes.string.isRequired,
-  messages: PropTypes.shape(PropTypes.arrayOf({
+  messages: PropTypes.arrayOf(PropTypes.shape({
     timestamp: PropTypes.number.isRequired,
     person: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
