@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const token = localStorage.getItem('userToken');
+const token = process.browser && localStorage.getItem('userToken');
 const Authorization = token ? `Bearer ${token}` : null;
 
 export default axios.create({

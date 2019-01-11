@@ -9,9 +9,9 @@ export const loginRequest = createAction(LOGIN_REQUEST);
 export const loginSuccess = createAction(LOGIN_SUCCESS);
 export const loginError = createAction(LOGIN_ERROR);
 
-export default () => (dispatch) => {
+export default (email, password) => (dispatch) => {
   dispatch(loginRequest());
-  return axios.get('/login')
+  return axios.post('signIn', { email, password })
     .then(res => dispatch(loginSuccess(res)))
     .catch(err => dispatch(loginError(err)));
 };
