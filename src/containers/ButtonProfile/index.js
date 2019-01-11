@@ -10,12 +10,12 @@ class ButtonProfile extends React.Component {
     actions: actionPropTypes.isRequired,
     children: PropTypes.string.isRequired,
     profile: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    userInfo: PropTypes.instanceOf(Object).isRequired,
   };
 
   handleClick = () => {
-    const { actions: { profileSaveAction }, description } = this.props;
-    profileSaveAction(description);
+    const { actions: { profileSaveAction }, userInfo } = this.props;
+    profileSaveAction(userInfo);
   }
 
   render() {
@@ -25,7 +25,8 @@ class ButtonProfile extends React.Component {
         <ButtonComponent onClick={this.handleClick}>
           {children}
         </ButtonComponent>
-        <div>{ profile }</div>
+        <div>{ profile.desc }</div>
+        <div>{ profile.username }</div>
       </div>
     );
   }

@@ -4,6 +4,13 @@ import PictureProfile from '../src/assets/images/mario_profile.jpg';
 import ButtonProfile from '../src/containers/ButtonProfile';
 import '../styles/profilePage.scss';
 
+const userInfo = {
+  desc: 'desc1',
+  username: 'username1',
+  firsname: 'firstname1',
+  lastname: 'lastname1',
+};
+
 const ProfilePage = () => (
   <div className="profilePage">
     <div className="profile">
@@ -33,7 +40,7 @@ const ProfilePage = () => (
         </div>
       </div>
       <div className="buttonSave">
-        <ButtonProfile description="description">BOB</ButtonProfile>
+        <ButtonProfile userInfo={userInfo}>BOB</ButtonProfile>
       </div>
     </div>
   </div>
