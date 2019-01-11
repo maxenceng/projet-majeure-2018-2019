@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './index.scss';
 import PictureProfile from '../../assets/images/mario_profile.jpg';
 import Button from '../Button';
 
-const Profile = ({ routeProfile }) => (
+const Profile = () => (
   <div className="profilePage">
     <div className="profile">
       <div className="yourProfile">Mon profil:</div>
@@ -31,14 +30,10 @@ const Profile = ({ routeProfile }) => (
         </div>
       </div>
       <div className="buttonSave">
-        <Button content="Enregistrer" route={routeProfile} />
+        <Button content="Enregistrer" route="/about" />
       </div>
     </div>
   </div>
 );
-
-Profile.propTypes = {
-  routeProfile: PropTypes.string.isRequired,
-};
 
 export default Profile;

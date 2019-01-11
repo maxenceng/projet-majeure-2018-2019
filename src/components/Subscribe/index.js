@@ -1,9 +1,8 @@
 import React from 'react';
 import './index.scss';
-import PropTypes from 'prop-types';
 import Button from '../Button';
 
-const Subscribe = ({ routeInscription }) => (
+const Subscribe = () => (
   <div className="subPage">
     <div className="subForm">
       <div className="formulaire">
@@ -18,15 +17,11 @@ const Subscribe = ({ routeInscription }) => (
           <input type="text" className="inputPassword" placeholder="password" />
         </div>
         <div className="validation">
-          <Button content="Validation" route={routeInscription} />
+          <Button content="Validation" route="/profilePage" />
         </div>
       </div>
     </div>
   </div>
 );
-
-Subscribe.propTypes = {
-  routeInscription: PropTypes.string.isRequired,
-};
 
 export default Subscribe;

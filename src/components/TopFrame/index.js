@@ -16,11 +16,11 @@ export default class TopFrameCo extends React.Component {
     },
     {
       svg: MessageImage,
-      link: '/messages',
+      link: '/chatPage',
     },
     {
       svg: ProfileImage,
-      link: '/profile',
+      link: '/profilePage',
     },
   ]
 
@@ -35,7 +35,7 @@ export default class TopFrameCo extends React.Component {
           </Link>
           {!isConnected && (
             <div className="event-button-wrapper">
-              <Link href="/evenements">
+              <Link href="/allEventPage">
                 <button type="button" className="event-button">
                   Evenements
                 </button>
