@@ -1,6 +1,12 @@
 import { PROFILE_SAVE } from '../actions/profileAction/profileSaveAction';
 
-export default (state = '', action) => {
+const defaultState = {
+  err: null,
+  data: {},
+  isFetching: false,
+};
+
+export default (state = defaultState, action) => {
   switch (action.type) {
     case PROFILE_SAVE:
       return {
