@@ -74,8 +74,8 @@ const discussionMessages = [
 ];
 
 storiesOf('Basic Components', module)
-  .add('Generic Button', () => <Button content="Inscription" onclicktype={action('clicked Inscription')} />)
-  .add('Generic Button inverse', () => <Button className="inverse" content="Connexion" onclicktype={action('clicked Connexion')} />)
+  .add('Generic LinkButton', () => <Button content="Inscription" onclicktype={action('clicked Inscription')} />)
+  .add('Generic LinkButton inverse', () => <Button className="inverse" content="Connexion" onclicktype={action('clicked Connexion')} />)
   .add('searchBar', () => <SearchBar onclicktype={action('clicked')} />)
   .add('ImgHome', () => <ImgHome />)
   .add('Parallax', () => <Parallax />)

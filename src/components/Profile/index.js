@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import PictureProfile from '../../assets/images/mario_profile.jpg';
-import Button from '../Button';
+import Button from '../LinkButton';
 
 const Profile = () => (
   <div className="profilePage">

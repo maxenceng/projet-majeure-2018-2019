@@ -1,27 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
 import './index.scss';
 
-const Button = ({ className, content, route }) => (
-  <Link href={route}>
-    <button
-      className={`Button ${className}`}
-      type="button"
-    >
-      {content}
-    </button>
-  </Link>
+const Button = ({ className, children, onClick }) => (
+  <button
+    className={`Button ${className}`}
+    type="button"
+    onClick={onClick}
+  >
+    {children}
+  </button>
 );
 
 Button.propTypes = {
   className: PropTypes.string,
-  content: PropTypes.string.isRequired,
-  route: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   className: '',
+  onClick: null,
 };
 
 export default Button;

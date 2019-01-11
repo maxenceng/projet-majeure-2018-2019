@@ -6,5 +6,8 @@
     "linebreak-style": 0,
     "react/jsx-one-expression-per-line": 0,
     "react/sort-comp": 0
+  },
+  "globals": {
+    "localStorage": true
   }
 }

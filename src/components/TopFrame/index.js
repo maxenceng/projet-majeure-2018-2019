@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import './index.scss';
-import Button from '../Button';
+import LinkButton from '../LinkButton';
 import SvgButton from '../SvgButton';
 import { isConnected } from '../../helpers/commonValues';
 import AgendaImage from '../../assets/images/calendar-alt-regular.svg';
 import MessageImage from '../../assets/images/envelope-regular.svg';
 import ProfileImage from '../../assets/images/user-regular.svg';
 
-export default class TopFrameCo extends React.Component {
+export default class TopFrame extends React.Component {
   iconList = [
     {
       svg: AgendaImage,
@@ -44,7 +44,7 @@ export default class TopFrameCo extends React.Component {
           )}
         </div>
         <div className="right-side">
-          {!isConnected ? (
+          {isConnected ? (
             <React.Fragment>
               <div className="button-icons">
                 {this.iconList.map(({ svg, link }) => (
@@ -54,14 +54,14 @@ export default class TopFrameCo extends React.Component {
                 ))}
               </div>
               <div className="deco-button">
-                <Button content="Deconnexion" route="/deconnexion" />
+                <LinkButton content="Deconnexion" route="/deconnexion" />
               </div>
             </React.Fragment>
           )
             : (
               <div className="connexion">
-                <Button content="Connexion" route="/connexion" />
-                <Button content="Inscription" route="/inscription" />
+                <LinkButton content="Connexion" route="/connexion" />
+                <LinkButton content="Inscription" route="/inscription" />
               </div>
             )}
         </div>
