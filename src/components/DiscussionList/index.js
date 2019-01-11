@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DiscussionDetails from '../DiscussionDetails';
 import './index.scss';
 
-const DiscussionList = ({ className, list }) => (
+const DiscussionList = ({ className, list, onClick }) => (
   <div className={`DiscussionList ${className}`}>
     {list.map(({
       active,
@@ -17,6 +17,7 @@ const DiscussionList = ({ className, list }) => (
         person={person}
         time={time}
         lastMessage={lastMessage}
+        onClick={onClick}
       />
     ))}
   </div>
@@ -24,11 +25,13 @@ const DiscussionList = ({ className, list }) => (
 
 DiscussionList.propTypes = {
   className: PropTypes.string,
-  list: PropTypes.shape(PropTypes.arrayOf({
+  list: PropTypes.arrayOf(PropTypes.shape({
+    active: PropTypes.bool.isRequired,
     person: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
+    lastMessage: PropTypes.string.isRequired,
   })),
+  onClick: PropTypes.func.isRequired,
 };
 
 DiscussionList.defaultProps = {

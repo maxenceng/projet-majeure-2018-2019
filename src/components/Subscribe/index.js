@@ -1,27 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.scss';
 import Button from '../Button';
+import InputList from '../InputList';
 
-const Subscribe = () => (
+const Subscribe = ({
+  inputList,
+  onChange,
+  onSubmit,
+}) => (
   <div className="subPage">
     <div className="subForm">
-      <div className="formulaire">
+      <form onSubmit={onSubmit} className="formulaire">
         <div className="inscription">Inscription</div>
-        <div className="username">
-          <input type="text" className="inputUsername" placeholder="username" />
-        </div>
-        <div className="mail">
-          <input type="text" className="inputMail" placeholder="email" />
-        </div>
-        <div className="password">
-          <input type="text" className="inputPassword" placeholder="password" />
-        </div>
+        <InputList list={inputList} onChange={onChange} />
         <div className="validation">
-          <Button content="Validation" route="/profilePage" />
+          <Button type="submit">Confirmer</Button>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 );
+
+Subscribe.propTypes = {
+  inputList: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+  })).isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default Subscribe;
