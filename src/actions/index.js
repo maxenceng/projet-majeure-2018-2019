@@ -6,6 +6,7 @@ import registerAction from './authAction/registerAction';
 import messageAction from './messageAction';
 import profileSaveAction from './profileAction/profileSaveAction';
 import getMessagesAction from './chatAction/getMessagesAction';
+import getProfile from './profileAction/getProfile';
 
 const allActions = {
   loginAction,
@@ -13,6 +14,7 @@ const allActions = {
   messageAction,
   profileSaveAction,
   getMessagesAction,
+  getProfile,
 };
 
 export default dispatch => ({ actions: bindActionCreators(allActions, dispatch) });
@@ -25,4 +27,5 @@ export const actionPropTypes = PropTypes.shape({
   profileSaveAction: ptFuncReq,
   messageAction: ptFuncReq,
   getMessagesAction: ptFuncReq,
+  getProfile: ptFuncReq,
 });

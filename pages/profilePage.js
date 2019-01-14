@@ -33,7 +33,7 @@ const ProfilePage = () => (
         </div>
       </div>
       <div className="buttonSave">
-        <ButtonProfile description="description">BOB</ButtonProfile>
+        <ButtonProfile description="description">Save</ButtonProfile>
       </div>
     </div>
   </div>

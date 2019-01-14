@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
 import Button from '../Button';
-import InputList from '../InputList';
+import InputList from '../../containers/ButtonProfile';
 
 const Connection = ({ inputList, onChange, onSubmit }) => (
   <div className="Connection">
