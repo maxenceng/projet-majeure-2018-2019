@@ -1,42 +1,72 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Wrapper from '../src/helpers/Wrapper';
-import PictureProfile from '../src/assets/images/mario_profile.jpg';
-import Button from '../src/components/Button';
+import actions, { actionPropTypes } from '../src/actions';
 import '../styles/profilePage.scss';
+import ProfileSubmission from '../src/components/ProfileSubmission';
 
-const ProfilePage = () => (
-  <div className="profilePage">
-    <div className="profile">
-      <div className="yourProfile">Mon profil:</div>
-      <div className="topProfile">
-        <div className="pic">
-          <img src={PictureProfile} alt="imageProfil" className="pictureProfile" />
-        </div>
-        <div className="description">
-          <textarea className="descriptionBox" cols="40" rows="7" placeholder="Ma description" />
-        </div>
-      </div>
-      <div className="bottomProfile">
-        <div className="userInfo">
-          <div className="textbox">
-            <input type="text" className="inputUsername" placeholder="Username" />
-          </div>
-          <div className="textbox">
-            <input type="text" className="inputFirstname" placeholder="Firstname" />
-          </div>
-          <div className="textbox">
-            <input type="text" className="inputLastname" placeholder="Lastname" />
-          </div>
-        </div>
-        <div className="tags">
-          <textarea id="tagsBox" cols="30" rows="10" placeholder="Mes tags" />
-        </div>
-      </div>
-      <div className="buttonSave">
-        <Button content="Enregistrer" route="/about" />
-      </div>
-    </div>
-  </div>
-);
+class profilePage extends React.Component {
+  static propTypes = {
+    actions: actionPropTypes.isRequired,
+  };
 
-export default Wrapper(ProfilePage);
+  state = {
+    description: '',
+    linkPicture: '',
+    firstname: '',
+    lastname: '',
+    tags: '',
+  };
+
+  get userInfo() {
+    const {
+      description,
+      linkPicture,
+      firstname,
+      lastname,
+      tags,
+    } = this.state;
+    return {
+      description,
+      linkPicture,
+      firstname,
+      lastname,
+      tags,
+    };
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    const { actions: { profileSaveAction } } = this.props;
+    const {
+      description,
+      linkPicture,
+      firstname,
+      lastname,
+      tags,
+    } = this.state;
+    profileSaveAction({
+      description,
+      linkPicture,
+      firstname,
+      lastname,
+      tags,
+    });
+  }
+
+  onChange = name => ({ target: { value } }) => this.setState({ [name]: value });
+
+  render() {
+    return (
+      <div className="profilePage">
+        <ProfileSubmission
+          onSubmit={this.onSubmit}
+          onChange={this.onChange}
+          userInfo={this.userInfo}
+        />
+      </div>
+    );
+  }
+}
+
+export default Wrapper(connect(null, actions)(profilePage));

@@ -19,7 +19,7 @@ const AllEvents = ({ events }) => (
     </div>
     <div className="events">
       {events.map(event => (
-        <div>
+        <div key={event.ID_EVENT}>
           <EventComponent event={event} />
         </div>
       ))}

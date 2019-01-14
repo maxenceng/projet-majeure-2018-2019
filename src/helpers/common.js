@@ -1,5 +1,3 @@
-export const isConnected = false;
-
 export const getJwtToken = () => {
   const token = process.browser && localStorage.getItem('userToken');
   return token ? `Bearer ${token}` : null;

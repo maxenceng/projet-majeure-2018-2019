@@ -17,6 +17,7 @@ export default ({ email, password }) => (dispatch) => {
       dispatch(loginSuccess(res));
       if (process.browser) {
         localStorage.setItem('userToken', res.data.token);
+        localStorage.setItem('idUser', res.data.user[0].ID_USER);
       }
     })
     .catch(err => dispatch(loginError(getErrorMessage(err))));

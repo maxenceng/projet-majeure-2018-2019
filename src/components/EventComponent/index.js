@@ -22,11 +22,21 @@ const EventComponent = ({ event: { EVENT_DATE, EVENT_NAME, LOC_DISCTRICT } }) =>
 );
 
 EventComponent.propTypes = {
-  event: PropTypes.string,
+  event: PropTypes.shape({
+    EVENT_DATE: PropTypes.string.isRequired,
+    EVENT_DESC: PropTypes.string.isRequired,
+    EVENT_NAME: PropTypes.string.isRequired,
+    ID_EVENT: PropTypes.string.isRequired,
+    ID_LOCATION: PropTypes.string.isRequired,
+    LOC_DISCTRICT: PropTypes.string.isRequired,
+    LOC_EVENT: PropTypes.string.isRequired,
+    LOC_LATITUDE: PropTypes.string.isRequired,
+    LOC_LONGITUDE: PropTypes.string.isRequired,
+  }),
 };
 
 EventComponent.defaultProps = {
-  event: '',
+  event: {},
 };
 
 export default EventComponent;

@@ -27,8 +27,10 @@ export default ({
   })
     .then((res) => {
       dispatch(registerSuccess(res));
+      console.log(res.data);
       if (process.browser) {
         localStorage.setItem('userToken', res.data.token);
+        localStorage.setItem('idUser', res.data.idUser);
       }
     })
     .catch(err => dispatch(registerError(getErrorMessage(err))));

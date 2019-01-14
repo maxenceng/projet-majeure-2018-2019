@@ -1,14 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import './index.scss';
 import LinkButton from '../LinkButton';
 import SvgButton from '../SvgButton';
-import { isConnected } from '../../helpers/common';
 import AgendaImage from '../../assets/images/calendar-alt-regular.svg';
 import MessageImage from '../../assets/images/envelope-regular.svg';
 import ProfileImage from '../../assets/images/user-regular.svg';
 
 export default class TopFrame extends React.Component {
+  static propTypes = {
+    isConnected: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    isConnected: false,
+  }
+
   iconList = [
     {
       svg: AgendaImage,
@@ -25,6 +33,7 @@ export default class TopFrame extends React.Component {
   ]
 
   render() {
+    const { isConnected } = this.props;
     return (
       <div className="TopFrame">
         <div className="left-side">
