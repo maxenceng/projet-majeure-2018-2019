@@ -4,6 +4,7 @@ import Wrapper from '../src/helpers/Wrapper';
 import actions, { actionPropTypes } from '../src/actions';
 import '../styles/profilePage.scss';
 import ProfileSubmission from '../src/components/ProfileSubmission';
+import PictureProfile from '../src/assets/images/mario_profile.jpg';
 
 class profilePage extends React.Component {
   static propTypes = {
@@ -12,7 +13,7 @@ class profilePage extends React.Component {
 
   state = {
     description: '',
-    username: '',
+    linkPicture: '',
     firstname: '',
     lastname: '',
     tags: '',
@@ -21,14 +22,14 @@ class profilePage extends React.Component {
   get userInfo() {
     const {
       description,
-      username,
+      linkPicture,
       firstname,
       lastname,
       tags,
     } = this.state;
     return {
       description,
-      username,
+      linkPicture,
       firstname,
       lastname,
       tags,
@@ -40,14 +41,14 @@ class profilePage extends React.Component {
     const { actions: { profileSaveAction } } = this.props;
     const {
       description,
-      username,
+      linkPicture,
       firstname,
       lastname,
       tags,
     } = this.state;
     profileSaveAction({
       description,
-      username,
+      linkPicture,
       firstname,
       lastname,
       tags,

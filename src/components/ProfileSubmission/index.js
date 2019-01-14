@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PictureProfile from '../../assets/images/mario_profile.jpg';
 import ButtonProfile from '../../containers/ButtonProfile';
 import Input from '../Input';
+import TextArea from '../TextArea';
 
 const ProfileSubmission = ({
   onChange,
@@ -16,24 +16,27 @@ const ProfileSubmission = ({
           <div className="yourProfile">Mon profil:</div>
           <div className="topProfile">
             <div className="pic">
-              <img src={PictureProfile} alt="imageProfil" className="pictureProfile" />
+              <Input
+                key="linkPicture"
+                type="text"
+                name="inputLinkPicture"
+                value={userInfo.linkPicture}
+                placeholder="LinkPicture"
+                onChange={onChange('linkPicture')}
+              />
             </div>
             <div className="description">
-              <textarea className="descriptionBox" cols="40" rows="7" placeholder="Ma description" />
+              <TextArea
+                key="description"
+                name="inputDescription"
+                value={userInfo.description}
+                placeholder="description"
+                onChange={onChange('description')}
+              />
             </div>
           </div>
           <div className="bottomProfile">
             <div className="userInfo">
-              <div className="textbox">
-                <Input
-                  key="username"
-                  type="text"
-                  name="inputUsername"
-                  value={userInfo.username}
-                  placeholder="username"
-                  onChange={onChange('username')}
-                />
-              </div>
               <div className="textbox">
                 <Input
                   key="firstname"
@@ -56,7 +59,13 @@ const ProfileSubmission = ({
               </div>
             </div>
             <div className="tags">
-              <textarea id="tagsBox" cols="30" rows="10" placeholder="Mes tags" />
+              <TextArea
+                key="tags"
+                name="inputTags"
+                value={userInfo.tags}
+                placeholder="tags"
+                onChange={onChange('tags')}
+              />
             </div>
           </div>
           <div className="buttonSave">

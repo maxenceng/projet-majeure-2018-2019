@@ -6,10 +6,21 @@ export const profileSaving = createAction(PROFILE_SAVE);
 
 export default ({
   description,
-  username,
+  linkPicture,
+  firstname,
+  lastname,
+  tags,
 }) => (dispatch) => {
   dispatch(profileSaving());
-  return axios.post('userProfile', { username, description })
+  const tagsArray = tags.split(' ');
+  return axios.post('updateProfile', {
+    idUser: '324486b1-ed95-43ab-9117-b7b7b9641dc8',
+    tagsArray,
+    description,
+    linkPicture,
+    firstname,
+    lastname,
+  })
     .then((res) => {
       console.log(res.data);
     });
