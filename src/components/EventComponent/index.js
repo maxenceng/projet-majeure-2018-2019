@@ -6,18 +6,27 @@ import PictureEvent from '../PictureEvent';
 import DateBox from '../DateBox';
 import pictureBox from '../../assets/images/party.jpg';
 
-const EventComponent = ({ routeSelected }) => (
+const EventComponent = ({ event: { EVENT_DATE, EVENT_NAME, LOC_DISCTRICT } }) => (
   <div className="boxEvent">
-    <Link href={routeSelected}>
+    <Link href="/eventPage">
       <button type="button" className="clickedEvent">
         <PictureEvent pictureEvent={pictureBox} />
-        <DateBox />
+        <DateBox
+          date={EVENT_DATE}
+          name={EVENT_NAME}
+          district={LOC_DISCTRICT}
+        />
       </button>
     </Link>
   </div>
 );
 
 EventComponent.propTypes = {
-  routeSelected: PropTypes.string.isRequired,
+  event: PropTypes.string,
 };
+
+EventComponent.defaultProps = {
+  event: '',
+};
+
 export default EventComponent;

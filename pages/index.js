@@ -1,7 +1,7 @@
 import React from 'react';
 import Wrapper from '../src/helpers/Wrapper';
 import ImgHome from '../src/components/ImgHome';
-import AllEventPage from '../src/components/AllEventPage';
+import AllEvents from '../src/containers/AllEvents';
 import '../styles/index.scss';
 
 const Index = () => (
@@ -11,7 +11,7 @@ const Index = () => (
         <ImgHome />
       </div>
       <div className="front">
-        <AllEventPage route="/eventPage" />
+        <AllEvents />
       </div>
     </div>
   </div>

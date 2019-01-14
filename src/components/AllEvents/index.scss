@@ -1,4 +1,4 @@
-.eventPage{
+.AllEvents{
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -52,13 +52,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin:0 5%;
-    //background-color: brown;
     justify-content: flex-start;
-    .eventCompo{
-      //background-color:cadetblue;
-      padding: 2%;
-
-    
+    & > div {
+      padding: 16px;
     }
   }
 

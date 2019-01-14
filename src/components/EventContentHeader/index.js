@@ -19,8 +19,8 @@ const EventContentHeader = () => (
       <h2 className="event_time">8pm : Doors Open</h2>
     </div>
     <div id="event_header_right" className="event_header_item">
-      <Button className="inverse event_participate" content="Participate" route="/about" />
-      <Button className="inverse event_addtofavorite" content="Add To Favorite" />
+      <Button className="inverse event_participate">Participate</Button>
+      <Button className="inverse event_addtofavorite">Add to Favorite</Button>
     </div>
   </div>
 );

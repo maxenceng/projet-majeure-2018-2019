@@ -2,7 +2,7 @@ import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
 import ImgHome from '../ImgHome';
-import AllEventPage from '../AllEventPage';
+import AllEventPage from '../AllEvents';
 
 const HomePage = ({ route }) => (
   <div className="home">

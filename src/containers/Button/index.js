@@ -12,8 +12,11 @@ class Button extends React.Component {
   };
 
   handleClick = () => {
-    const { actions: { loginAction } } = this.props;
-    loginAction('test@test.com', 'test');
+    const { actions: { getAllEventsAction } } = this.props;
+    const location = { lng: 4.869803, lat: 45.784816 };
+    getAllEventsAction({
+      location,
+    });
   }
 
   render() {

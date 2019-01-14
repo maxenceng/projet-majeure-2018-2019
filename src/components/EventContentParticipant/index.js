@@ -12,7 +12,7 @@ const EventContentParticipant = () => (
     </div>
     <div className="event_participant_item">Mario Dupont</div>
     <div className="messageIcon">
-      <Link href="/chatPage">
+      <Link href="/chat">
         <SvgButton Svg={Enveloppe} />
       </Link>
     </div>
