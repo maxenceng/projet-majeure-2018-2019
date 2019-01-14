@@ -4,7 +4,6 @@ import Wrapper from '../src/helpers/Wrapper';
 import actions, { actionPropTypes } from '../src/actions';
 import '../styles/profilePage.scss';
 import ProfileSubmission from '../src/components/ProfileSubmission';
-import PictureProfile from '../src/assets/images/mario_profile.jpg';
 
 class profilePage extends React.Component {
   static propTypes = {
