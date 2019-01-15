@@ -6,6 +6,7 @@ import Button from '../Button';
 
 const Profile = ({
   onSubmit,
+  onChange,
   profile: {
     PROFILE_AVATAR,
     PROFILE_DESC,
@@ -21,7 +22,14 @@ const Profile = ({
         <div className="topProfile">
           <img src={PROFILE_AVATAR} alt="imageProfil" className={PROFILE_AVATAR} />
           <div className="description">
-            <textarea className="descriptionBox" cols="40" rows="7" placeholder="Ma description" value={PROFILE_DESC} />
+            <textarea
+              className="descriptionBox"
+              cols="40"
+              rows="7"
+              placeholder="Ma description"
+              value={PROFILE_DESC}
+              onChange={onChange(PROFILE_DESC)}
+            />
           </div>
         </div>
         <div className="bottomProfile">
@@ -34,7 +42,14 @@ const Profile = ({
             </div>
           </div>
           <div className="tags">
-            <textarea id="tagsBox" cols="30" rows="10" placeholder="Mes tags" value={TAG_TEXT} />
+            <textarea
+              id="tagsBox"
+              cols="30"
+              rows="10"
+              placeholder="Mes tags"
+              value={TAG_TEXT}
+              onChange={onChange(TAG_TEXT)}
+            />
           </div>
         </div>
         <div className="buttonSave">
@@ -47,6 +62,7 @@ const Profile = ({
 
 Profile.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   profile: PropTypes.shape({
     PROFILE_AVATAR: PropTypes.string.isRequired,
     PROFILE_DESC: PropTypes.string.isRequired,

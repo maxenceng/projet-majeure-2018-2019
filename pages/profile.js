@@ -54,6 +54,7 @@ class Profile extends React.Component {
         <ProfilePage
           onSubmit={this.onSubmit}
           profile={this.profile}
+          onChange={this.onChange}
         />
       </div>
     );
