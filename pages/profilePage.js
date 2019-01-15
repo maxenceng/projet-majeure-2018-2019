@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Router from 'next/router';
 import Wrapper from '../src/helpers/Wrapper';
 import actions, { actionPropTypes } from '../src/actions';
 import '../styles/profilePage.scss';
@@ -10,28 +11,90 @@ class profilePage extends React.Component {
     actions: actionPropTypes.isRequired,
   };
 
-  state = {
-    description: '',
-    linkPicture: '',
-    firstname: '',
-    lastname: '',
-    tags: '',
-  };
-
-  get userInfo() {
+  componentWillMount() {
     const {
-      description,
-      linkPicture,
-      firstname,
-      lastname,
-      tags,
-    } = this.state;
+      PROFILE_AVATAR,
+      PROFILE_DESC,
+      TAG_TEXT,
+      USER_FIRSTNAME,
+      USER_NAME,
+    } = this.getProfile;
+    this.setState({
+      PROFILE_AVATAR,
+      PROFILE_DESC,
+      TAG_TEXT,
+      USER_FIRSTNAME,
+      USER_NAME,
+    });
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.getProfile(this.props).PROFILE_AVATAR === '' && this.getProfile(newProps).PROFILE_AVATAR !== '') {
+      const {
+        PROFILE_AVATAR,
+      } = this.getProfile(newProps);
+      this.setState({
+        PROFILE_AVATAR,
+      });
+    }
+    if (this.getProfile(this.props).PROFILE_DESC === '' && this.getProfile(newProps).PROFILE_DESC !== '') {
+      const {
+        PROFILE_DESC,
+      } = this.getProfile(newProps);
+      this.setState({
+        PROFILE_DESC,
+      });
+    }
+    if (this.getProfile(this.props).TAG_TEXT === '' && this.getProfile(newProps).TAG_TEXT !== '') {
+      const {
+        TAG_TEXT,
+      } = this.getProfile(newProps);
+      this.setState({
+        TAG_TEXT,
+      });
+    }
+    if (this.getProfile(this.props).USER_FIRSTNAME === '' && this.getProfile(newProps).USER_FIRSTNAME !== '') {
+      const {
+        USER_FIRSTNAME,
+      } = this.getProfile(newProps);
+      this.setState({
+        USER_FIRSTNAME,
+      });
+    }
+    if (this.getProfile(this.props).USER_NAME === '' && this.getProfile(newProps).USER_NAME !== '') {
+      const {
+        USER_NAME,
+      } = this.getProfile(newProps);
+      this.setState({
+        USER_NAME,
+      });
+    }
+  }
+
+  getProfile = (props) => {
+    const { profile: { profile } } = props;
+    if (!profile) {
+      return {
+        PROFILE_AVATAR: '',
+        PROFILE_DESC: '',
+        TAG_TEXT: '',
+        USER_FIRSTNAME: '',
+        USER_NAME: '',
+      };
+    }
+    const {
+      PROFILE_AVATAR,
+      PROFILE_DESC,
+      TAG_TEXT,
+      USER_FIRSTNAME,
+      USER_NAME,
+    } = profile[0];
     return {
-      description,
-      linkPicture,
-      firstname,
-      lastname,
-      tags,
+      PROFILE_AVATAR,
+      PROFILE_DESC,
+      TAG_TEXT,
+      USER_FIRSTNAME,
+      USER_NAME,
     };
   }
 
@@ -39,22 +102,25 @@ class profilePage extends React.Component {
     event.preventDefault();
     const { actions: { profileSaveAction } } = this.props;
     const {
-      description,
-      linkPicture,
-      firstname,
-      lastname,
-      tags,
+      PROFILE_AVATAR,
+      PROFILE_DESC,
+      TAG_TEXT,
+      USER_FIRSTNAME,
+      USER_NAME,
     } = this.state;
     profileSaveAction({
-      description,
-      linkPicture,
-      firstname,
-      lastname,
-      tags,
+      PROFILE_AVATAR,
+      PROFILE_DESC,
+      TAG_TEXT,
+      USER_FIRSTNAME,
+      USER_NAME,
     });
+    Router.push('/profile');
   }
 
-  onChange = name => ({ target: { value } }) => this.setState({ [name]: value });
+  onChange = name => ({ target: { value } }) => {
+    this.setState({ [name]: value });
+  }
 
   render() {
     return (
@@ -62,11 +128,13 @@ class profilePage extends React.Component {
         <ProfileSubmission
           onSubmit={this.onSubmit}
           onChange={this.onChange}
-          userInfo={this.userInfo}
+          profile={this.state}
         />
       </div>
     );
   }
 }
 
-export default Wrapper(connect(null, actions)(profilePage));
+const mapStateToProps = ({ profile }) => ({ profile: profile.data });
+
+export default Wrapper(connect(mapStateToProps, actions)(profilePage));

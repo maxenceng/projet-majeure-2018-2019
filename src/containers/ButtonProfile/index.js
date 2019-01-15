@@ -9,23 +9,23 @@ class ButtonProfile extends React.Component {
   static propTypes = {
     actions: actionPropTypes.isRequired,
     children: PropTypes.string.isRequired,
-    userInfo: PropTypes.instanceOf(Object).isRequired,
+    profile: PropTypes.instanceOf(Object).isRequired,
   };
 
   handleClick = () => {
-    const { actions: { profileSaveAction }, userInfo } = this.props;
-    profileSaveAction(userInfo);
+    const { actions: { profileSaveAction }, profile } = this.props;
+    profileSaveAction(profile.profile[0]);
   }
 
   render() {
     const {
       children,
-      userInfo: {
-        description,
-        username,
-        firstname,
-        lastname,
-        tags,
+      profile: {
+        PROFILE_AVATAR,
+        PROFILE_DESC,
+        TAG_TEXT,
+        USER_FIRSTNAME,
+        USER_NAME,
       },
     } = this.props;
     return (
@@ -33,11 +33,11 @@ class ButtonProfile extends React.Component {
         <ButtonComponent onClick={this.handleClick}>
           {children}
         </ButtonComponent>
-        <div>{ description }</div>
-        <div>{ username }</div>
-        <div>{ firstname }</div>
-        <div>{ lastname }</div>
-        <div>{ tags }</div>
+        <div>{ PROFILE_AVATAR }</div>
+        <div>{ PROFILE_DESC }</div>
+        <div>{ TAG_TEXT }</div>
+        <div>{ USER_FIRSTNAME }</div>
+        <div>{ USER_NAME }</div>
       </div>
     );
   }

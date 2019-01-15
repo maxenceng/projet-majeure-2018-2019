@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
-// import PictureProfile from '../../assets/images/mario_profile.jpg';
-import Button from '../Button';
 
 const Profile = ({
-  onSubmit,
   profile: {
     PROFILE_AVATAR,
     PROFILE_DESC,
@@ -16,37 +13,37 @@ const Profile = ({
 }) => (
   <div className="profilePage">
     <div className="profile">
-      <div className="yourProfile">Mon profil:</div>
-      <form onSubmit={onSubmit} className="formulaire">
-        <div className="topProfile">
-          <img src={PROFILE_AVATAR} alt="imageProfil" className={PROFILE_AVATAR} />
-          <div className="description">
-            <textarea className="descriptionBox" cols="40" rows="7" placeholder="Ma description" value={PROFILE_DESC} />
+      <h2 className="yourProfile">My Profile:</h2>
+      <div className="topProfile">
+        <div className="profilePart image">
+          <img src={PROFILE_AVATAR} alt="pp" className="profilePart avatar" />
+        </div>
+        <div className="profilePart description">
+          <h4>Description:</h4>
+          <p>{PROFILE_DESC}</p>
+        </div>
+      </div>
+      <div className="bottomProfile">
+        <div className="profilePart userInfo">
+          <div className="firstname">
+            <h4>Firstname:</h4>
+            <p>{USER_FIRSTNAME}</p>
+          </div>
+          <div className="lastname">
+            <h4>Lastname:</h4>
+            <p>{USER_NAME}</p>
           </div>
         </div>
-        <div className="bottomProfile">
-          <div className="userInfo">
-            <div className="firstname">
-              <input type="text" className="firstnameInput" value={USER_FIRSTNAME} />
-            </div>
-            <div className="username">
-              <input type="text" className="usernameInput" value={USER_NAME} />
-            </div>
-          </div>
-          <div className="tags">
-            <textarea id="tagsBox" cols="30" rows="10" placeholder="Mes tags" value={TAG_TEXT} />
-          </div>
+        <div className="profilePart tags">
+          <h4>My Tags:</h4>
+          <p>{TAG_TEXT}</p>
         </div>
-        <div className="buttonSave">
-          <Button type="submit">hello</Button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 );
 
 Profile.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
   profile: PropTypes.shape({
     PROFILE_AVATAR: PropTypes.string.isRequired,
     PROFILE_DESC: PropTypes.string.isRequired,

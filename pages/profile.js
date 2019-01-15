@@ -3,21 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Wrapper from '../src/helpers/Wrapper';
 import '../styles/profilePage.scss';
-import actions, { actionPropTypes } from '../src/actions';
-import ProfilePage from '../src/components/Profile';
+import ProfileGet from '../src/components/Profile';
 
 class Profile extends React.Component {
   static propTypes = {
-    actions: actionPropTypes.isRequired,
     profile: PropTypes.instanceOf(Object).isRequired,
   }
-
-  onSubmit = (event) => {
-    event.preventDefault();
-    const { actions: { getProfileAction } } = this.props;
-    getProfileAction();
-  }
-
 
   onChange = name => ({ target: { value } }) => this.setState({ [name]: value });
 
@@ -51,8 +42,7 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        <ProfilePage
-          onSubmit={this.onSubmit}
+        <ProfileGet
           profile={this.profile}
         />
       </div>
@@ -62,4 +52,4 @@ class Profile extends React.Component {
 
 const mapStateToProps = ({ profile }) => ({ profile: profile.data });
 
-export default Wrapper(connect(mapStateToProps, actions)(Profile));
+export default Wrapper(connect(mapStateToProps, null)(Profile));
