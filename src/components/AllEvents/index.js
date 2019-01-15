@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
-import EventComponent from '../EventComponent';
+import Event from '../../containers/Event';
 
 const AllEvents = ({ events }) => (
   <div className="AllEvents">
@@ -20,7 +20,7 @@ const AllEvents = ({ events }) => (
     <div className="events">
       {events.map(event => (
         <div key={event.ID_EVENT}>
-          <EventComponent event={event} />
+          <Event event={event} />
         </div>
       ))}
     </div>
