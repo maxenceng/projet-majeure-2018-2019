@@ -14,8 +14,11 @@ class Event extends React.Component {
 
   handleOnEventSelected = () => {
     const { event: { ID_EVENT } } = this.props;
-    const { actions: { currentEventAction } } = this.props;
+    const { actions: { currentEventAction, getParticipantEvent } } = this.props;
     currentEventAction(ID_EVENT);
+    getParticipantEvent({
+      idEvent: ID_EVENT,
+    });
     Router.push('/eventPage');
   }
 

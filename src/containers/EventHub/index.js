@@ -25,18 +25,33 @@ class EventHub extends React.Component {
 
   findEvent = () => {
     const { idEvent, events } = this.props;
-    const curEvent = events.find(event => event.ID_EVENT === idEvent);
-    return curEvent;
+    return events.find(event => event.ID_EVENT === idEvent);
+  }
+
+  getDate = (curEvent) => {
+    const date = new Date(curEvent.EVENT_DATE * 1);
+    const dateS = date.toString().split(' ');
+    return `${dateS[1]} ${dateS[2]} ${dateS[3]}`;
+  }
+
+  getSchedule = (curEvent) => {
+    const date = new Date(curEvent.EVENT_DATE * 1);
+    const hour = date.toString().split(' ');
+    return `${hour[4]}`;
   }
 
   render() {
     const curEvent = this.findEvent();
+    const day = this.getDate(curEvent);
+    const schedule = this.getSchedule(curEvent);
     return (
       <div>
         <EventPage
           eventName={curEvent.EVENT_NAME}
           eventDesc={curEvent.EVENT_DESC}
-          eventDate={curEvent.EVENT_DATE}
+          eventLoc={curEvent.LOC_DISTRICT}
+          eventDate={day}
+          eventSchedule={schedule}
         />
       </div>
     );
