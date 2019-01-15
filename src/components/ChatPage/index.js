@@ -5,17 +5,22 @@ import DiscussionMessages from '../DiscussionMessages';
 import SendBar from '../SendBar';
 import './index.scss';
 
-const ChatPage = ({ list, messages, onClick }) => (
+const ChatPage = ({
+  currentConv,
+  list,
+  messages,
+  onClick,
+}) => (
   <div className="DiscussionPage">
     <DiscussionList
       className="first"
+      currentConv={currentConv}
       list={list}
       onClick={onClick}
     />
     <div className="second">
       <DiscussionMessages
-        contact="Skydread1"
-        event="Concert Ariana Grande"
+        person={currentConv}
         messages={messages}
       />
       <SendBar />
@@ -24,11 +29,11 @@ const ChatPage = ({ list, messages, onClick }) => (
 );
 
 ChatPage.propTypes = {
+  currentConv: PropTypes.string.isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({
-    active: PropTypes.bool.isRequired,
     person: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
-    lastMessage: PropTypes.string.isRequired,
+    lastMessage: PropTypes.string,
   })),
   messages: PropTypes.arrayOf(PropTypes.shape({
     timestamp: PropTypes.number.isRequired,

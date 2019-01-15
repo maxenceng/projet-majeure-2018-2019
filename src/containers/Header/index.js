@@ -8,9 +8,9 @@ class Header extends React.Component {
   static propTypes = {
     actions: actionPropTypes.isRequired,
     auth: PropTypes.shape({
-      message: PropTypes.string.isRequired,
-      token: PropTypes.string.isRequired,
-      idUser: PropTypes.string.isRequired,
+      message: PropTypes.string,
+      token: PropTypes.string,
+      idUser: PropTypes.string,
     }),
     connectionStatus: PropTypes.bool,
     profile: PropTypes.arrayOf(PropTypes.shape({
@@ -23,13 +23,18 @@ class Header extends React.Component {
   }
 
   static defaultProps = {
-    auth: {},
+    auth: {
+      message: '',
+      token: '',
+      idUser: '',
+    },
     connectionStatus: false,
     profile: [],
   }
 
   componentWillMount() {
-    const { actions: { getProfileAction } } = this.props;
+    const { actions: { getProfileAction }, auth } = this.props;
+    console.log(auth);
     if (
       process.browser
       && localStorage.getItem('userToken')

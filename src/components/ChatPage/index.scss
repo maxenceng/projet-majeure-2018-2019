@@ -1,18 +1,13 @@
-html, body, #root {
-  min-height: 100vh;
-  height: 100vh;
-  margin: 0;
-  & .DiscussionPage {
+.DiscussionPage {
+  display: flex;
+  min-height: calc(#{$page-size} - 2px);
+  height: calc(#{$page-size} - 2px);
+  & .first {
+    width: 40%;
+  }
+  & .second {
+    width: 60%;
     display: flex;
-    min-height: calc(100vh - 2px);
-    height: calc(100vh - 2px);
-    & .first {
-      width: 40%;
-    }
-    & .second {
-      width: 60%;
-      display: flex;
-      flex-direction: column;
-    }
+    flex-direction: column;
   }
 }

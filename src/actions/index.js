@@ -5,6 +5,8 @@ import loginAction from './authAction/loginAction';
 import registerAction from './authAction/registerAction';
 import profileSaveAction from './profileAction/profileSaveAction';
 import getMessagesAction from './chatAction/getMessagesAction';
+import getConversationsAction from './chatAction/getConversationsAction';
+import currentConvAction from './currentConvAction';
 import getAllEventsAction from './eventAction/getAllEventsAction';
 import currentEventAction from './currentEventAction';
 import getProfileAction from './profileAction/getProfileAction';
@@ -15,6 +17,8 @@ const allActions = {
   registerAction,
   profileSaveAction,
   getMessagesAction,
+  getConversationsAction,
+  currentConvAction,
   getAllEventsAction,
   currentEventAction,
   getProfileAction,
@@ -30,6 +34,8 @@ export const actionPropTypes = PropTypes.shape({
   registerAction: ptFuncReq,
   profileSaveAction: ptFuncReq,
   getMessagesAction: ptFuncReq,
+  getConversationsAction: ptFuncReq,
+  currentConvAction: ptFuncReq,
   getAllEventsAction: ptFuncReq,
   currentEventAction: ptFuncReq,
   getProfileAction: ptFuncReq,

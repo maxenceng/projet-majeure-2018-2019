@@ -4,6 +4,7 @@ $font-family: "Variane", serif;
 $color-primary: #fff;
 $color-secondary: #fff;
 $header-height: 122px;
+$page-size: calc(100vh - #{$header-height});
 
 
 /* Mixins */
