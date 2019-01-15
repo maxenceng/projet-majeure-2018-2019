@@ -1,27 +1,25 @@
 import React from 'react';
-import Link from 'next/link';
 import './index.scss';
 import PropTypes from 'prop-types';
 import PictureEvent from '../PictureEvent';
 import DateBox from '../DateBox';
 import pictureBox from '../../assets/images/party.jpg';
 
-const EventComponent = ({ event: { EVENT_DATE, EVENT_NAME, LOC_DISCTRICT } }) => (
+const EventComponent = ({ event: { EVENT_DATE, EVENT_NAME, LOC_DISCTRICT }, onClick }) => (
   <div className="boxEvent">
-    <Link href="/eventPage">
-      <button type="button" className="clickedEvent">
-        <PictureEvent pictureEvent={pictureBox} />
-        <DateBox
-          date={EVENT_DATE}
-          name={EVENT_NAME}
-          district={LOC_DISCTRICT}
-        />
-      </button>
-    </Link>
+    <button type="button" onClick={onClick} className="clickedEvent">
+      <PictureEvent pictureEvent={pictureBox} />
+      <DateBox
+        date={EVENT_DATE}
+        name={EVENT_NAME}
+        district={LOC_DISCTRICT}
+      />
+    </button>
   </div>
 );
 
 EventComponent.propTypes = {
+  onClick: PropTypes.func.isRequired,
   event: PropTypes.shape({
     EVENT_DATE: PropTypes.string.isRequired,
     EVENT_DESC: PropTypes.string.isRequired,

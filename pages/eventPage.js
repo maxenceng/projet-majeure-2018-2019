@@ -1,19 +1,8 @@
 import React from 'react';
 import Wrapper from '../src/helpers/Wrapper';
 import '../styles/eventPage.scss';
-import EventContentHeader from '../src/components/EventContentHeader';
-import EventContentDetails from '../src/components/EventContentDetails';
-import EventContentParticipantList from '../src/components/EventContentParticpantList';
+import EventHub from '../src/containers/EventHub';
 
-
-const EventPage = () => (
-  <div className="event_page">
-    <EventContentHeader />
-    <div className="event_content_info">
-      <EventContentDetails />
-      <EventContentParticipantList />
-    </div>
-  </div>
-);
+const EventPage = () => <EventHub />;
 
 export default Wrapper(EventPage);
