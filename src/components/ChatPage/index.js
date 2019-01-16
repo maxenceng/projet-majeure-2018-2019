@@ -5,37 +5,46 @@ import DiscussionMessages from '../DiscussionMessages';
 import SendBar from '../SendBar';
 import './index.scss';
 
-const ChatPage = ({ list, messages, onClick }) => (
+const ChatPage = ({
+  currentIdUser,
+  list,
+  messages,
+  setActive,
+  sendMessage,
+}) => (
   <div className="DiscussionPage">
     <DiscussionList
       className="first"
+      currentIdUser={currentIdUser}
       list={list}
-      onClick={onClick}
+      onClick={setActive}
     />
     <div className="second">
       <DiscussionMessages
-        contact="Skydread1"
-        event="Concert Ariana Grande"
+        currentIdUser={currentIdUser}
         messages={messages}
       />
-      <SendBar />
+      <SendBar
+        sendMessage={sendMessage}
+      />
     </div>
   </div>
 );
 
 ChatPage.propTypes = {
+  currentIdUser: PropTypes.string.isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({
-    active: PropTypes.bool.isRequired,
     person: PropTypes.string.isRequired,
-    time: PropTypes.string.isRequired,
-    lastMessage: PropTypes.string.isRequired,
+    time: PropTypes.string,
+    lastMessage: PropTypes.string,
   })),
   messages: PropTypes.arrayOf(PropTypes.shape({
-    timestamp: PropTypes.number.isRequired,
-    person: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    MES_DATE: PropTypes.string.isRequired,
+    MES_AUTHOR: PropTypes.string.isRequired,
+    MES_CONTENT: PropTypes.string.isRequired,
   })),
-  onClick: PropTypes.func.isRequired,
+  setActive: PropTypes.func.isRequired,
+  sendMessage: PropTypes.func.isRequired,
 };
 
 ChatPage.defaultProps = {

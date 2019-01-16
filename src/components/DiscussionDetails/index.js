@@ -25,13 +25,15 @@ const DiscussionDetails = ({
 DiscussionDetails.propTypes = {
   active: PropTypes.bool,
   person: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
-  lastMessage: PropTypes.string.isRequired,
+  time: PropTypes.string,
+  lastMessage: PropTypes.string,
   onClick: PropTypes.func.isRequired,
 };
 
 DiscussionDetails.defaultProps = {
   active: false,
+  time: '',
+  lastMessage: '',
 };
 
 export default DiscussionDetails;

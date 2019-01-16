@@ -10,9 +10,11 @@ export const messagesRequest = createAction(MESSAGES_REQUEST);
 export const messagesSuccess = createAction(MESSAGES_SUCCESS);
 export const messagesError = createAction(MESSAGES_ERROR);
 
-export default ({ email }) => (dispatch) => {
+export default idSecondUser => (dispatch) => {
   dispatch(messagesRequest());
-  return axios.post('allMessages', { email }, axiosHeaders())
+  const idUser = process.browser && localStorage.getItem('idUser');
+  console.log(`conv?idUser=${idUser}&idSecondUser=${idSecondUser}`);
+  return axios.get(`conv?idUser=${idUser}&idSecondUser=${idSecondUser}`, axiosHeaders())
     .then(res => dispatch(messagesSuccess(res)))
     .catch(err => dispatch(messagesError(getErrorMessage(err))));
 };

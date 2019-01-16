@@ -4,6 +4,7 @@ import Link from 'next/link';
 import './index.scss';
 import LinkButton from '../LinkButton';
 import SvgButton from '../SvgButton';
+import Button from '../Button';
 import AgendaImage from '../../assets/images/calendar-alt-regular.svg';
 import MessageImage from '../../assets/images/envelope-regular.svg';
 import ProfileImage from '../../assets/images/user-regular.svg';
@@ -11,6 +12,7 @@ import ProfileImage from '../../assets/images/user-regular.svg';
 export default class TopFrame extends React.Component {
   static propTypes = {
     isConnected: PropTypes.bool,
+    onClickDeco: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -28,12 +30,12 @@ export default class TopFrame extends React.Component {
     },
     {
       svg: ProfileImage,
-      link: '/profilePage',
+      link: '/profile',
     },
   ]
 
   render() {
-    const { isConnected } = this.props;
+    const { isConnected, onClickDeco } = this.props;
     return (
       <div className="TopFrame">
         <div className="left-side">
@@ -42,9 +44,9 @@ export default class TopFrame extends React.Component {
               WeMe
             </button>
           </Link>
-          {!isConnected && (
+          {isConnected && (
             <div className="event-button-wrapper">
-              <Link href="/allEventPage">
+              <Link href="/tout-evenements">
                 <button type="button" className="event-button">
                   Evenements
                 </button>
@@ -63,7 +65,9 @@ export default class TopFrame extends React.Component {
                 ))}
               </div>
               <div className="deco-button">
-                <LinkButton content="Deconnexion" route="/deconnexion" />
+                <Button onClick={onClickDeco}>
+                  Deconnexion
+                </Button>
               </div>
             </React.Fragment>
           )
