@@ -17,10 +17,17 @@ class EventHub extends React.Component {
       LOC_LATITUDE: PropTypes.string.isRequired,
       LOC_LONGITUDE: PropTypes.string.isRequired,
     })),
+    participant: PropTypes.arrayOf(PropTypes.shape({
+      ID_USER: PropTypes.string.isRequired,
+      USER_FIRSTNAME: PropTypes.string.isRequired,
+      USER_NAME: PropTypes.string.isRequired,
+      PROFILE_AVATAR: PropTypes.string.isRequired,
+    })),
   };
 
   static defaultProps = {
     events: [],
+    participant: [],
   }
 
   findEvent = () => {
@@ -41,23 +48,28 @@ class EventHub extends React.Component {
   }
 
   render() {
+    const { participant } = this.props;
     const curEvent = this.findEvent();
     const day = this.getDate(curEvent);
     const schedule = this.getSchedule(curEvent);
+    console.log(participant.event);
     return (
-      <div>
-        <EventPage
-          eventName={curEvent.EVENT_NAME}
-          eventDesc={curEvent.EVENT_DESC}
-          eventLoc={curEvent.LOC_DISTRICT}
-          eventDate={day}
-          eventSchedule={schedule}
-        />
-      </div>
+      <EventPage
+        eventName={curEvent.EVENT_NAME}
+        eventDesc={curEvent.EVENT_DESC}
+        eventLoc={curEvent.LOC_DISTRICT}
+        eventDate={day}
+        eventSchedule={schedule}
+        participants={participant.event}
+      />
     );
   }
 }
 
-const mapStateToProps = ({ idEvent, event: { data: { events } } }) => ({ idEvent, events });
+const mapStateToProps = ({
+  idEvent,
+  event: { data: { events } },
+  participant,
+}) => ({ idEvent, events, participant: participant.data });
 
 export default connect(mapStateToProps, null)(EventHub);
