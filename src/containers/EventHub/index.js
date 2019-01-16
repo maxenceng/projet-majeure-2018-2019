@@ -28,9 +28,28 @@ class EventHub extends React.Component {
     participate: PropTypes.string.isRequired,
   };
 
+  state = {
+    initialStatus: 'KO',
+    curEvent: {
+      EVENT_DATE: '',
+      EVENT_DESC: '',
+      EVENT_NAME: '',
+      ID_EVENT: '',
+      ID_LOCATION: '',
+      LOC_DISCTRICT: '',
+      LOC_EVENT: '',
+      LOC_LATITUDE: '',
+      LOC_LONGITUDE: '',
+    },
+  };
+
   static defaultProps = {
     events: [],
     participant: [],
+  }
+
+  componentDidMount() {
+    this.setState({ curEvent: this.findEvent() });
   }
 
   findEvent = () => {
@@ -60,22 +79,33 @@ class EventHub extends React.Component {
     unParticipateEventAction(idEvent);
   }
 
+  /* componentWillReceiveProps(newProps) {
+    const { participant: { event: newEvents } } = newProps;
+    const { participant: { event } } = this.props;
+    const idUser = localStorage.getItem('idUser');
+    if (!event && newEvents) {
+      if (event.find(part => part.ID_USER === idUser)) {
+        this.initialStatus = 'OK';
+      }
+    }
+  } */
+
   render() {
     const { participant, participate } = this.props;
-    const curEvent = this.findEvent();
-    const day = this.getDate(curEvent);
-    const schedule = this.getSchedule(curEvent);
-    console.log(participate.data);
+    const { curEvent, initialStatus } = this.state;
+    console.log(participate);
+    console.log(initialStatus);
     return (
       <EventPage
         eventName={curEvent.EVENT_NAME}
         eventDesc={curEvent.EVENT_DESC}
         eventLoc={curEvent.LOC_DISTRICT}
-        eventDate={day}
-        eventSchedule={schedule}
+        eventDate={this.getDate(curEvent)}
+        eventSchedule={this.getSchedule(curEvent)}
         participants={participant.event}
         onClick={this.onClickParticipate}
         onUnClick={this.onClickUnParticipate}
+        status="participate"
       />
     );
   }
