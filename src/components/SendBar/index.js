@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ArrowImage from '../../assets/images/arrow-circle-up-solid.svg';
 import './index.scss';
 
 export default class SendBar extends React.Component {
+  static propTypes = {
+    sendMessage: PropTypes.func.isRequired,
+  }
+
   state = {
     value: '',
     size: 'x1',
@@ -16,7 +21,12 @@ export default class SendBar extends React.Component {
     this.setState({ value });
   }
 
-  sendMessage = () => console.log('Message sent!')
+  sendMessage = (event) => {
+    event.preventDefault();
+    const { sendMessage } = this.props;
+    const { value } = this.state;
+    sendMessage(value);
+  }
 
   render() {
     const { value, size } = this.state;

@@ -1,3 +1,5 @@
+export const BASE_URL = 'http://localhost:3001';
+
 export const getJwtToken = () => {
   const token = process.browser && localStorage.getItem('userToken');
   return token ? `Bearer ${token}` : null;

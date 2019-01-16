@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Wrapper from '../src/helpers/Wrapper';
 import ChatPage from '../src/components/ChatPage';
 import actions, { actionPropTypes } from '../src/actions';
+import socket from '../src/helpers/socket';
 
 class Chat extends React.Component {
   static propTypes = {
@@ -13,31 +14,72 @@ class Chat extends React.Component {
       MES_AUTHOR: PropTypes.string.isRequired,
       MES_DATE: PropTypes.string.isRequired,
     })),
-    // eslint-disable-next-line react/no-unused-prop-types
-    conversations: PropTypes.arrayOf(PropTypes.shape({
+    currentConv: PropTypes.shape({
       idUser: PropTypes.string.isRequired,
       person: PropTypes.string.isRequired,
-    })),
-    currentConv: PropTypes.string.isRequired,
+    }).isRequired,
   };
 
   static defaultProps = {
     messages: null,
-    conversations: null,
   }
 
   componentWillMount() {
-    const { actions: { getConversationsAction, getMessagesAction } } = this.props;
+    const { actions: { getConversationsAction } } = this.props;
     getConversationsAction();
-    getMessagesAction();
+    socket.on('sendMessage', (result) => {
+      const { actions: { addMessageAction } } = this.props;
+      if (!result.err) {
+        addMessageAction({
+          MES_AUTHOR: localStorage.getItem('idUser'),
+          MES_CONTENT: result.data.message,
+          MES_DATE: Date.now(),
+        });
+      }
+    });
+
+    socket.on('message', (result) => {
+      const { actions: { addMessageAction }, currentConv } = this.props;
+      if (!result.err) {
+        addMessageAction({
+          MES_AUTHOR: currentConv.idUser,
+          MES_CONTENT: result.message,
+          MES_DATE: Date.now(),
+        });
+      }
+    });
   }
 
   componentWillReceiveProps(newProps) {
     const conversations = this.getConversations(this.props);
     const newConversations = this.getConversations(newProps);
-    if (newConversations.length !== 0 && conversations.length === 0) {
-      this.setActive(newConversations[0].idUser)();
+    const { currentConv: { idUser }, actions: { getMessagesAction } } = this.props;
+    if (
+      newConversations.length !== 0
+      && conversations.length === 0
+      && idUser === ''
+    ) {
+      this.setActive(newConversations[0])();
     }
+    const { currentConv: { idUser: newIdUser } } = newProps;
+    if (idUser !== newIdUser) {
+      getMessagesAction(newIdUser);
+    }
+  }
+
+  componentDidMount() {
+    window.onbeforeunload = () => socket.emit('disconnect');
+  }
+
+  connect = () => process.browser && socket.emit('chatConnection', { idUser: localStorage.getItem('idUser') });
+
+  sendMessage = (message) => {
+    const { currentConv: { idUser: idDest } } = this.props;
+    socket.emit('sendMessage', {
+      message,
+      exp: localStorage.getItem('idUser'),
+      idDest,
+    });
   }
 
   getConversations = (props) => {
@@ -50,20 +92,25 @@ class Chat extends React.Component {
   }
 
   get conversations() {
-    return this.getConversations(this.props);
-  }
-
-  get contactName() {
-    const { conversations } = this;
+    const conversations = this.getConversations(this.props);
     const { currentConv } = this.props;
-    const current = conversations.find(conv => conv.idUser === currentConv);
-    return current ? current.person : '';
+    const convInArray = conversations.find(conv => conv.idUser === currentConv.idUser);
+    if (!convInArray && currentConv.idUser !== '') {
+      return [
+        ...conversations,
+        {
+          idUser: currentConv.idUser,
+          person: currentConv.person,
+        },
+      ];
+    }
+    return conversations;
   }
 
 
-  setActive = idUser => () => {
+  setActive = currentConv => () => {
     const { actions: { currentConvAction } } = this.props;
-    currentConvAction(idUser);
+    currentConvAction(currentConv);
   }
 
   onClick = () => console.log('clicked chat');
@@ -75,13 +122,15 @@ class Chat extends React.Component {
   }
 
   render() {
-    const { currentConv } = this.props;
+    const { currentConv: { idUser } } = this.props;
+    this.connect();
     return (
       <ChatPage
-        onClick={this.setActive}
+        setActive={this.setActive}
+        sendMessage={this.sendMessage}
         list={this.conversations}
         messages={this.messages}
-        currentConv={currentConv}
+        currentIdUser={idUser}
       />
     );
   }

@@ -1,6 +1,11 @@
 import { SET_CURRENT_CONV } from '../actions/currentConvAction';
 
-export default (state = '', action) => {
+const defaultState = {
+  idUser: '',
+  person: '',
+};
+
+export default (state = defaultState, action) => {
   switch (action.type) {
     case SET_CURRENT_CONV:
       return action.payload;

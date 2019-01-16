@@ -1,4 +1,5 @@
 import { MESSAGES_REQUEST, MESSAGES_SUCCESS, MESSAGES_ERROR } from '../actions/chatAction/getMessagesAction';
+import { ADD_MESSAGE } from '../actions/chatAction/addMessageAction';
 
 const defaultState = {
   err: null,
@@ -28,6 +29,17 @@ export default (state = defaultState, action) => {
         err: action.payload,
         data: {},
         isFetching: false,
+      };
+    case ADD_MESSAGE:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          messages: [
+            ...state.data.messages,
+            action.payload,
+          ],
+        },
       };
     default:
       return state;

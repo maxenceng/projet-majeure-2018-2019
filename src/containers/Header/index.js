@@ -33,8 +33,7 @@ class Header extends React.Component {
   }
 
   componentWillMount() {
-    const { actions: { getProfileAction }, auth } = this.props;
-    console.log(auth);
+    const { actions: { getProfileAction } } = this.props;
     if (
       process.browser
       && localStorage.getItem('userToken')

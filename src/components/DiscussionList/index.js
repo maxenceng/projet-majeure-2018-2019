@@ -4,7 +4,7 @@ import DiscussionDetails from '../DiscussionDetails';
 import './index.scss';
 
 const DiscussionList = ({
-  currentConv,
+  currentIdUser,
   className,
   list,
   onClick,
@@ -17,19 +17,19 @@ const DiscussionList = ({
       time,
     }) => (
       <DiscussionDetails
-        active={currentConv === idUser}
+        active={currentIdUser === idUser}
         key={person}
         person={person}
         time={time}
         lastMessage={lastMessage}
-        onClick={onClick(idUser)}
+        onClick={onClick({ idUser, person })}
       />
     ))}
   </div>
 );
 
 DiscussionList.propTypes = {
-  currentConv: PropTypes.string.isRequired,
+  currentIdUser: PropTypes.string.isRequired,
   className: PropTypes.string,
   list: PropTypes.arrayOf(PropTypes.shape({
     person: PropTypes.string.isRequired,
