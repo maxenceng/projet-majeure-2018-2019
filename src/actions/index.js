@@ -10,6 +10,8 @@ import currentEventAction from './currentEventAction';
 import getProfileAction from './profileAction/getProfileAction';
 import connectionStatusAction from './connectionStatusAction';
 import getParticipantEvent from './getParticipantEvent';
+import participateEventAction from './participateEventAction';
+import unParticipateEventAction from './unParticipateEventAction';
 
 const allActions = {
   loginAction,
@@ -21,6 +23,8 @@ const allActions = {
   getProfileAction,
   connectionStatusAction,
   getParticipantEvent,
+  participateEventAction,
+  unParticipateEventAction,
 };
 
 export default dispatch => ({ actions: bindActionCreators(allActions, dispatch) });
@@ -37,4 +41,6 @@ export const actionPropTypes = PropTypes.shape({
   getProfileAction: ptFuncReq,
   connectionStatusAction: ptFuncReq,
   getParticipantEvent: ptFuncReq,
+  participateEventAction: ptFuncReq,
+  unParticipateEventAction: ptFuncReq,
 });

@@ -12,6 +12,8 @@ const EventPage = ({
   eventDate,
   eventSchedule,
   participants,
+  onClick,
+  onUnClick,
 }) => (
   <div className="event_page">
     <EventContentHeader
@@ -19,6 +21,8 @@ const EventPage = ({
       eventDate={eventDate}
       eventLoc={eventLoc}
       eventSchedule={eventSchedule}
+      onClick={onClick}
+      onUnClick={onUnClick}
     />
     <div className="event_content_info">
       <EventContentDetails eventDesc={eventDesc} />
@@ -39,6 +43,8 @@ EventPage.propTypes = {
     USER_NAME: PropTypes.string.isRequired,
     PROFILE_AVATAR: PropTypes.string.isRequired,
   })),
+  onClick: PropTypes.func.isRequired,
+  onUnClick: PropTypes.func.isRequired,
 };
 
 EventPage.defaultProps = {
