@@ -1,4 +1,4 @@
-import { GET_PARTICIPANT_SUCCESS } from '../actions/getParticipantEvent';
+import { GET_PARTICIPANT_SUCCESS } from '../actions/getParticipantEventAction';
 
 const defaultState = {
   err: null,

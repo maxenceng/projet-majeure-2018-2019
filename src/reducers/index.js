@@ -8,6 +8,7 @@ import connectionStatus from './connectionStatusReducer';
 import idEvent from './currentEventReducer';
 import participant from './participantReducer';
 import participate from './participateEventReducer';
+import userEvents from './userEvents';
 
 export default combineReducers({
   auth,
@@ -18,4 +19,5 @@ export default combineReducers({
   idEvent,
   participant,
   participate,
+  userEvents,
 });
