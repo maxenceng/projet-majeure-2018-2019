@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import EventPage from '../../components/EventPage';
+import actions, { actionPropTypes } from '../../actions';
 
 class EventHub extends React.Component {
   static propTypes = {
+    actions: actionPropTypes.isRequired,
     idEvent: PropTypes.string.isRequired,
     events: PropTypes.arrayOf(PropTypes.shape({
       EVENT_DATE: PropTypes.string.isRequired,
@@ -17,10 +19,18 @@ class EventHub extends React.Component {
       LOC_LATITUDE: PropTypes.string.isRequired,
       LOC_LONGITUDE: PropTypes.string.isRequired,
     })),
+    participant: PropTypes.arrayOf(PropTypes.shape({
+      ID_USER: PropTypes.string.isRequired,
+      USER_FIRSTNAME: PropTypes.string.isRequired,
+      USER_NAME: PropTypes.string.isRequired,
+      PROFILE_AVATAR: PropTypes.string.isRequired,
+    })),
+    participate: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
     events: [],
+    participant: [],
   }
 
   findEvent = () => {
@@ -40,24 +50,47 @@ class EventHub extends React.Component {
     return `${hour[4]}`;
   }
 
+  onClickParticipate = () => {
+    const { idEvent, actions: { participateEventAction } } = this.props;
+    participateEventAction(idEvent);
+  }
+
+  onClickUnParticipate = () => {
+    const { idEvent, actions: { unParticipateEventAction } } = this.props;
+    unParticipateEventAction(idEvent);
+  }
+
   render() {
+    const { participant, participate } = this.props;
     const curEvent = this.findEvent();
     const day = this.getDate(curEvent);
     const schedule = this.getSchedule(curEvent);
+    console.log(participate.data);
     return (
-      <div>
-        <EventPage
-          eventName={curEvent.EVENT_NAME}
-          eventDesc={curEvent.EVENT_DESC}
-          eventLoc={curEvent.LOC_DISTRICT}
-          eventDate={day}
-          eventSchedule={schedule}
-        />
-      </div>
+      <EventPage
+        eventName={curEvent.EVENT_NAME}
+        eventDesc={curEvent.EVENT_DESC}
+        eventLoc={curEvent.LOC_DISTRICT}
+        eventDate={day}
+        eventSchedule={schedule}
+        participants={participant.event}
+        onClick={this.onClickParticipate}
+        onUnClick={this.onClickUnParticipate}
+      />
     );
   }
 }
 
-const mapStateToProps = ({ idEvent, event: { data: { events } } }) => ({ idEvent, events });
+const mapStateToProps = ({
+  idEvent,
+  event: { data: { events } },
+  participant,
+  participate,
+}) => ({
+  idEvent,
+  events,
+  participant: participant.data,
+  participate,
+});
 
-export default connect(mapStateToProps, null)(EventHub);
+export default connect(mapStateToProps, actions)(EventHub);
