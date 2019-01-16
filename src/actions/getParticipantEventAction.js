@@ -1,9 +1,9 @@
 import { createAction } from 'redux-actions';
 import axios from '../helpers/axios';
 
-export const GET_PARTICIPANT_REQUEST = 'GET_PROFILE_REQUEST';
-export const GET_PARTICIPANT_SUCCESS = 'GET_PROFILE_SUCCESS';
-export const GET_PARTICIPANT_ERROR = 'GET_PROFILE_ERROR';
+export const GET_PARTICIPANT_REQUEST = 'GET_PARTICIPANT_REQUEST';
+export const GET_PARTICIPANT_SUCCESS = 'GET_PARTICIPANT_SUCCESS';
+export const GET_PARTICIPANT_ERROR = 'GET_PARTICIPANT_ERROR';
 
 export const getParticipantRequest = createAction(GET_PARTICIPANT_REQUEST);
 export const getParticipantSuccess = createAction(GET_PARTICIPANT_SUCCESS);

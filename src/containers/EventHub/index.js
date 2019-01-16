@@ -94,6 +94,7 @@ class EventHub extends React.Component {
     const { participant, participate } = this.props;
     const { curEvent, initialStatus } = this.state;
     console.log(participate);
+    console.log(participant);
     console.log(initialStatus);
     return (
       <EventPage

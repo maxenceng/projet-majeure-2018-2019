@@ -9,7 +9,6 @@ import getAllEventsAction from './eventAction/getAllEventsAction';
 import currentEventAction from './currentEventAction';
 import getProfileAction from './profileAction/getProfileAction';
 import connectionStatusAction from './connectionStatusAction';
-import getParticipantEvent from './getParticipantEvent';
 import participateEventAction from './participateEventAction';
 import unParticipateEventAction from './unParticipateEventAction';
 import getParticipantEventAction from './getParticipantEventAction';
@@ -24,7 +23,6 @@ const allActions = {
   currentEventAction,
   getProfileAction,
   connectionStatusAction,
-  getParticipantEvent,
   participateEventAction,
   unParticipateEventAction,
   getParticipantEventAction,
@@ -44,7 +42,7 @@ export const actionPropTypes = PropTypes.shape({
   currentEventAction: ptFuncReq,
   getProfileAction: ptFuncReq,
   connectionStatusAction: ptFuncReq,
-  getParticipantEvent: ptFuncReq,
+  getParticipantEventgetParticipantEvent: ptFuncReq,
   participateEventAction: ptFuncReq,
   unParticipateEventAction: ptFuncReq,
   userEventsAction: ptFuncReq,
