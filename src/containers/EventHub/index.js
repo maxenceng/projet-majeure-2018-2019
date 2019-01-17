@@ -79,13 +79,11 @@ class EventHub extends React.Component {
 
   onClickParticipate = () => {
     const { idEvent, actions: { participateEventAction } } = this.props;
-    console.log('clicked Participate');
     participateEventAction(idEvent);
   }
 
   onClickUnParticipate = () => {
     const { idEvent, actions: { unParticipateEventAction } } = this.props;
-    console.log('clicked UNParticipate');
     unParticipateEventAction(idEvent);
   }
 
@@ -101,10 +99,13 @@ class EventHub extends React.Component {
   } */
 
   render() {
-    const { idEvent, interested, participant, participation: { data } } = this.props;
+    const {
+      idEvent,
+      interested,
+      participant,
+      participation: { data },
+    } = this.props;
     const { curEvent } = this.state;
-    console.log(data.participation);
-    console.log(data.interested);
     return (
       <EventPage
         idEvent={idEvent}

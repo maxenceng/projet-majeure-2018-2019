@@ -14,7 +14,13 @@ class Event extends React.Component {
 
   handleOnEventSelected = () => {
     const { event: { ID_EVENT } } = this.props;
-    const { actions: { currentEventAction, getParticipantEventAction, getInterestedEventAction } } = this.props;
+    const {
+      actions: {
+        currentEventAction,
+        getParticipantEventAction,
+        getInterestedEventAction,
+      },
+    } = this.props;
     currentEventAction(ID_EVENT);
     getParticipantEventAction({
       idEvent: ID_EVENT,
