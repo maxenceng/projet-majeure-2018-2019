@@ -16,6 +16,7 @@ import participateEventAction from './participateEventAction';
 import unParticipateEventAction from './unParticipateEventAction';
 import getParticipantEventAction from './getParticipantEventAction';
 import userEventsAction from './userEventsAction';
+import getInterestedEventAction from './getInterestedEventAction';
 import getStatusParticipationAction from './getStatusParticipationAction';
 
 const allActions = {
@@ -34,6 +35,7 @@ const allActions = {
   unParticipateEventAction,
   getParticipantEventAction,
   userEventsAction,
+  getInterestedEventAction,
   getStatusParticipationAction,
 };
 
@@ -57,5 +59,6 @@ export const actionPropTypes = PropTypes.shape({
   participateEventAction: ptFuncReq,
   unParticipateEventAction: ptFuncReq,
   userEventsAction: ptFuncReq,
+  getInterestedEventAction,
   getStatusParticipationAction: ptFuncReq,
 });

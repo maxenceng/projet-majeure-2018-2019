@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Router from 'next/router';
 import Wrapper from '../src/helpers/Wrapper';
 import '../styles/profilePage.scss';
 import ProfileGet from '../src/components/Profile';
@@ -39,12 +40,19 @@ class Profile extends React.Component {
     };
   }
 
+  onCLickEditProfile = () => {
+    console.log('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+    console.log('onclik ok');
+    Router.push('/profilePage');
+  }
+
   render() {
     return (
       <div>
         <ProfileGet
           profile={this.profile}
           onChange={this.onChange}
+          onCLickEditProfile={this.onCLickEditProfile}
         />
       </div>
     );
