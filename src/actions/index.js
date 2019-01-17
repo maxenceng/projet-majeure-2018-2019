@@ -5,6 +5,9 @@ import loginAction from './authAction/loginAction';
 import registerAction from './authAction/registerAction';
 import profileSaveAction from './profileAction/profileSaveAction';
 import getMessagesAction from './chatAction/getMessagesAction';
+import getConversationsAction from './chatAction/getConversationsAction';
+import currentConvAction from './currentConvAction';
+import addMessageAction from './chatAction/addMessageAction';
 import getAllEventsAction from './eventAction/getAllEventsAction';
 import currentEventAction from './currentEventAction';
 import getProfileAction from './profileAction/getProfileAction';
@@ -14,12 +17,16 @@ import unParticipateEventAction from './unParticipateEventAction';
 import getParticipantEventAction from './getParticipantEventAction';
 import userEventsAction from './userEventsAction';
 import getInterestedEventAction from './getInterestedEventAction';
+import getStatusParticipationAction from './getStatusParticipationAction';
 
 const allActions = {
   loginAction,
   registerAction,
   profileSaveAction,
   getMessagesAction,
+  getConversationsAction,
+  currentConvAction,
+  addMessageAction,
   getAllEventsAction,
   currentEventAction,
   getProfileAction,
@@ -29,6 +36,7 @@ const allActions = {
   getParticipantEventAction,
   userEventsAction,
   getInterestedEventAction,
+  getStatusParticipationAction,
 };
 
 export default dispatch => ({ actions: bindActionCreators(allActions, dispatch) });
@@ -40,6 +48,9 @@ export const actionPropTypes = PropTypes.shape({
   registerAction: ptFuncReq,
   profileSaveAction: ptFuncReq,
   getMessagesAction: ptFuncReq,
+  getConversationsAction: ptFuncReq,
+  currentConvAction: ptFuncReq,
+  addMessageAction: ptFuncReq,
   getAllEventsAction: ptFuncReq,
   currentEventAction: ptFuncReq,
   getProfileAction: ptFuncReq,
@@ -48,4 +59,5 @@ export const actionPropTypes = PropTypes.shape({
   participateEventAction: ptFuncReq,
   unParticipateEventAction: ptFuncReq,
   userEventsAction: ptFuncReq,
+  getStatusParticipationAction: ptFuncReq,
 });

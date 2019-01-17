@@ -44,6 +44,7 @@ class Profile extends React.Component {
       <div>
         <ProfileGet
           profile={this.profile}
+          onChange={this.onChange}
         />
       </div>
     );

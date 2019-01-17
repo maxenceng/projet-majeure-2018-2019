@@ -5,18 +5,17 @@ import './index.scss';
 
 const DiscussionMessages = ({
   className,
-  contact,
-  event,
+  currentIdUser,
   messages,
 }) => (
   <div className={`DiscussionMessages ${className}`}>
-    <div className="event-mentioned">Vous et {contact} participez à l&apos;événement : {event}</div>
     <div className="message-list">
-      {messages.sort((a, b) => a.timestamp - b.timestamp)
-        .map(({ person, text }) => (
+      {messages.sort((a, b) => a.MES_DATE - b.MES_DATE)
+        .map(({ MES_AUTHOR, MES_CONTENT, MES_DATE }) => (
           <DiscussionMessage
-            className={contact === person ? 'other' : 'own'}
-            text={text}
+            key={MES_DATE}
+            className={MES_AUTHOR === currentIdUser ? 'other' : 'own'}
+            text={MES_CONTENT}
           />
         ))
       }
@@ -26,12 +25,11 @@ const DiscussionMessages = ({
 
 DiscussionMessages.propTypes = {
   className: PropTypes.string,
-  contact: PropTypes.string.isRequired,
-  event: PropTypes.string.isRequired,
+  currentIdUser: PropTypes.string.isRequired,
   messages: PropTypes.arrayOf(PropTypes.shape({
-    timestamp: PropTypes.number.isRequired,
-    person: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    MES_DATE: PropTypes.string.isRequired,
+    MES_AUTHOR: PropTypes.string.isRequired,
+    MES_CONTENT: PropTypes.string.isRequired,
   })),
 };
 

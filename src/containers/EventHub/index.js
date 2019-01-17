@@ -25,11 +25,10 @@ class EventHub extends React.Component {
       USER_NAME: PropTypes.string.isRequired,
       PROFILE_AVATAR: PropTypes.string.isRequired,
     })),
-    participate: PropTypes.string.isRequired,
+    participation: PropTypes.string.isRequired,
   };
 
   state = {
-    initialStatus: 'KO',
     curEvent: {
       EVENT_DATE: '',
       EVENT_DESC: '',
@@ -48,8 +47,10 @@ class EventHub extends React.Component {
     participant: [],
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    const { idEvent, actions: { getStatusParticipationAction } } = this.props;
     this.setState({ curEvent: this.findEvent() });
+    getStatusParticipationAction(idEvent);
   }
 
   findEvent = () => {
@@ -71,11 +72,13 @@ class EventHub extends React.Component {
 
   onClickParticipate = () => {
     const { idEvent, actions: { participateEventAction } } = this.props;
+    console.log('clicked Participate');
     participateEventAction(idEvent);
   }
 
   onClickUnParticipate = () => {
     const { idEvent, actions: { unParticipateEventAction } } = this.props;
+    console.log('clicked UNParticipate');
     unParticipateEventAction(idEvent);
   }
 
@@ -91,11 +94,9 @@ class EventHub extends React.Component {
   } */
 
   render() {
-    const { participant, participate } = this.props;
-    const { curEvent, initialStatus } = this.state;
-    console.log(participate);
-    console.log(participant);
-    console.log(initialStatus);
+    const { participant, participation: { data } } = this.props;
+    const { curEvent } = this.state;
+    console.log(data.participation);
     return (
       <EventPage
         eventName={curEvent.EVENT_NAME}
@@ -104,9 +105,9 @@ class EventHub extends React.Component {
         eventDate={this.getDate(curEvent)}
         eventSchedule={this.getSchedule(curEvent)}
         participants={participant.event}
-        onClick={this.onClickParticipate}
-        onUnClick={this.onClickUnParticipate}
-        status="participate"
+        onClickParticipate={this.onClickParticipate}
+        onClickUnParticipate={this.onClickUnParticipate}
+        status={data.participation}
       />
     );
   }
@@ -116,12 +117,12 @@ const mapStateToProps = ({
   idEvent,
   event: { data: { events } },
   participant,
-  participate,
+  participation,
 }) => ({
   idEvent,
   events,
   participant: participant.data,
-  participate,
+  participation,
 });
 
 export default connect(mapStateToProps, actions)(EventHub);

@@ -9,6 +9,7 @@
     "react/button-has-type": 0
   },
   "globals": {
-    "localStorage": true
+    "localStorage": true,
+    "window": true
   }
 }
