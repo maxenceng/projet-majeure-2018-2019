@@ -13,6 +13,7 @@ import participateEventAction from './participateEventAction';
 import unParticipateEventAction from './unParticipateEventAction';
 import getParticipantEventAction from './getParticipantEventAction';
 import userEventsAction from './userEventsAction';
+import getInterestedEventAction from './getInterestedEventAction';
 
 const allActions = {
   loginAction,
@@ -27,6 +28,7 @@ const allActions = {
   unParticipateEventAction,
   getParticipantEventAction,
   userEventsAction,
+  getInterestedEventAction,
 };
 
 export default dispatch => ({ actions: bindActionCreators(allActions, dispatch) });
