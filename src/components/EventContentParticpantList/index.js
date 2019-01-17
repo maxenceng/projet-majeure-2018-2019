@@ -3,8 +3,9 @@ import './index.scss';
 import PropTypes from 'prop-types';
 import EventContentParticipant from '../EventContentParticipant';
 
-const EventContentParticipantList = ({ participants }) => (
+const EventContentParticipantList = ({ participants, title }) => (
   <div className="event_participant_list">
+    <h2>{title}</h2>
     {participants.map(part => (
       <div key={part.ID_USER}>
         <EventContentParticipant
@@ -18,6 +19,7 @@ const EventContentParticipantList = ({ participants }) => (
 );
 
 EventContentParticipantList.propTypes = {
+  title: PropTypes.string.isRequired,
   participants: PropTypes.arrayOf(PropTypes.shape({
     ID_USER: PropTypes.string.isRequired,
     USER_FIRSTNAME: PropTypes.string.isRequired,

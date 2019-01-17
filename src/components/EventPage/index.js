@@ -12,6 +12,7 @@ const EventPage = ({
   eventDate,
   eventSchedule,
   participants,
+  interested,
   onClickParticipate,
   onClickUnParticipate,
   status,
@@ -28,7 +29,8 @@ const EventPage = ({
     />
     <div className="event_content_info">
       <EventContentDetails eventDesc={eventDesc} />
-      <EventContentParticipantList participants={participants} />
+      <EventContentParticipantList title="Participants" participants={participants} />
+      <EventContentParticipantList title="Interested" participants={interested} />
     </div>
   </div>
 );
@@ -45,6 +47,12 @@ EventPage.propTypes = {
     USER_NAME: PropTypes.string.isRequired,
     PROFILE_AVATAR: PropTypes.string.isRequired,
   })),
+  interested: PropTypes.arrayOf(PropTypes.shape({
+    ID_USER: PropTypes.string.isRequired,
+    USER_FIRSTNAME: PropTypes.string.isRequired,
+    USER_NAME: PropTypes.string.isRequired,
+    PROFILE_AVATAR: PropTypes.string.isRequired,
+  })),
   onClickParticipate: PropTypes.func.isRequired,
   onClickUnParticipate: PropTypes.func.isRequired,
   status: PropTypes.string.isRequired,
@@ -52,6 +60,7 @@ EventPage.propTypes = {
 
 EventPage.defaultProps = {
   participants: [],
+  interested: [],
 };
 
 export default EventPage;

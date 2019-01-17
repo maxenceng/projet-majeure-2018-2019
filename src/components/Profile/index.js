@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './index.scss';
+import Button from '../Button';
 
 const Profile = ({
+  onCLickEditProfile,
   profile: {
     PROFILE_AVATAR,
     PROFILE_DESC,
@@ -39,11 +41,18 @@ const Profile = ({
           <p>{TAG_TEXT}</p>
         </div>
       </div>
+      <div className="profilePart btnEdit">
+        <h4>Edit my Profile:</h4>
+        <div className="buttonEdit">
+          <Button onClick={onCLickEditProfile}>Edit Profile</Button>
+        </div>
+      </div>
     </div>
   </div>
 );
 
 Profile.propTypes = {
+  onCLickEditProfile: PropTypes.func.isRequired,
   profile: PropTypes.shape({
     PROFILE_AVATAR: PropTypes.string.isRequired,
     PROFILE_DESC: PropTypes.string.isRequired,

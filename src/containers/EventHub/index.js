@@ -25,6 +25,12 @@ class EventHub extends React.Component {
       USER_NAME: PropTypes.string.isRequired,
       PROFILE_AVATAR: PropTypes.string.isRequired,
     })),
+    interested: PropTypes.arrayOf(PropTypes.shape({
+      ID_USER: PropTypes.string.isRequired,
+      USER_FIRSTNAME: PropTypes.string.isRequired,
+      USER_NAME: PropTypes.string.isRequired,
+      PROFILE_AVATAR: PropTypes.string.isRequired,
+    })),
     participation: PropTypes.string.isRequired,
   };
 
@@ -45,6 +51,7 @@ class EventHub extends React.Component {
   static defaultProps = {
     events: [],
     participant: [],
+    interested: [],
   }
 
   componentWillMount() {
@@ -94,17 +101,20 @@ class EventHub extends React.Component {
   } */
 
   render() {
-    const { participant, participation: { data } } = this.props;
+    const { idEvent, interested, participant, participation: { data } } = this.props;
     const { curEvent } = this.state;
     console.log(data.participation);
+    console.log(data.interested);
     return (
       <EventPage
+        idEvent={idEvent}
         eventName={curEvent.EVENT_NAME}
         eventDesc={curEvent.EVENT_DESC}
         eventLoc={curEvent.LOC_DISTRICT}
         eventDate={this.getDate(curEvent)}
         eventSchedule={this.getSchedule(curEvent)}
         participants={participant.event}
+        interested={interested.event}
         onClickParticipate={this.onClickParticipate}
         onClickUnParticipate={this.onClickUnParticipate}
         status={data.participation}
@@ -118,11 +128,13 @@ const mapStateToProps = ({
   event: { data: { events } },
   participant,
   participation,
+  interested,
 }) => ({
   idEvent,
   events,
   participant: participant.data,
   participation,
+  interested: interested.data,
 });
 
 export default connect(mapStateToProps, actions)(EventHub);

@@ -9,11 +9,10 @@ export const getInterestedRequest = createAction(GET_INTERESTED_EVENT_REQUEST);
 export const getInterestedSuccess = createAction(GET_INTERESTED_EVENT_SUCCESS);
 export const getInterestedError = createAction(GET_INTERESTED_EVENT_ERROR);
 
-export default idEvent => (dispatch) => {
+export default ({ idEvent }) => (dispatch) => {
   dispatch(getInterestedRequest());
   console.log(idEvent);
-  const idUser = localStorage.getItem('idUser');
-  return axios.get(`userInterestedEvent?idUser=${idUser}&idEvent=${idEvent}`)
+  return axios.get(`usersInterestedEvent?idEvent=${idEvent}`)
     .then(res => dispatch(getInterestedSuccess(res)))
     .catch(err => dispatch(getInterestedError(err)));
 };

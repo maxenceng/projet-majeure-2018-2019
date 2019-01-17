@@ -59,5 +59,6 @@ export const actionPropTypes = PropTypes.shape({
   participateEventAction: ptFuncReq,
   unParticipateEventAction: ptFuncReq,
   userEventsAction: ptFuncReq,
+  getInterestedEventAction,
   getStatusParticipationAction: ptFuncReq,
 });

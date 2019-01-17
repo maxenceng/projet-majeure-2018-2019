@@ -13,12 +13,10 @@ export const allEventsError = createAction(ALL_EVENTS_ERROR);
 export default ({
   date,
   location,
-  tags,
-  price,
 }) => (dispatch) => {
   dispatch(allEventsRequest());
   return axios.get(
-    `allEvents?date=${date}&location=${JSON.stringify(location)}&tags=${tags}&price=${price}`,
+    `allEvents?date=${date}&location=${JSON.stringify(location)}`,
     axiosHeaders(),
   )
     .then(res => dispatch(allEventsSuccess(res)))
