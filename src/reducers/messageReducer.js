@@ -3,7 +3,7 @@ import { ADD_MESSAGE } from '../actions/chatAction/addMessageAction';
 
 const defaultState = {
   err: null,
-  data: {},
+  data: { messages: [] },
   isFetching: false,
 };
 
