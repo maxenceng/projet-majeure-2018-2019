@@ -12,8 +12,9 @@ const EventContentHeader = ({
   eventDate,
   eventLoc,
   eventSchedule,
-  onClick,
-  onUnClick,
+  onClickParticipate,
+  onClickUnParticipate,
+  status,
 }) => (
   <div className="event_header">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossOrigin="anonymous" />
@@ -28,8 +29,12 @@ const EventContentHeader = ({
       <h2 className="event_time">{eventDate} {eventSchedule}</h2>
     </div>
     <div id="event_header_right" className="event_header_item">
-      <Button className="inverse event_participate" onClick={onClick}>Participate</Button>
-      <Button className="inverse event_addtofavorite" onClick={onUnClick}>Add to Favorite</Button>
+      {status ? (
+        <Button className="inverse event_participate" onClick={onClickUnParticipate}>Désinscrire</Button>
+      ) : (
+        <Button className="inverse event_participate" onClick={onClickParticipate}>Participer</Button>
+      )}
+      <Button className="inverse event_addtofavorite">Add to Favorite</Button>
     </div>
   </div>
 );
@@ -39,8 +44,9 @@ EventContentHeader.propTypes = {
   eventDate: PropTypes.string.isRequired,
   eventLoc: PropTypes.string.isRequired,
   eventSchedule: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  onUnClick: PropTypes.func.isRequired,
+  onClickParticipate: PropTypes.func.isRequired,
+  onClickUnParticipate: PropTypes.func.isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 export default EventContentHeader;
