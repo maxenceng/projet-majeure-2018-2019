@@ -1,5 +1,4 @@
 import React from 'react';
-import Wrapper from '../src/helpers/Wrapper';
 import EventHistory from '../src/components/EventHistory';
 import '../styles/allEventPage.scss';
 
@@ -9,4 +8,4 @@ const agendaPage = () => (
   </div>
 );
 
-export default Wrapper(agendaPage);
+export default agendaPage;

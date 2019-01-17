@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Wrapper from '../src/helpers/Wrapper';
 import ChatPage from '../src/components/ChatPage';
 import actions, { actionPropTypes } from '../src/actions';
 import socket from '../src/helpers/socket';
@@ -146,4 +145,4 @@ const mapStateToProps = ({
   currentConv,
 });
 
-export default Wrapper(connect(mapStateToProps, actions)(Chat));
+export default connect(mapStateToProps, actions)(Chat);

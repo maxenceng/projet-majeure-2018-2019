@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Wrapper from '../src/helpers/Wrapper';
 import actions, { actionPropTypes } from '../src/actions';
 import '../styles/profilePage.scss';
 import ProfileSubmission from '../src/components/ProfileSubmission';
@@ -69,4 +68,4 @@ class profilePage extends React.Component {
   }
 }
 
-export default Wrapper(connect(null, actions)(profilePage));
+export default connect(null, actions)(profilePage);

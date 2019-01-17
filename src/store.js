@@ -5,7 +5,8 @@ import thunk from 'redux-thunk';
 
 import reducers from './reducers/index';
 
-export default createStore(
+export default initialState => createStore(
   reducers,
+  initialState,
   composeWithDevTools(applyMiddleware(thunk, logger)),
 );

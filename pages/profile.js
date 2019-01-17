@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Wrapper from '../src/helpers/Wrapper';
 import '../styles/profilePage.scss';
 import actions, { actionPropTypes } from '../src/actions';
 import ProfilePage from '../src/components/Profile';
@@ -63,4 +62,4 @@ class Profile extends React.Component {
 
 const mapStateToProps = ({ profile }) => ({ profile: profile.data });
 
-export default Wrapper(connect(mapStateToProps, actions)(Profile));
+export default connect(mapStateToProps, actions)(Profile);

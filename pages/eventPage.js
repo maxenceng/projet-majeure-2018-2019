@@ -1,5 +1,4 @@
 import React from 'react';
-import Wrapper from '../src/helpers/Wrapper';
 import '../styles/eventPage.scss';
 import EventContentHeader from '../src/components/EventContentHeader';
 import EventContentDetails from '../src/components/EventContentDetails';
@@ -16,4 +15,4 @@ const EventPage = () => (
   </div>
 );
 
-export default Wrapper(EventPage);
+export default EventPage;
