@@ -10,16 +10,17 @@ const EventContentParticipantList = ({ participants, title }) => (
 
   <div className="event_participant_list">
     <h2>{title}</h2>
-    {participants.map(part => (
-      idUser !== part.ID_USER && (
-      <React.Fragment>
-        <div key={part.ID_USER}>
-          <EventContentParticipant
-            participant={part}
-          />
-        </div>
-      </React.Fragment>)
-    ))}
+    {participants !== null && (
+      participants.map(part => (
+        idUser !== part.ID_USER && (
+        <React.Fragment>
+          <div key={part.ID_USER}>
+            <EventContentParticipant
+              participant={part}
+            />
+          </div>
+        </React.Fragment>)
+      )))}
   </div>
 );
 

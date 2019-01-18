@@ -28,7 +28,6 @@ class EventContentParticipant extends React.Component {
 
   render() {
     const { participant } = this.props;
-    console.log(participant);
     return (
       <div>
         <EventContent

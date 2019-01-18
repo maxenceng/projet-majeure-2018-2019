@@ -18,7 +18,7 @@ export default (initialState, { isServer }) => {
   const persistConfig = {
     key: 'nextjs',
     storage,
-    whitelist: ['currentConv', 'event', 'location'],
+    whitelist: ['currentConv', 'event', 'profile', 'idEvent', 'location'],
   };
   const persistedReducers = persistReducer(persistConfig, reducers);
   const store = configureStore(persistedReducers, initialState);

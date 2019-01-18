@@ -40,8 +40,6 @@ class Profile extends React.Component {
   }
 
   onCLickEditProfile = () => {
-    console.log('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
-    console.log('onclik ok');
     Router.push('/profilePage');
   }
 

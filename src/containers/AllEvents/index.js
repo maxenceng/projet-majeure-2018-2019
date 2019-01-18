@@ -45,10 +45,7 @@ class AllEvents extends React.Component {
   componentWillReceiveProps(newProps) {
     const { actions: { getAllEventsAction }, location } = this.props;
     const { location: newLocation } = newProps;
-    console.log(location);
-    console.log(newLocation);
     if (location.lat !== newLocation.lat || location.lng !== newLocation.lng) {
-      console.log('entered', newLocation);
       getAllEventsAction({
         date: null,
         location: newLocation,
