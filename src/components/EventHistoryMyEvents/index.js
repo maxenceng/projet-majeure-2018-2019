@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
-import EventHistoryListing from '../EventHistoryListing';
+import EventHistory from '../../containers/EventHistory';
 
 const getDate = (EVENT_DATE) => {
   const date = new Date(EVENT_DATE * 1);
@@ -16,11 +16,13 @@ const EventHistoryMyEvents = ({ userEvents }) => (
       EVENT_NAME,
       EVENT_DATE,
       MEDIA_CONTENT,
+      ID_EVENT,
     }) => (
-      <EventHistoryListing
+      <EventHistory
         EVENT_NAME={EVENT_NAME}
         DATE={getDate(EVENT_DATE)}
         MEDIA_CONTENT={MEDIA_CONTENT}
+        ID_EVENT={ID_EVENT}
       />
     ))}
   </div>

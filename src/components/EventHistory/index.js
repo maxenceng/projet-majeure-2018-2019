@@ -15,6 +15,7 @@ const EventHistory = ({ userEvents }) => (
 
 EventHistory.propTypes = {
   userEvents: PropTypes.arrayOf(PropTypes.shape({
+    ID_EVENT: PropTypes.string.isRequired,
     EVENT_NAME: PropTypes.string.isRequired,
     EVENT_DESC: PropTypes.string.isRequired,
     EVENT_DATE: PropTypes.string.isRequired,

@@ -8,7 +8,7 @@ const EventComponent = ({
   event: {
     EVENT_DATE,
     EVENT_NAME,
-    LOC_DISCTRICT,
+    LOC_DISTRICT,
     MEDIA_CONTENT,
   },
   onClick,
@@ -19,7 +19,7 @@ const EventComponent = ({
       <DateBox
         date={EVENT_DATE}
         name={EVENT_NAME}
-        district={LOC_DISCTRICT}
+        district={LOC_DISTRICT}
       />
     </button>
   </div>
