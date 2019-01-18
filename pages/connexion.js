@@ -65,6 +65,24 @@ class Connexion extends React.Component {
     });
   };
 
+
+  facebookLogin = (event) => {
+    console.log(event);
+    const { actions: { openIdLoginAction } } = this.props;
+    const {
+      email,
+      name,
+      id,
+    } = event;
+    openIdLoginAction({
+      email,
+      name: name.split(' ')[1],
+      firstname: name.split(' ')[0],
+      password: id,
+      passwordVerif: id,
+    });
+  };
+
   onChange = name => ({ target: { value } }) => this.setState({ [name]: value });
 
   render() {
@@ -74,6 +92,7 @@ class Connexion extends React.Component {
         onSubmit={this.onSubmit}
         onChange={this.onChange}
         googleLogin={this.googleLogin}
+        facebookLogin={this.facebookLogin}
       />
     );
   }

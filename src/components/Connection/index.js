@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GoogleLogin } from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 import './index.scss';
 import Button from '../Button';
 import InputList from '../InputList';
@@ -15,6 +16,7 @@ const Connection = ({
   onChange,
   onSubmit,
   googleLogin,
+  facebookLogin,
 }) => (
   <div className="Connection">
     <div className="connexionForm">
@@ -25,12 +27,23 @@ const Connection = ({
           <Button type="submit">Connexion</Button>
         </div>
         <div>
-          <GoogleLogin
-            clientId="529637638584-qp9rgeeg1g0n63ml36kg572falfj6m1l.apps.googleusercontent.com"
-            buttonText="Login with Google"
-            onSuccess={googleLogin}
-            onFailure={failGoogle}
-          />
+          <div>
+            <GoogleLogin
+              className="openid"
+              clientId="529637638584-qp9rgeeg1g0n63ml36kg572falfj6m1l.apps.googleusercontent.com"
+              buttonText="Login with Google"
+              onSuccess={googleLogin}
+              onFailure={failGoogle}
+            />
+          </div>
+          <div>
+            <FacebookLogin
+              appId="501016000420647"
+              autoLoad
+              fields="name,email,picture"
+              callback={facebookLogin}
+            />
+          </div>
         </div>
       </form>
     </div>
@@ -47,6 +60,7 @@ Connection.propTypes = {
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   googleLogin: PropTypes.func.isRequired,
+  facebookLogin: PropTypes.func.isRequired,
 };
 
 export default Connection;
