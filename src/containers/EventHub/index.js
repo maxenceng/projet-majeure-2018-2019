@@ -111,8 +111,6 @@ class EventHub extends React.Component {
       participation: { data },
     } = this.props;
     const { curEvent } = this.state;
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-    console.log(participant.event);
     return (
       <EventPage
         idEvent={idEvent}

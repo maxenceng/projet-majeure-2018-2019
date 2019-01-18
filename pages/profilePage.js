@@ -10,6 +10,14 @@ class profilePage extends React.Component {
     actions: actionPropTypes.isRequired,
   };
 
+  state = {
+    PROFILE_AVATAR: '',
+    PROFILE_DESC: '',
+    TAG_TEXT: '',
+    USER_FIRSTNAME: '',
+    USER_NAME: '',
+  };
+
   componentWillMount() {
     const {
       PROFILE_AVATAR,
@@ -17,7 +25,8 @@ class profilePage extends React.Component {
       TAG_TEXT,
       USER_FIRSTNAME,
       USER_NAME,
-    } = this.getProfile;
+    } = this.getProfile(this.props);
+
     this.setState({
       PROFILE_AVATAR,
       PROFILE_DESC,
