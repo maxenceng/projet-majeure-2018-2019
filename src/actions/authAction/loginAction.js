@@ -15,7 +15,6 @@ export default ({ email, password }) => (dispatch) => {
   return axios.post('signIn', { email, password })
     .then((res) => {
       dispatch(loginSuccess(res));
-      console.log(res.data);
       if (process.browser) {
         localStorage.setItem('userToken', res.data.token);
         localStorage.setItem('idUser', res.data.user.ID_USER);

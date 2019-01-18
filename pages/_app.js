@@ -24,6 +24,8 @@ class MyApp extends App {
             lng,
             lat,
           });
+        }, null, {
+          enableHighAccuracy: true,
         });
       }
       if (getLocalStorageItem('userToken') && getLocalStorageItem('idUser')) {
