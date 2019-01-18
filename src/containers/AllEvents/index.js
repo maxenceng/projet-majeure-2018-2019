@@ -28,7 +28,7 @@ class AllEvents extends React.Component {
     const { actions: { getAllEventsAction } } = this.props;
     getAllEventsAction({
       date: null,
-      location: { lng: 4.869803, lat: 45.784816 },
+      location: 'London',
     });
   }
 

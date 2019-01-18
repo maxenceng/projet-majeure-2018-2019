@@ -11,7 +11,7 @@ export const getParticipationError = createAction(PARTICIPATE_EVENT_ERROR);
 
 export default idEvent => (dispatch) => {
   dispatch(getParticipationRequest());
-  const idUser = localStorage.getItem('idUser');
+  const idUser = process.browser && localStorage.getItem('idUser');
   return axios.get(`participateEvent?idUser=${idUser}&idEvent=${idEvent}`)
     .then(res => dispatch(getParticipationSuccess(res)))
     .catch(err => dispatch(getParticipationError(err)));

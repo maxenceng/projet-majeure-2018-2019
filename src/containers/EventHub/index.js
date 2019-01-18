@@ -18,6 +18,7 @@ class EventHub extends React.Component {
       LOC_EVENT: PropTypes.string.isRequired,
       LOC_LATITUDE: PropTypes.string.isRequired,
       LOC_LONGITUDE: PropTypes.string.isRequired,
+      MEDIA_CONTENT: PropTypes.string.isRequired,
     })),
     participant: PropTypes.arrayOf(PropTypes.shape({
       ID_USER: PropTypes.string.isRequired,
@@ -49,7 +50,11 @@ class EventHub extends React.Component {
 
   componentWillMount() {
     const { idEvent, actions: { getStatusParticipationAction } } = this.props;
-    this.setState({ curEvent: this.findEvent() });
+    if (process.browser && this.findEvent()) {
+      localStorage.setItem('currentEvent', JSON.stringify(this.findEvent()));
+    }
+    const event = process.browser && JSON.parse(localStorage.getItem('currentEvent'));
+    this.setState({ curEvent: this.findEvent() || event });
     getStatusParticipationAction(idEvent);
   }
 
@@ -94,11 +99,12 @@ class EventHub extends React.Component {
   } */
 
   render() {
-    const { participant, participation: { data } } = this.props;
+    const { participant, participation } = this.props;
     const { curEvent } = this.state;
-    console.log(data.participation);
+    console.log(participation.data);
     return (
       <EventPage
+        eventPicture={curEvent.MEDIA_CONTENT}
         eventName={curEvent.EVENT_NAME}
         eventDesc={curEvent.EVENT_DESC}
         eventLoc={curEvent.LOC_DISTRICT}
@@ -107,7 +113,7 @@ class EventHub extends React.Component {
         participants={participant.event}
         onClickParticipate={this.onClickParticipate}
         onClickUnParticipate={this.onClickUnParticipate}
-        status={data.participation}
+        status={participation.data}
       />
     );
   }

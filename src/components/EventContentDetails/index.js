@@ -1,12 +1,11 @@
 import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
-import pictureBox from '../../assets/images/party.jpg';
 
-const EventContentDetails = ({ eventDesc }) => (
+const EventContentDetails = ({ eventDesc, eventPicture }) => (
   <div className="event_details">
     <div className="event_details_item">
-      <img className="event_details_picture" src={pictureBox} alt="imageEvenement" />
+      <img className="event_details_picture" src={eventPicture} alt="imageEvenement" />
     </div>
     <div className="event_details_item">
       <h2>Description</h2>
@@ -16,6 +15,7 @@ const EventContentDetails = ({ eventDesc }) => (
 );
 
 EventContentDetails.propTypes = {
+  eventPicture: PropTypes.string.isRequired,
   eventDesc: PropTypes.string.isRequired,
 };
 

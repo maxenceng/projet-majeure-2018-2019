@@ -11,7 +11,7 @@ export const getProfileError = createAction(GET_PROFILE_ERROR);
 
 export default () => (dispatch) => {
   dispatch(getProfileRequest());
-  const idUser = localStorage.getItem('idUser');
+  const idUser = process.browser && localStorage.getItem('idUser');
   return axios.get(`userProfile?idUser=${idUser}`)
     .then(res => dispatch(getProfileSuccess(res)))
     .catch(err => dispatch(getProfileError(err)));

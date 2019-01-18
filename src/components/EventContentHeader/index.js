@@ -29,7 +29,7 @@ const EventContentHeader = ({
       <h2 className="event_time">{eventDate} {eventSchedule}</h2>
     </div>
     <div id="event_header_right" className="event_header_item">
-      {status ? (
+      {status === 'participate' ? (
         <Button className="inverse event_participate" onClick={onClickUnParticipate}>Désinscrire</Button>
       ) : (
         <Button className="inverse event_participate" onClick={onClickParticipate}>Participer</Button>
