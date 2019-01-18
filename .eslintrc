@@ -6,10 +6,12 @@
     "linebreak-style": 0,
     "react/jsx-one-expression-per-line": 0,
     "react/sort-comp": 0,
-    "react/button-has-type": 0
+    "react/button-has-type": 0,
+    "no-underscore-dangle": 0
   },
   "globals": {
     "localStorage": true,
-    "window": true
+    "window": true,
+    "navigator": true,
   }
 }

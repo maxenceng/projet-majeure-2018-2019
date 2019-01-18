@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Wrapper from '../src/helpers/Wrapper';
 import DynamicHead from '../src/components/DynamicHead';
 import Button from '../src/containers/Button';
 
@@ -16,4 +15,4 @@ const About = () => (
   </div>
 );
 
-export default Wrapper(About);
+export default About;

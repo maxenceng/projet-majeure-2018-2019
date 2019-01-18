@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Wrapper from '../src/helpers/Wrapper';
 import actions, { actionPropTypes } from '../src/actions';
 import Connection from '../src/components/Connection';
 
@@ -61,4 +60,4 @@ class Connexion extends React.Component {
   }
 }
 
-export default Wrapper(connect(null, actions)(Connexion));
+export default connect(null, actions)(Connexion);

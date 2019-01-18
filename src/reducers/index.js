@@ -9,10 +9,11 @@ import connectionStatus from './connectionStatusReducer';
 import idEvent from './currentEventReducer';
 import participant from './participantReducer';
 import participate from './participateEventReducer';
-import userEvents from './userEvents';
+import userEvents from './userEventsReducer';
 import currentConv from './currentConvReducer';
 import participation from './statusParticipationReducer';
 import interested from './interestedEventReducer';
+import location from './locationReducer';
 
 export default combineReducers({
   auth,
@@ -28,4 +29,5 @@ export default combineReducers({
   currentConv,
   participation,
   interested,
+  location,
 });

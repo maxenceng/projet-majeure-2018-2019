@@ -1,5 +1,4 @@
 import React from 'react';
-import Wrapper from '../src/helpers/Wrapper';
 import ImgHome from '../src/components/ImgHome';
 import AllEvents from '../src/containers/AllEvents';
 import '../styles/index.scss';
@@ -17,4 +16,4 @@ const Index = () => (
   </div>
 );
 
-export default Wrapper(Index);
+export default Index;

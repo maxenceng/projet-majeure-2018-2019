@@ -32,16 +32,6 @@ class Header extends React.Component {
     profile: [],
   }
 
-  componentWillMount() {
-    const { actions: { getProfileAction } } = this.props;
-    if (
-      process.browser
-      && localStorage.getItem('userToken')
-      && localStorage.getItem('idUser')) {
-      getProfileAction();
-    }
-  }
-
   componentWillReceiveProps(newProps) {
     const { profile, actions: { connectionStatusAction }, auth } = this.props;
     const { profile: newProfile, auth: newAuth } = newProps;

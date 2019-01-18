@@ -1,6 +1,5 @@
 import React from 'react';
 import socketIOClient from 'socket.io-client';
-import Wrapper from '../src/helpers/Wrapper';
 import { BASE_URL } from '../src/helpers/common';
 
 class Socket extends React.Component {
@@ -30,4 +29,4 @@ class Socket extends React.Component {
   }
 }
 
-export default Wrapper(Socket);
+export default Socket;

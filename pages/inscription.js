@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Wrapper from '../src/helpers/Wrapper';
 import Subscribe from '../src/components/Subscribe';
 import actions, { actionPropTypes } from '../src/actions';
 
@@ -91,4 +90,4 @@ class Inscription extends React.Component {
   }
 }
 
-export default Wrapper(connect(null, actions)(Inscription));
+export default connect(null, actions)(Inscription);
