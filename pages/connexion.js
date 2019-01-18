@@ -47,6 +47,24 @@ class Connexion extends React.Component {
     });
   }
 
+  googleLogin = (event) => {
+    console.log(event);
+    const { actions: { openIdLoginAction } } = this.props;
+    const {
+      email,
+      givenName,
+      googleId,
+      familyName,
+    } = event.profileObj;
+    openIdLoginAction({
+      email,
+      name: familyName,
+      firstname: givenName,
+      password: googleId,
+      passwordVerif: googleId,
+    });
+  };
+
   onChange = name => ({ target: { value } }) => this.setState({ [name]: value });
 
   render() {
@@ -55,6 +73,7 @@ class Connexion extends React.Component {
         inputList={this.inputList}
         onSubmit={this.onSubmit}
         onChange={this.onChange}
+        googleLogin={this.googleLogin}
       />
     );
   }

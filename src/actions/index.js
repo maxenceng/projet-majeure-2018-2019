@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 
 import loginAction from './authAction/loginAction';
 import registerAction from './authAction/registerAction';
+import openIdLoginAction from './authAction/openIdLoginAction';
 import profileSaveAction from './profileAction/profileSaveAction';
 import getMessagesAction from './chatAction/getMessagesAction';
 import getConversationsAction from './chatAction/getConversationsAction';
@@ -39,6 +40,7 @@ const allActions = {
   getInterestedEventAction,
   getStatusParticipationAction,
   locationAction,
+  openIdLoginAction,
 };
 
 export default dispatch => ({ actions: bindActionCreators(allActions, dispatch) });
