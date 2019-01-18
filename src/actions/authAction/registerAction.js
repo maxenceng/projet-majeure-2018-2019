@@ -1,4 +1,5 @@
 import { createAction } from 'redux-actions';
+import Router from 'next/dist/lib/router';
 import axios from '../../helpers/axios';
 import { getErrorMessage } from '../../helpers/common';
 
@@ -27,11 +28,11 @@ export default ({
   })
     .then((res) => {
       dispatch(registerSuccess(res));
-      console.log(res.data);
       if (process.browser) {
         localStorage.setItem('userToken', res.data.token);
         localStorage.setItem('idUser', res.data.idUser);
       }
+      Router.push('/');
     })
     .catch(err => dispatch(registerError(getErrorMessage(err))));
 };

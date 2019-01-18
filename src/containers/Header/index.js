@@ -32,6 +32,13 @@ class Header extends React.Component {
     profile: [],
   }
 
+  componentWillMount() {
+    const { profile, actions: { connectionStatusAction } } = this.props;
+    if (profile.length !== 0) {
+      connectionStatusAction(true);
+    }
+  }
+
   componentWillReceiveProps(newProps) {
     const { profile, actions: { connectionStatusAction }, auth } = this.props;
     const { profile: newProfile, auth: newAuth } = newProps;
