@@ -12,6 +12,7 @@ import getAllEventsAction from './eventAction/getAllEventsAction';
 import currentEventAction from './currentEventAction';
 import getProfileAction from './profileAction/getProfileAction';
 import connectionStatusAction from './connectionStatusAction';
+import locationAction from './locationAction';
 
 const allActions = {
   loginAction,
@@ -25,6 +26,7 @@ const allActions = {
   currentEventAction,
   getProfileAction,
   connectionStatusAction,
+  locationAction,
 };
 
 export default dispatch => ({ actions: bindActionCreators(allActions, dispatch) });
@@ -43,4 +45,5 @@ export const actionPropTypes = PropTypes.shape({
   currentEventAction: ptFuncReq,
   getProfileAction: ptFuncReq,
   connectionStatusAction: ptFuncReq,
+  locationAction: ptFuncReq,
 });

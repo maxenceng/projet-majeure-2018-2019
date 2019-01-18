@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ChatPage from '../src/components/ChatPage';
 import actions, { actionPropTypes } from '../src/actions';
 import socket from '../src/helpers/socket';
+import { getLocalStorageItem } from '../src/helpers/common';
 
 class Chat extends React.Component {
   static propTypes = {
@@ -26,27 +27,28 @@ class Chat extends React.Component {
   componentWillMount() {
     const { actions: { getConversationsAction } } = this.props;
     getConversationsAction();
-    socket.on('sendMessage', (result) => {
-      const { actions: { addMessageAction } } = this.props;
-      if (!result.err) {
-        addMessageAction({
-          MES_AUTHOR: localStorage.getItem('idUser'),
-          MES_CONTENT: result.data.message,
-          MES_DATE: Date.now(),
-        });
-      }
-    });
-
-    socket.on('message', (result) => {
-      const { actions: { addMessageAction }, currentConv } = this.props;
-      if (!result.err) {
-        addMessageAction({
-          MES_AUTHOR: currentConv.idUser,
-          MES_CONTENT: result.message,
-          MES_DATE: Date.now(),
-        });
-      }
-    });
+    if (process.browser) {
+      socket.on('sendMessage', (result) => {
+        const { actions: { addMessageAction } } = this.props;
+        if (!result.err) {
+          addMessageAction({
+            MES_AUTHOR: getLocalStorageItem('idUser'),
+            MES_CONTENT: result.data.message,
+            MES_DATE: Date.now(),
+          });
+        }
+      });
+      socket.on('message', (result) => {
+        const { actions: { addMessageAction }, currentConv } = this.props;
+        if (!result.err) {
+          addMessageAction({
+            MES_AUTHOR: currentConv.idUser,
+            MES_CONTENT: result.message,
+            MES_DATE: Date.now(),
+          });
+        }
+      });
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -70,15 +72,17 @@ class Chat extends React.Component {
     window.onbeforeunload = () => socket.emit('disconnect');
   }
 
-  connect = () => process.browser && socket.emit('chatConnection', { idUser: localStorage.getItem('idUser') });
+  connect = () => process.browser && socket.emit('chatConnection', { idUser: getLocalStorageItem('idUser') });
 
   sendMessage = (message) => {
     const { currentConv: { idUser: idDest } } = this.props;
-    socket.emit('sendMessage', {
-      message,
-      exp: localStorage.getItem('idUser'),
-      idDest,
-    });
+    if (process.browser) {
+      socket.emit('sendMessage', {
+        message,
+        exp: getLocalStorageItem('idUser'),
+        idDest,
+      });
+    }
   }
 
   getConversations = (props) => {

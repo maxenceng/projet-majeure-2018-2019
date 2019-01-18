@@ -18,18 +18,39 @@ class AllEvents extends React.Component {
       LOC_LATITUDE: PropTypes.string.isRequired,
       LOC_LONGITUDE: PropTypes.string.isRequired,
     })),
+    location: PropTypes.shape({
+      lng: PropTypes.number.isRequired,
+      lat: PropTypes.number.isRequired,
+    }),
   };
 
   static defaultProps = {
     events: [],
+    location: {
+      lng: 0,
+      lat: 0,
+    },
   }
 
   componentWillMount = () => {
-    const { actions: { getAllEventsAction } } = this.props;
+    const { actions: { getAllEventsAction }, location } = this.props;
     getAllEventsAction({
       date: null,
-      location: { lng: 4.869803, lat: 45.784816 },
+      location,
     });
+  }
+
+  componentWillReceiveProps(newProps) {
+    const { actions: { getAllEventsAction }, location } = this.props;
+    const { location: newLocation } = newProps;
+    console.log(location);
+    if (location.lat !== newLocation.lat || location.lng !== newLocation.lng) {
+      console.log('entered', newLocation);
+      getAllEventsAction({
+        date: null,
+        location: newLocation,
+      });
+    }
   }
 
   render() {
@@ -40,6 +61,6 @@ class AllEvents extends React.Component {
   }
 }
 
-const mapStateToProps = ({ event: { data: { events } } }) => ({ events });
+const mapStateToProps = ({ event: { data: { events } }, location }) => ({ events, location });
 
 export default connect(mapStateToProps, actions)(AllEvents);

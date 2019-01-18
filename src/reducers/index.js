@@ -7,6 +7,7 @@ import event from './eventReducer';
 import profile from './profileReducer';
 import connectionStatus from './connectionStatusReducer';
 import currentConv from './currentConvReducer';
+import location from './locationReducer';
 
 export default combineReducers({
   auth,
@@ -16,4 +17,5 @@ export default combineReducers({
   profile,
   connectionStatus,
   currentConv,
+  location,
 });
