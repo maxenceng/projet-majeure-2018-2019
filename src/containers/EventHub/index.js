@@ -60,8 +60,7 @@ class EventHub extends React.Component {
     if (process.browser && this.findEvent()) {
       localStorage.setItem('currentEvent', JSON.stringify(this.findEvent()));
     }
-    const event = process.browser && JSON.parse(localStorage.getItem('currentEvent'));
-    this.setState({ curEvent: this.findEvent() || event });
+    this.setState({ curEvent: this.findEvent() });
     getStatusParticipationAction(idEvent);
   }
 
