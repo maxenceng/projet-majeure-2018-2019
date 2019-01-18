@@ -11,7 +11,6 @@ export const getParticipantError = createAction(GET_PARTICIPANT_ERROR);
 
 export default ({ idEvent }) => (dispatch) => {
   dispatch(getParticipantRequest());
-  // const idUser = localStorage.getItem('idUser');
   return axios.get(`event?idEvent=${idEvent}`)
     .then(res => dispatch(getParticipantSuccess(res)))
     .catch(err => dispatch(getParticipantError(err)));

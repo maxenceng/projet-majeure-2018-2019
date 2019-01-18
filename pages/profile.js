@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Router from 'next/router';
-import Wrapper from '../src/helpers/Wrapper';
 import '../styles/profilePage.scss';
 import ProfileGet from '../src/components/Profile';
 
@@ -61,4 +60,4 @@ class Profile extends React.Component {
 
 const mapStateToProps = ({ profile }) => ({ profile: profile.data });
 
-export default Wrapper(connect(mapStateToProps, null)(Profile));
+export default (connect(mapStateToProps, null)(Profile));

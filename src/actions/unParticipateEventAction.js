@@ -11,7 +11,7 @@ export const getunParticipationError = createAction(UNPARTICIPATE_EVENT_ERROR);
 
 export default idEvent => (dispatch) => {
   dispatch(getunParticipationRequest());
-  const idUser = localStorage.getItem('idUser');
+  const idUser = process.browser && localStorage.getItem('idUser');
   return axios.get(`removeParticipation?idUser=${idUser}&idEvent=${idEvent}`)
     .then(res => dispatch(getunParticipationSuccess(res)))
     .catch(err => dispatch(getunParticipationError(err)));

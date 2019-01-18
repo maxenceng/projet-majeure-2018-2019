@@ -15,8 +15,9 @@ export default ({
   location,
 }) => (dispatch) => {
   dispatch(allEventsRequest());
+  const loc = typeof location === 'object' ? (JSON.stringify(location)) : (location);
   return axios.get(
-    `allEvents?date=${date}&location=${JSON.stringify(location)}`,
+    `allEvents?date=${date}&location=${loc}`,
     axiosHeaders(),
   )
     .then(res => dispatch(allEventsSuccess(res)))

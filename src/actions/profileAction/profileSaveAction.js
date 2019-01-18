@@ -16,7 +16,7 @@ export default ({
   USER_NAME,
 }) => (dispatch) => {
   dispatch(profileRequest());
-  const idUser = localStorage.getItem('idUser');
+  const idUser = process.browser && localStorage.getItem('idUser');
   const tagsArray = TAG_TEXT.split(' ');
   return axios.post('updateProfile', {
     idUser,

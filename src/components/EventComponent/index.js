@@ -3,12 +3,19 @@ import './index.scss';
 import PropTypes from 'prop-types';
 import PictureEvent from '../PictureEvent';
 import DateBox from '../DateBox';
-import pictureBox from '../../assets/images/party.jpg';
 
-const EventComponent = ({ event: { EVENT_DATE, EVENT_NAME, LOC_DISCTRICT }, onClick }) => (
+const EventComponent = ({
+  event: {
+    EVENT_DATE,
+    EVENT_NAME,
+    LOC_DISCTRICT,
+    MEDIA_CONTENT,
+  },
+  onClick,
+}) => (
   <div className="boxEvent">
     <button type="button" onClick={onClick} className="clickedEvent">
-      <PictureEvent pictureEvent={pictureBox} />
+      <PictureEvent pictureEvent={MEDIA_CONTENT} />
       <DateBox
         date={EVENT_DATE}
         name={EVENT_NAME}
@@ -30,6 +37,7 @@ EventComponent.propTypes = {
     LOC_EVENT: PropTypes.string.isRequired,
     LOC_LATITUDE: PropTypes.string.isRequired,
     LOC_LONGITUDE: PropTypes.string.isRequired,
+    MEDIA_CONTENT: PropTypes.string.isRequired,
   }),
 };
 

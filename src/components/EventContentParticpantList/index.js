@@ -3,15 +3,22 @@ import './index.scss';
 import PropTypes from 'prop-types';
 import EventContentParticipant from '../../containers/EventContentParticipant';
 
+
+const idUser = process.browser && localStorage.getItem('idUser');
+
 const EventContentParticipantList = ({ participants, title }) => (
+
   <div className="event_participant_list">
     <h2>{title}</h2>
     {participants.map(part => (
-      <div key={part.ID_USER}>
-        <EventContentParticipant
-          participant={part}
-        />
-      </div>
+      idUser !== part.ID_USER && (
+      <React.Fragment>
+        <div key={part.ID_USER}>
+          <EventContentParticipant
+            participant={part}
+          />
+        </div>
+      </React.Fragment>)
     ))}
   </div>
 );

@@ -37,7 +37,7 @@ class AllEvents extends React.Component {
     if (!(location.lat === 0 && location.lng === 0)) {
       getAllEventsAction({
         date: null,
-        location,
+        location: 'London',
       });
     }
   }
@@ -46,6 +46,7 @@ class AllEvents extends React.Component {
     const { actions: { getAllEventsAction }, location } = this.props;
     const { location: newLocation } = newProps;
     console.log(location);
+    console.log(newLocation);
     if (location.lat !== newLocation.lat || location.lng !== newLocation.lng) {
       console.log('entered', newLocation);
       getAllEventsAction({

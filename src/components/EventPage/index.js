@@ -6,6 +6,7 @@ import EventContentDetails from '../EventContentDetails';
 import EventContentParticipantList from '../EventContentParticpantList';
 
 const EventPage = ({
+  eventPicture,
   eventName,
   eventDesc,
   eventLoc,
@@ -28,7 +29,7 @@ const EventPage = ({
       status={status}
     />
     <div className="event_content_info">
-      <EventContentDetails eventDesc={eventDesc} />
+      <EventContentDetails eventPicture={eventPicture} eventDesc={eventDesc} />
       <EventContentParticipantList title="Participants" participants={participants} />
       <EventContentParticipantList title="Interested" participants={interested} />
     </div>
@@ -36,6 +37,7 @@ const EventPage = ({
 );
 
 EventPage.propTypes = {
+  eventPicture: PropTypes.string.isRequired,
   eventName: PropTypes.string.isRequired,
   eventDesc: PropTypes.string.isRequired,
   eventLoc: PropTypes.string.isRequired,

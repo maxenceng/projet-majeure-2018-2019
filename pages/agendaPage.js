@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import actions, { actionPropTypes } from '../src/actions';
-import Wrapper from '../src/helpers/Wrapper';
 import EventHistory from '../src/components/EventHistory';
 import '../styles/allEventPage.scss';
 
@@ -40,4 +39,4 @@ class AgendaPage extends React.Component {
 
 const mapStateToProps = ({ userEvents }) => ({ userEvents: userEvents.data });
 
-export default Wrapper(connect(mapStateToProps, actions)(AgendaPage));
+export default (connect(mapStateToProps, actions)(AgendaPage));

@@ -1,6 +1,5 @@
 import { createAction } from 'redux-actions';
 import axios from '../../helpers/axios';
-import { getLocalStorageItem } from '../../helpers/common';
 
 export const GET_PROFILE_REQUEST = 'GET_PROFILE_REQUEST';
 export const GET_PROFILE_SUCCESS = 'GET_PROFILE_SUCCESS';
@@ -12,7 +11,7 @@ export const getProfileError = createAction(GET_PROFILE_ERROR);
 
 export default () => (dispatch) => {
   dispatch(getProfileRequest());
-  const idUser = getLocalStorageItem('idUser');
+  const idUser = process.browser && localStorage.getItem('idUser');
   return axios.get(`userProfile?idUser=${idUser}`)
     .then(res => dispatch(getProfileSuccess(res)))
     .catch(err => dispatch(getProfileError(err)));
