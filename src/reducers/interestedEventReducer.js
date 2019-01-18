@@ -1,4 +1,4 @@
-import { GET_INTERESTED_EVENT_REQUEST, GET_INTERESTED_EVENT_SUCCESS, GET_INTERESTED_EVENT_ERROR  } from '../actions/getInterestedEventAction';
+import { GET_INTERESTED_EVENT_REQUEST, GET_INTERESTED_EVENT_SUCCESS, GET_INTERESTED_EVENT_ERROR } from '../actions/getInterestedEventAction';
 
 const defaultState = {
   err: null,
