@@ -13,7 +13,7 @@ const DateBox = ({ date, name, district }) => (
       {name}
       <br />
       <font size="2">
-        Lyon {district}
+        {district}
       </font>
     </div>
   </div>
