@@ -116,8 +116,6 @@ class Chat extends React.Component {
     currentConvAction(currentConv);
   }
 
-  onClick = () => console.log('clicked chat');
-
   get messages() {
     const { messages } = this.props;
     if (!messages) return [];
