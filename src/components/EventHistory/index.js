@@ -17,6 +17,7 @@ EventHistory.propTypes = {
     EVENT_NAME: PropTypes.string.isRequired,
     EVENT_DESC: PropTypes.string.isRequired,
     EVENT_DATE: PropTypes.string.isRequired,
+    PARTICIPATE: PropTypes.bool.isRequired,
   })).isRequired,
 };
 

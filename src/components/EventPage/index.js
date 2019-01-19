@@ -16,7 +16,10 @@ const EventPage = ({
   interested,
   onClickParticipate,
   onClickUnParticipate,
-  status,
+  onClickFavorite,
+  onClickUnFavorite,
+  statusParticipant,
+  statusFavorite,
 }) => (
   <div className="event_page">
     <EventContentHeader
@@ -26,7 +29,10 @@ const EventPage = ({
       eventSchedule={eventSchedule}
       onClickParticipate={onClickParticipate}
       onClickUnParticipate={onClickUnParticipate}
-      status={status}
+      onClickFavorite={onClickFavorite}
+      onClickUnFavorite={onClickUnFavorite}
+      statusParticipant={statusParticipant}
+      statusFavorite={statusFavorite}
     />
     <div className="event_content_info">
       <EventContentDetails eventPicture={eventPicture} eventDesc={eventDesc} />
@@ -57,7 +63,10 @@ EventPage.propTypes = {
   })),
   onClickParticipate: PropTypes.func.isRequired,
   onClickUnParticipate: PropTypes.func.isRequired,
-  status: PropTypes.string.isRequired,
+  onClickFavorite: PropTypes.func.isRequired,
+  onClickUnFavorite: PropTypes.func.isRequired,
+  statusParticipant: PropTypes.string.isRequired,
+  statusFavorite: PropTypes.string.isRequired,
 };
 
 EventPage.defaultProps = {

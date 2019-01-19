@@ -61,7 +61,7 @@ EventHistoryMyEvents.propTypes = {
     EVENT_DESC: PropTypes.string.isRequired,
     EVENT_DATE: PropTypes.string.isRequired,
     MEDIA_CONTENT: PropTypes.string.isRequired,
-    PARTCIPATE: PropTypes.string.isRequired,
+    PARTCIPATE: PropTypes.bool.isRequired,
   })).isRequired,
 };
 

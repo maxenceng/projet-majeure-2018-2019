@@ -12,6 +12,7 @@ import userEvents from './userEventsReducer';
 import interested from './interestedEventReducer';
 import location from './locationReducer';
 import participation from './participateEventReducer';
+import favorite from './favoriteEventReducer';
 import currentConv from './currentConvReducer';
 
 export default combineReducers({
@@ -24,6 +25,7 @@ export default combineReducers({
   idEvent,
   participant,
   participation,
+  favorite,
   userEvents,
   currentConv,
   interested,
