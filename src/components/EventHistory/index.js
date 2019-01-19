@@ -2,14 +2,12 @@ import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
 import EventHistoryMyEvents from '../EventHistoryMyEvents';
-import EventHistoryMyFavs from '../EventHistoryMyFavs';
 
 const EventHistory = ({ userEvents }) => (
   <div className="event_history">
     <EventHistoryMyEvents
       userEvents={userEvents}
     />
-    <EventHistoryMyFavs />
   </div>
 );
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
-import { getDay } from '../../helpers/common';
 
 const EventHistoryListing = ({
   eventDate,
@@ -19,7 +18,7 @@ const EventHistoryListing = ({
         />
       </div>
       <div className="event_history_listing_item">
-        <h3>{getDay(eventDate)} : {eventName}</h3>
+        <h3>{eventDate} : {eventName}</h3>
       </div>
     </div>
   </button>

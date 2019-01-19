@@ -17,14 +17,41 @@ const EventHistoryMyEvents = ({ userEvents }) => (
       EVENT_DATE,
       MEDIA_CONTENT,
       ID_EVENT,
-    }) => (
-      <EventHistory
-        EVENT_NAME={EVENT_NAME}
-        DATE={getDate(EVENT_DATE)}
-        MEDIA_CONTENT={MEDIA_CONTENT}
-        ID_EVENT={ID_EVENT}
-      />
-    ))}
+      PARTICIPATE,
+    }) => {
+      if (PARTICIPATE) {
+        return (
+          <EventHistory
+            key={ID_EVENT}
+            EVENT_NAME={EVENT_NAME}
+            DATE={getDate(EVENT_DATE)}
+            MEDIA_CONTENT={MEDIA_CONTENT}
+            ID_EVENT={ID_EVENT}
+          />);
+      }
+      return '';
+    })}
+
+    <h2>Favorite</h2>
+    {userEvents && userEvents.map(({
+      EVENT_NAME,
+      EVENT_DATE,
+      MEDIA_CONTENT,
+      ID_EVENT,
+      FAVORITE,
+    }) => {
+      if (FAVORITE) {
+        return (
+          <EventHistory
+            key={ID_EVENT}
+            EVENT_NAME={EVENT_NAME}
+            DATE={getDate(EVENT_DATE)}
+            MEDIA_CONTENT={MEDIA_CONTENT}
+            ID_EVENT={ID_EVENT}
+          />);
+      }
+      return '';
+    })}
   </div>
 );
 
@@ -34,6 +61,7 @@ EventHistoryMyEvents.propTypes = {
     EVENT_DESC: PropTypes.string.isRequired,
     EVENT_DATE: PropTypes.string.isRequired,
     MEDIA_CONTENT: PropTypes.string.isRequired,
+    PARTCIPATE: PropTypes.string.isRequired,
   })).isRequired,
 };
 
