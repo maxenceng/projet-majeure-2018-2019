@@ -10,6 +10,7 @@ class Pin extends React.Component {
     actions: actionPropTypes.isRequired,
     idEvent: PropTypes.string.isRequired,
     EVENT_NAME: PropTypes.string.isRequired,
+    MEDIA_CONTENT: PropTypes.string.isRequired,
   };
 
   state = {
@@ -53,11 +54,18 @@ class Pin extends React.Component {
     const { show } = this.state;
     const {
       EVENT_NAME,
+      MEDIA_CONTENT,
     } = this.props;
 
+    const event = (
+      <div className="Event">
+        <img className="EventPicture" src={MEDIA_CONTENT} alt="no pic for the event :/" />
+        <div className="EventName">{EVENT_NAME}</div>
+      </div>
+    );
     return (
       <div className="Pin" onMouseOver={this.handleOnMouseOver} onMouseLeave={this.handleOnMouseLeave} onClick={this.handleOnClick}>
-        {show ? <div className="Event">{EVENT_NAME}</div> : <div className="Marker" />}
+        {show ? event : <div className="Marker" />}
       </div>
     );
   }
