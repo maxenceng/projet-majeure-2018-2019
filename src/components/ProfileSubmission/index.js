@@ -11,7 +11,7 @@ const ProfileSubmission = ({
   profile: {
     PROFILE_AVATAR,
     PROFILE_DESC,
-    TAG_TEXT,
+    tags,
     USER_FIRSTNAME,
     USER_NAME,
   },
@@ -72,9 +72,9 @@ const ProfileSubmission = ({
               <TextArea
                 key="tags"
                 name="inputTags"
-                value={TAG_TEXT}
+                value={typeof tags === 'string' ? tags : tags.join(' ')}
                 placeholder="tags"
-                onChange={onChange('TAG_TEXT')}
+                onChange={onChange('tags')}
               />
             </div>
           </div>
@@ -93,7 +93,7 @@ ProfileSubmission.propTypes = {
   profile: PropTypes.shape({
     PROFILE_AVATAR: PropTypes.string.isRequired,
     PROFILE_DESC: PropTypes.string.isRequired,
-    TAG_TEXT: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
     USER_FIRSTNAME: PropTypes.string.isRequired,
     USER_NAME: PropTypes.string.isRequired,
   }).isRequired,

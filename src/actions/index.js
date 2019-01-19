@@ -14,11 +14,14 @@ import currentEventAction from './currentEventAction';
 import getProfileAction from './profileAction/getProfileAction';
 import connectionStatusAction from './connectionStatusAction';
 import participateEventAction from './participateEventAction';
+import addFavEventAction from './addFavEventAction';
 import unParticipateEventAction from './unParticipateEventAction';
+import removeFavEventAction from './removeFavEventAction';
 import getParticipantEventAction from './getParticipantEventAction';
 import userEventsAction from './userEventsAction';
 import getInterestedEventAction from './getInterestedEventAction';
 import getStatusParticipationAction from './getStatusParticipationAction';
+import getStatusFavoriteAction from './getStatusFavoriteAction';
 import locationAction from './locationAction';
 
 const allActions = {
@@ -34,11 +37,14 @@ const allActions = {
   getProfileAction,
   connectionStatusAction,
   participateEventAction,
+  addFavEventAction,
   unParticipateEventAction,
+  removeFavEventAction,
   getParticipantEventAction,
   userEventsAction,
   getInterestedEventAction,
   getStatusParticipationAction,
+  getStatusFavoriteAction,
   locationAction,
   openIdLoginAction,
 };
@@ -61,9 +67,12 @@ export const actionPropTypes = PropTypes.shape({
   connectionStatusAction: ptFuncReq,
   getParticipantEventAction: ptFuncReq,
   participateEventAction: ptFuncReq,
+  addFavEventAction: ptFuncReq,
   unParticipateEventAction: ptFuncReq,
+  removeFavEventAction: ptFuncReq,
   userEventsAction: ptFuncReq,
   getInterestedEventAction: ptFuncReq,
   getStatusParticipationAction: ptFuncReq,
+  getStatusFavoriteAction: ptFuncReq,
   locationAction: ptFuncReq,
 });

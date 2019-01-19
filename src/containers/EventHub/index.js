@@ -33,6 +33,7 @@ class EventHub extends React.Component {
       PROFILE_AVATAR: PropTypes.string.isRequired,
     })),
     participation: PropTypes.string.isRequired,
+    favorite: PropTypes.string.isRequired,
   };
 
   state = {
@@ -56,13 +57,16 @@ class EventHub extends React.Component {
   }
 
   componentWillMount() {
-    const { idEvent, actions: { getStatusParticipationAction } } = this.props;
+    const {
+      idEvent,
+      actions: { getStatusParticipationAction, getStatusFavoriteAction },
+    } = this.props;
     if (process.browser && this.findEvent()) {
       localStorage.setItem('currentEvent', JSON.stringify(this.findEvent()));
     }
-    const event = process.browser && JSON.parse(localStorage.getItem('currentEvent'));
-    this.setState({ curEvent: this.findEvent() || event });
+    this.setState({ curEvent: this.findEvent() });
     getStatusParticipationAction(idEvent);
+    getStatusFavoriteAction(idEvent);
   }
 
   findEvent = () => {
@@ -92,6 +96,16 @@ class EventHub extends React.Component {
     unParticipateEventAction(idEvent);
   }
 
+  onClickFavorite = () => {
+    const { idEvent, actions: { addFavEventAction } } = this.props;
+    addFavEventAction(idEvent);
+  }
+
+  onClickUnFavorite = () => {
+    const { idEvent, actions: { removeFavEventAction } } = this.props;
+    removeFavEventAction(idEvent);
+  }
+
   /* componentWillReceiveProps(newProps) {
     const { participant: { event: newEvents } } = newProps;
     const { participant: { event } } = this.props;
@@ -108,7 +122,8 @@ class EventHub extends React.Component {
       idEvent,
       interested,
       participant,
-      participation: { data },
+      participation,
+      favorite,
     } = this.props;
     const { curEvent } = this.state;
     return (
@@ -124,7 +139,10 @@ class EventHub extends React.Component {
         interested={interested.event}
         onClickParticipate={this.onClickParticipate}
         onClickUnParticipate={this.onClickUnParticipate}
-        status={data}
+        onClickFavorite={this.onClickFavorite}
+        onClickUnFavorite={this.onClickUnFavorite}
+        statusParticipant={participation.data}
+        statusFavorite={favorite.data}
       />
     );
   }
@@ -135,12 +153,14 @@ const mapStateToProps = ({
   event: { data: { events } },
   participant,
   participation,
+  favorite,
   interested,
 }) => ({
   idEvent,
   events,
   participant: participant.data,
   participation,
+  favorite,
   interested: interested.data,
 });
 

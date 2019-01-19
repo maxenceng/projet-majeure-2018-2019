@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
-import EventHistoryListing from '../EventHistoryListing';
+import EventHistory from '../../containers/EventHistory';
 
 const getDate = (EVENT_DATE) => {
   const date = new Date(EVENT_DATE * 1);
@@ -16,13 +16,42 @@ const EventHistoryMyEvents = ({ userEvents }) => (
       EVENT_NAME,
       EVENT_DATE,
       MEDIA_CONTENT,
-    }) => (
-      <EventHistoryListing
-        EVENT_NAME={EVENT_NAME}
-        DATE={getDate(EVENT_DATE)}
-        MEDIA_CONTENT={MEDIA_CONTENT}
-      />
-    ))}
+      ID_EVENT,
+      PARTICIPATE,
+    }) => {
+      if (PARTICIPATE) {
+        return (
+          <EventHistory
+            key={ID_EVENT}
+            EVENT_NAME={EVENT_NAME}
+            DATE={getDate(EVENT_DATE)}
+            MEDIA_CONTENT={MEDIA_CONTENT}
+            ID_EVENT={ID_EVENT}
+          />);
+      }
+      return '';
+    })}
+
+    <h2>Favorite</h2>
+    {userEvents && userEvents.map(({
+      EVENT_NAME,
+      EVENT_DATE,
+      MEDIA_CONTENT,
+      ID_EVENT,
+      FAVORITE,
+    }) => {
+      if (FAVORITE) {
+        return (
+          <EventHistory
+            key={ID_EVENT}
+            EVENT_NAME={EVENT_NAME}
+            DATE={getDate(EVENT_DATE)}
+            MEDIA_CONTENT={MEDIA_CONTENT}
+            ID_EVENT={ID_EVENT}
+          />);
+      }
+      return '';
+    })}
   </div>
 );
 
@@ -32,6 +61,7 @@ EventHistoryMyEvents.propTypes = {
     EVENT_DESC: PropTypes.string.isRequired,
     EVENT_DATE: PropTypes.string.isRequired,
     MEDIA_CONTENT: PropTypes.string.isRequired,
+    PARTCIPATE: PropTypes.bool.isRequired,
   })).isRequired,
 };
 

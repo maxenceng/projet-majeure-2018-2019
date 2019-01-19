@@ -11,7 +11,6 @@ export const getInterestedError = createAction(GET_INTERESTED_EVENT_ERROR);
 
 export default ({ idEvent }) => (dispatch) => {
   dispatch(getInterestedRequest());
-  console.log(idEvent);
   return axios.get(`usersInterestedEvent?idEvent=${idEvent}`)
     .then(res => dispatch(getInterestedSuccess(res)))
     .catch(err => dispatch(getInterestedError(err)));

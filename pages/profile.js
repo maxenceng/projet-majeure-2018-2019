@@ -18,24 +18,24 @@ class Profile extends React.Component {
       return {
         PROFILE_AVATAR: '',
         PROFILE_DESC: '',
-        TAG_TEXT: '',
         USER_FIRSTNAME: '',
         USER_NAME: '',
+        tags: [],
       };
     }
     const {
       PROFILE_AVATAR,
       PROFILE_DESC,
-      TAG_TEXT,
       USER_FIRSTNAME,
       USER_NAME,
+      tags,
     } = profile[0];
     return {
       PROFILE_AVATAR,
       PROFILE_DESC,
-      TAG_TEXT,
       USER_FIRSTNAME,
       USER_NAME,
+      tags,
     };
   }
 

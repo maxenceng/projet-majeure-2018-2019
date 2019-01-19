@@ -8,7 +8,7 @@ const Profile = ({
   profile: {
     PROFILE_AVATAR,
     PROFILE_DESC,
-    TAG_TEXT,
+    tags,
     USER_FIRSTNAME,
     USER_NAME,
   },
@@ -38,7 +38,7 @@ const Profile = ({
         </div>
         <div className="profilePart tags">
           <h4>My Tags:</h4>
-          <p>{TAG_TEXT}</p>
+          <p>{tags.join(' ')}</p>
         </div>
       </div>
       <div className="profilePart btnEdit">

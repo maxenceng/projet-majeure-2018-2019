@@ -14,14 +14,14 @@ class profilePage extends React.Component {
     const {
       PROFILE_AVATAR,
       PROFILE_DESC,
-      TAG_TEXT,
+      tags,
       USER_FIRSTNAME,
       USER_NAME,
-    } = this.getProfile;
+    } = this.getProfile(this.props);
     this.setState({
       PROFILE_AVATAR,
       PROFILE_DESC,
-      TAG_TEXT,
+      tags,
       USER_FIRSTNAME,
       USER_NAME,
     });
@@ -44,12 +44,12 @@ class profilePage extends React.Component {
         PROFILE_DESC,
       });
     }
-    if (this.getProfile(this.props).TAG_TEXT === '' && this.getProfile(newProps).TAG_TEXT !== '') {
+    if (this.getProfile(this.props).tags === '' && this.getProfile(newProps).tags !== '') {
       const {
-        TAG_TEXT,
+        tags,
       } = this.getProfile(newProps);
       this.setState({
-        TAG_TEXT,
+        tags,
       });
     }
     if (this.getProfile(this.props).USER_FIRSTNAME === '' && this.getProfile(newProps).USER_FIRSTNAME !== '') {
@@ -76,7 +76,7 @@ class profilePage extends React.Component {
       return {
         PROFILE_AVATAR: '',
         PROFILE_DESC: '',
-        TAG_TEXT: '',
+        tags: [],
         USER_FIRSTNAME: '',
         USER_NAME: '',
       };
@@ -84,14 +84,14 @@ class profilePage extends React.Component {
     const {
       PROFILE_AVATAR,
       PROFILE_DESC,
-      TAG_TEXT,
+      tags,
       USER_FIRSTNAME,
       USER_NAME,
     } = profile[0];
     return {
       PROFILE_AVATAR,
       PROFILE_DESC,
-      TAG_TEXT,
+      tags,
       USER_FIRSTNAME,
       USER_NAME,
     };
@@ -103,14 +103,14 @@ class profilePage extends React.Component {
     const {
       PROFILE_AVATAR,
       PROFILE_DESC,
-      TAG_TEXT,
+      tags,
       USER_FIRSTNAME,
       USER_NAME,
     } = this.state;
     profileSaveAction({
       PROFILE_AVATAR,
       PROFILE_DESC,
-      TAG_TEXT,
+      tags,
       USER_FIRSTNAME,
       USER_NAME,
     });
