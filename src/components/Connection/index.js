@@ -26,10 +26,10 @@ const Connection = ({
         <div className="validation">
           <Button type="submit">Connexion</Button>
         </div>
-        <div>
+        <div className="openIds">
           <div>
             <GoogleLogin
-              className="openid"
+              className="openId"
               clientId="529637638584-qp9rgeeg1g0n63ml36kg572falfj6m1l.apps.googleusercontent.com"
               buttonText="Login with Google"
               onSuccess={googleLogin}
@@ -42,6 +42,7 @@ const Connection = ({
               autoLoad
               fields="name,email,picture"
               callback={facebookLogin}
+              icon="fa-facebook"
             />
           </div>
         </div>

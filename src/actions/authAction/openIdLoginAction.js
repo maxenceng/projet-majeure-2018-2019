@@ -29,8 +29,10 @@ export default ({
     .then((res) => {
       dispatch(registerSuccess(res));
       if (process.browser) {
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!');
+        console.log(res.data.user.ID_USER);
         localStorage.setItem('userToken', res.data.token);
-        localStorage.setItem('idUser', res.data.idUser);
+        localStorage.setItem('idUser', res.data.user.ID_USER);
       }
       Router.push('/');
     })
