@@ -60,7 +60,7 @@ class Map extends React.Component {
   render() {
     return (
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyDrjmudyF8Tvg9tOemW5GrNsxLCeFB9jXY' }}
+        bootstrapURLKeys={{ key: '' }}
         defaultCenter={{ lat: 45.764043, lng: 4.835659 }}
         defaultZoom={13}
         hoverDistance={1}
