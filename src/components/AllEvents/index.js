@@ -4,26 +4,12 @@ import './index.scss';
 import Event from '../../containers/Event';
 
 const AllEvents = ({ events }) => (
-  <div className="AllEvents">
-    <div className="filter">
-      <div className="topFilter">
-        <input type="text" className="locationFilter" placeholder="Lieu" />
-        <input type="date" className="dateFilter" placeholder="2019-01-01" min="2019-01-01" max="2020-12-31" />
-        <button type="button">Go</button>
+  <div className="events">
+    {events.map(event => (
+      <div key={event.ID_EVENT}>
+        <Event event={event} />
       </div>
-      <div className="bottomFilter">
-        <button type="button" className="btn active"> Tous les événements</button>
-        <button type="button" className="btn"> Pour moi </button>
-        <button type="button" className="btn"> Surprises </button>
-      </div>
-    </div>
-    <div className="events">
-      {events.map(event => (
-        <div key={event.ID_EVENT}>
-          <Event event={event} />
-        </div>
-      ))}
-    </div>
+    ))}
   </div>
 );
 

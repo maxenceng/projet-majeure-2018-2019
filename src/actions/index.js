@@ -22,6 +22,8 @@ import getInterestedEventAction from './getInterestedEventAction';
 import getStatusParticipationAction from './getStatusParticipationAction';
 import getStatusFavoriteAction from './getStatusFavoriteAction';
 import locationAction from './locationAction';
+import getEventForMeAction from './getEventForMeAction';
+import switchEventModeAction from './switchEventModeAction';
 
 const allActions = {
   loginAction,
@@ -45,6 +47,8 @@ const allActions = {
   getStatusParticipationAction,
   getStatusFavoriteAction,
   locationAction,
+  getEventForMeAction,
+  switchEventModeAction,
 };
 
 export default dispatch => ({ actions: bindActionCreators(allActions, dispatch) });
@@ -73,4 +77,6 @@ export const actionPropTypes = PropTypes.shape({
   getStatusParticipationAction: ptFuncReq,
   getStatusFavoriteAction: ptFuncReq,
   locationAction: ptFuncReq,
+  getEventForMeAction: ptFuncReq,
+  switchEventModeAction: ptFuncReq,
 });
