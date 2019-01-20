@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 import axios from '../../helpers/axios';
-import { getErrorMessage, axiosHeaders } from '../../helpers/common';
+import { getErrorMessage, axiosHeaders, getLocalStorageItem } from '../../helpers/common';
 
 export const ALL_EVENTS_REQUEST = 'ALL_EVENTS_REQUEST';
 export const ALL_EVENTS_SUCCESS = 'ALL_EVENTS_SUCCESS';
@@ -16,8 +16,9 @@ export default ({
 }) => (dispatch) => {
   dispatch(allEventsRequest());
   const loc = typeof location === 'object' ? (JSON.stringify(location)) : (location);
+  const idUser = getLocalStorageItem('idUser');
   return axios.get(
-    `allEvents?date=${date}&location=${loc}`,
+    `allEvents?idUser=${idUser}&date=${date}&location=${loc}`,
     axiosHeaders(),
   )
     .then(res => dispatch(allEventsSuccess(res)))

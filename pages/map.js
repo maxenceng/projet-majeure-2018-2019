@@ -47,13 +47,24 @@ class Map extends React.Component {
     return pins;
   }
 
+  handleOnChange = (res) => {
+    console.log(res.center.lat);
+    console.log(res.center.lng);
+    const { actions: { getAllEventsAction } } = this.props;
+    getAllEventsAction({
+      date: null,
+      location: `{"lat": "${res.center.lat}", "lng": "${res.center.lng}"}`,
+    });
+  }
+
   render() {
     return (
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyDrjmudyF8Tvg9tOemW5GrNsxLCeFB9jXY' }}
         defaultCenter={{ lat: 45.764043, lng: 4.835659 }}
-        defaultZoom={12}
+        defaultZoom={13}
         hoverDistance={1}
+        onChange={this.handleOnChange}
       >
         {this.userEvents}
       </GoogleMapReact>
