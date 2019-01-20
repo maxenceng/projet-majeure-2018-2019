@@ -18,7 +18,7 @@ export default ({
 }) => (dispatch) => {
   dispatch(profileRequest());
   const idUser = process.browser && localStorage.getItem('idUser');
-  const tagsArray = tags.split(' ');
+  const tagsArray = typeof tags === 'string' ? tags.split(' ') : [];
   return axios.post('updateProfile', {
     idUser,
     tagsArray,

@@ -44,12 +44,6 @@ class Pin extends React.Component {
     this.setState({ show: false });
   }
 
-  getDate = (dateEv) => {
-    const date = new Date(dateEv * 1);
-    const dateS = date.toString().split(' ');
-    return `${dateS[1]} ${dateS[2]} ${dateS[3]}`;
-  }
-
   render() {
     const { show } = this.state;
     const {

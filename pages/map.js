@@ -20,7 +20,7 @@ class Map extends React.Component {
     events: [],
   }
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     const { actions: { getAllEventsAction } } = this.props;
     getAllEventsAction({
       date: null,
