@@ -57,13 +57,23 @@ class AllEvents extends React.Component {
   }
 
   handleClickMode = (mode) => {
-    const { actions: { switchEventModeAction } } = this.props;
+    const {
+      actions: { switchEventModeAction, getEventForMeAction, getAllEventsAction },
+    } = this.props;
     localStorage.setItem('eventMode', mode);
     switchEventModeAction();
+    if (mode === 'btnEventsForMeMode') {
+      getEventForMeAction();
+    } else {
+      getAllEventsAction({
+        date: null,
+        location: 'Lyon',
+      });
+    }
   }
 
   render() {
-    const { events, eventMode } = this.props;
+    const { events } = this.props;
     const navigationMode = (
       <div className="filter">
         <div className="topFilter">
@@ -78,22 +88,14 @@ class AllEvents extends React.Component {
         </div>
       </div>
     );
-    if (eventMode.data === 'btnAllEventsMode') {
-      return (
-        <div className="AllEvents">
-          { navigationMode }
-          <AllEventsComponent events={events} />
-        </div>
-      );
-    }
     return (
       <div className="AllEvents">
         { navigationMode }
+        <AllEventsComponent events={events} />
       </div>
     );
   }
 }
-
 const mapStateToProps = ({
   event: { data: { events } },
   location,
