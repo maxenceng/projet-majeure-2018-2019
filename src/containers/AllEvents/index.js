@@ -35,8 +35,8 @@ class AllEvents extends React.Component {
   }
 
   componentWillMount = () => {
-    const { actions: { getAllEventsAction, switchEventModeAction }, location } = this.props;
-    switchEventModeAction();
+    const { actions: { getAllEventsAction }, location, eventMode } = this.props;
+    eventMode.data = 'btnAllEventsMode';
     if (!(location.lat === 0 && location.lng === 0)) {
       getAllEventsAction({
         date: null,
@@ -64,39 +64,31 @@ class AllEvents extends React.Component {
 
   render() {
     const { events, eventMode } = this.props;
+    const navigationMode = (
+      <div className="filter">
+        <div className="topFilter">
+          <input type="text" className="locationFilter" placeholder="Lieu" />
+          <input type="date" className="dateFilter" placeholder="2019-01-01" min="2019-01-01" max="2020-12-31" />
+          <button type="button">Go</button>
+        </div>
+        <div className="bottomFilter">
+          <button id="btnAllEventsMode" onClick={() => this.handleClickMode('btnAllEventsMode')} type="button" className="btn"> Tous les événements</button>
+          <button id="btnEventsForMeMode" onClick={() => this.handleClickMode('btnEventsForMeMode')} type="button" className="btn"> Pour moi </button>
+          <button id="randomEventMode" onClick={() => this.handleClickMode('randomEventMode')} type="button" className="btn"> Surprises </button>
+        </div>
+      </div>
+    );
     if (eventMode.data === 'btnAllEventsMode') {
       return (
         <div className="AllEvents">
-          <div className="filter">
-            <div className="topFilter">
-              <input type="text" className="locationFilter" placeholder="Lieu" />
-              <input type="date" className="dateFilter" placeholder="2019-01-01" min="2019-01-01" max="2020-12-31" />
-              <button type="button">Go</button>
-            </div>
-            <div className="bottomFilter">
-              <button id="btnAllEventsMode" onClick={() => this.handleClickMode('btnAllEventsMode')} type="button" className="btn"> Tous les événements</button>
-              <button id="btnEventsForMeMode" onClick={() => this.handleClickMode('btnEventsForMeMode')} type="button" className="btn"> Pour moi </button>
-              <button id="randomEventMode" onClick={() => this.handleClickMode('randomEventMode')} type="button" className="btn"> Surprises </button>
-            </div>
-          </div>
+          { navigationMode }
           <AllEventsComponent events={events} />
         </div>
       );
     }
     return (
       <div className="AllEvents">
-        <div className="filter">
-          <div className="topFilter">
-            <input type="text" className="locationFilter" placeholder="Lieu" />
-            <input type="date" className="dateFilter" placeholder="2019-01-01" min="2019-01-01" max="2020-12-31" />
-            <button type="button">Go</button>
-          </div>
-          <div className="bottomFilter">
-            <button id="btnAllEventsMode" onClick={() => this.handleClickMode('btnAllEventsMode')} type="button" className="btn"> Tous les événements</button>
-            <button id="btnEventsForMeMode" onClick={() => this.handleClickMode('btnEventsForMeMode')} type="button" className="btn"> Pour moi </button>
-            <button id="randomEventMode" onClick={() => this.handleClickMode('randomEventMode')} type="button" className="btn"> Surprises </button>
-          </div>
-        </div>
+        { navigationMode }
       </div>
     );
   }
