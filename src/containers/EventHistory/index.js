@@ -30,6 +30,7 @@ class EventHistory extends React.Component {
     getInterestedEventAction({
       idEvent: ID_EVENT,
     });
+    console.log(ID_EVENT);
     Router.push('/eventPage');
   }
 

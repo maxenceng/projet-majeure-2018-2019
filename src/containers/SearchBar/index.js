@@ -9,9 +9,15 @@ class SearchBar extends React.Component {
   };
 
 
-  handleResearchButton = () => {
-    const { actions: { getEventByFilterAction } } = this.props;
-    getEventByFilterAction();
+  handleResearchButton = (nameFilter) => {
+    const { actions: { getEventByFilterAction, getAllEventsAction } } = this.props;
+    if (nameFilter) getEventByFilterAction(nameFilter);
+    else {
+      getAllEventsAction({
+        date: null,
+        location: 'Lyon',
+      });
+    }
   }
 
   render() {

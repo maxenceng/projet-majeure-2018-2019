@@ -14,7 +14,7 @@ const AllEvents = ({ events }) => (
       <div className="bottomFilter">
         <button type="button" className="btn active"> Tous les événements</button>
         <button type="button" className="btn"> Pour moi </button>
-        <button type="button" className="btn"> Surprises </button>
+        <button type="button" className="btn"> Map </button>
       </div>
     </div>
     <div className="events">
