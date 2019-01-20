@@ -1,5 +1,6 @@
 import { createAction } from 'redux-actions';
 import axios from '../../helpers/axios';
+import { axiosHeaders } from '../../helpers/common';
 
 export const PROFILE_SAVE_SUCCESS = 'PROFILE_SAVE_SUCCESS';
 export const PROFILE_SAVE_REQUEST = 'PROFILE_SAVE_REQUEST';
@@ -25,7 +26,7 @@ export default ({
     linkPicture: PROFILE_AVATAR,
     firstname: USER_FIRSTNAME,
     lastname: USER_NAME,
-  })
+  }, axiosHeaders())
     .then(res => dispatch(profileSaving(res)))
     .catch(err => dispatch(profileError(err)));
 };
