@@ -47,6 +47,7 @@ class EventHub extends React.Component {
       LOC_EVENT: '',
       LOC_LATITUDE: '',
       LOC_LONGITUDE: '',
+      MEDIA_CONTENT: '',
     },
   };
 

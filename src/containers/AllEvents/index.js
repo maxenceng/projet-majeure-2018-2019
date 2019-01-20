@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import AllEventsComponent from '../../components/AllEvents';
 import actions, { actionPropTypes } from '../../actions';
 
+
 class AllEvents extends React.Component {
   static propTypes = {
     actions: actionPropTypes.isRequired,
@@ -22,6 +23,7 @@ class AllEvents extends React.Component {
       lng: PropTypes.number.isRequired,
       lat: PropTypes.number.isRequired,
     }),
+    eventMode: PropTypes.string.isRequired,
   };
 
   static defaultProps = {
@@ -33,7 +35,8 @@ class AllEvents extends React.Component {
   }
 
   componentWillMount = () => {
-    const { actions: { getAllEventsAction }, location } = this.props;
+    const { actions: { getAllEventsAction }, location, eventMode } = this.props;
+    eventMode.data = 'btnAllEventsMode';
     if (!(location.lat === 0 && location.lng === 0)) {
       getAllEventsAction({
         date: null,
@@ -53,14 +56,54 @@ class AllEvents extends React.Component {
     }
   }
 
+  handleClickMode = (mode) => {
+    const {
+      actions: { switchEventModeAction, getEventForMeAction, getAllEventsAction },
+    } = this.props;
+    localStorage.setItem('eventMode', mode);
+    switchEventModeAction();
+    if (mode === 'btnEventsForMeMode') {
+      getEventForMeAction();
+    } else {
+      getAllEventsAction({
+        date: null,
+        location: 'Lyon',
+      });
+    }
+  }
+
   render() {
     const { events } = this.props;
+    const navigationMode = (
+      <div className="filter">
+        <div className="topFilter">
+          <input type="text" className="locationFilter" placeholder="Lieu" />
+          <input type="date" className="dateFilter" placeholder="2019-01-01" min="2019-01-01" max="2020-12-31" />
+          <button type="button">Go</button>
+        </div>
+        <div className="bottomFilter">
+          <button id="btnAllEventsMode" onClick={() => this.handleClickMode('btnAllEventsMode')} type="button" className="btn"> Tous les événements</button>
+          <button id="btnEventsForMeMode" onClick={() => this.handleClickMode('btnEventsForMeMode')} type="button" className="btn"> Pour moi </button>
+          <button id="randomEventMode" onClick={() => this.handleClickMode('randomEventMode')} type="button" className="btn"> Surprises </button>
+        </div>
+      </div>
+    );
     return (
-      <AllEventsComponent events={events} />
+      <div className="AllEvents">
+        { navigationMode }
+        <AllEventsComponent events={events} />
+      </div>
     );
   }
 }
-
-const mapStateToProps = ({ event: { data: { events } }, location }) => ({ events, location });
+const mapStateToProps = ({
+  event: { data: { events } },
+  location,
+  eventMode,
+}) => ({
+  events,
+  location,
+  eventMode,
+});
 
 export default connect(mapStateToProps, actions)(AllEvents);

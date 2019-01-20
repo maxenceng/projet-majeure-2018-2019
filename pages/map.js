@@ -48,8 +48,6 @@ class Map extends React.Component {
   }
 
   handleOnChange = (res) => {
-    console.log(res.center.lat);
-    console.log(res.center.lng);
     const { actions: { getAllEventsAction } } = this.props;
     getAllEventsAction({
       date: null,

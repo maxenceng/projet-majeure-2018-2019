@@ -14,6 +14,7 @@ import location from './locationReducer';
 import participation from './participateEventReducer';
 import favorite from './favoriteEventReducer';
 import currentConv from './currentConvReducer';
+import eventMode from './switchEventModeReducer';
 
 export default combineReducers({
   auth,
@@ -30,4 +31,5 @@ export default combineReducers({
   currentConv,
   interested,
   location,
+  eventMode,
 });
