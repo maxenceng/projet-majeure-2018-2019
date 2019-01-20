@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 
 import loginAction from './authAction/loginAction';
 import registerAction from './authAction/registerAction';
+import openIdLoginAction from './authAction/openIdLoginAction';
 import profileSaveAction from './profileAction/profileSaveAction';
 import getMessagesAction from './chatAction/getMessagesAction';
 import getConversationsAction from './chatAction/getConversationsAction';
@@ -13,11 +14,14 @@ import currentEventAction from './currentEventAction';
 import getProfileAction from './profileAction/getProfileAction';
 import connectionStatusAction from './connectionStatusAction';
 import participateEventAction from './participateEventAction';
+import addFavEventAction from './addFavEventAction';
 import unParticipateEventAction from './unParticipateEventAction';
+import removeFavEventAction from './removeFavEventAction';
 import getParticipantEventAction from './getParticipantEventAction';
 import userEventsAction from './userEventsAction';
 import getInterestedEventAction from './getInterestedEventAction';
 import getStatusParticipationAction from './getStatusParticipationAction';
+import getStatusFavoriteAction from './getStatusFavoriteAction';
 import locationAction from './locationAction';
 import getEventByFilterAction from './eventAction/getEventByFilterAction';
 
@@ -34,13 +38,17 @@ const allActions = {
   getProfileAction,
   connectionStatusAction,
   participateEventAction,
+  addFavEventAction,
   unParticipateEventAction,
+  removeFavEventAction,
   getParticipantEventAction,
   userEventsAction,
   getInterestedEventAction,
   getStatusParticipationAction,
+  getStatusFavoriteAction,
   locationAction,
   getEventByFilterAction,
+  openIdLoginAction,
 };
 
 export default dispatch => ({ actions: bindActionCreators(allActions, dispatch) });
@@ -61,10 +69,13 @@ export const actionPropTypes = PropTypes.shape({
   connectionStatusAction: ptFuncReq,
   getParticipantEventAction: ptFuncReq,
   participateEventAction: ptFuncReq,
+  addFavEventAction: ptFuncReq,
   unParticipateEventAction: ptFuncReq,
+  removeFavEventAction: ptFuncReq,
   userEventsAction: ptFuncReq,
   getInterestedEventAction: ptFuncReq,
   getStatusParticipationAction: ptFuncReq,
+  getStatusFavoriteAction: ptFuncReq,
   locationAction: ptFuncReq,
   getEventByFilterAction: ptFuncReq,
 });

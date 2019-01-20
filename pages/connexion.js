@@ -47,6 +47,42 @@ class Connexion extends React.Component {
     });
   }
 
+  googleLogin = (event) => {
+    console.log(event);
+    const { actions: { openIdLoginAction } } = this.props;
+    const {
+      email,
+      givenName,
+      googleId,
+      familyName,
+    } = event.profileObj;
+    openIdLoginAction({
+      email,
+      name: familyName,
+      firstname: givenName,
+      password: googleId,
+      passwordVerif: googleId,
+    });
+  };
+
+
+  facebookLogin = (event) => {
+    console.log(event);
+    const { actions: { openIdLoginAction } } = this.props;
+    const {
+      email,
+      name,
+      id,
+    } = event;
+    openIdLoginAction({
+      email,
+      name: name.split(' ')[1],
+      firstname: name.split(' ')[0],
+      password: id,
+      passwordVerif: id,
+    });
+  };
+
   onChange = name => ({ target: { value } }) => this.setState({ [name]: value });
 
   render() {
@@ -55,6 +91,8 @@ class Connexion extends React.Component {
         inputList={this.inputList}
         onSubmit={this.onSubmit}
         onChange={this.onChange}
+        googleLogin={this.googleLogin}
+        facebookLogin={this.facebookLogin}
       />
     );
   }

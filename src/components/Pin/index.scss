@@ -1,0 +1,39 @@
+.Marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background-color: rgb(255, 232, 167);
+  border: 2px solid rgb(53, 53, 53);
+  border-radius: 100%;
+  user-select: none;
+  transform: translate(-50%, -50%);
+}
+
+.Event {
+  position: absolute;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px 10px 5px 10px;
+  height: auto;
+  width: 200px;
+  background-color: rgb(212, 243, 255);
+  border-radius: 10px;
+  border: 1px solid rgb(53, 53, 53);
+  user-select: none;
+  transform: translate(-50%, -50%);
+}
+
+.Pin {
+  width: auto;
+  height: auto;
+}
+
+.picture {
+  width: 150px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+
+}

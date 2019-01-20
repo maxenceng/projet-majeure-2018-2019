@@ -10,7 +10,7 @@ class EventHistory extends React.Component {
     actions: actionPropTypes.isRequired,
     ID_EVENT: PropTypes.string.isRequired,
     EVENT_NAME: PropTypes.string.isRequired,
-    EVENT_DATE: PropTypes.string.isRequired,
+    DATE: PropTypes.string.isRequired,
     MEDIA_CONTENT: PropTypes.string.isRequired,
   };
 
@@ -34,11 +34,11 @@ class EventHistory extends React.Component {
   }
 
   render() {
-    const { EVENT_DATE, EVENT_NAME, MEDIA_CONTENT } = this.props;
+    const { DATE, EVENT_NAME, MEDIA_CONTENT } = this.props;
     return (
       <div>
         <EventHistoryListing
-          eventDate={EVENT_DATE}
+          eventDate={DATE}
           eventName={EVENT_NAME}
           eventPicture={MEDIA_CONTENT}
           onClickbutton={this.handleOnEventSelected}
