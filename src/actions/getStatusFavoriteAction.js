@@ -1,5 +1,7 @@
 import { createAction } from 'redux-actions';
 import axios from '../helpers/axios';
+import { axiosHeaders } from '../helpers/common';
+
 
 export const GET_FAVORITE_STATUS_REQUEST = 'GET_FAVORITE_STATUS_REQUEST';
 export const GET_FAVORITE_STATUS_SUCCESS = 'GET_FAVORITE_STATUS_SUCCESS';
@@ -12,7 +14,7 @@ export const getFavoriteStatustError = createAction(GET_FAVORITE_STATUS_ERROR);
 export default idEvent => (dispatch) => {
   dispatch(getFavoriteStatusRequest());
   const idUser = process.browser && localStorage.getItem('idUser');
-  return axios.get(`userFavoriteEvent?idUser=${idUser}&idEvent=${idEvent}`)
+  return axios.get(`userFavoriteEvent?idUser=${idUser}&idEvent=${idEvent}`, axiosHeaders())
     .then(res => dispatch(getFavoriteStatusSuccess(res)))
     .catch(err => dispatch(getFavoriteStatustError(err)));
 };

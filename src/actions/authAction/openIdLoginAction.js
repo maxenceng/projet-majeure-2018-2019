@@ -28,11 +28,11 @@ export default ({
   })
     .then((res) => {
       dispatch(registerSuccess(res));
+      const idUser = res.data.idUser ? res.data.idUser : res.data.user.ID_USER;
       if (process.browser) {
-        console.log('!!!!!!!!!!!!!!!!!!!!!!!');
-        console.log(res.data.user.ID_USER);
+        console.log(res.data.token);
         localStorage.setItem('userToken', res.data.token);
-        localStorage.setItem('idUser', res.data.user.ID_USER);
+        localStorage.setItem('idUser', idUser);
       }
       Router.push('/');
     })

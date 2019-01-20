@@ -7,7 +7,7 @@ import Button from '../Button';
 import InputList from '../InputList';
 
 const failGoogle = (err) => {
-  console.log('impossible de se conencter avec openid');
+  console.log('impossible de se connecter avec openid');
   console.log(err);
 };
 

@@ -15,11 +15,10 @@ export default ({ email, password }) => (dispatch) => {
   dispatch(loginRequest());
   return axios.post('signIn', { email, password })
     .then((res) => {
-      const idUser = res.data.idUser ? res.data.idUser : res.data.user.ID_USER;
       dispatch(loginSuccess(res));
       if (process.browser) {
         localStorage.setItem('userToken', res.data.token);
-        localStorage.setItem('idUser', idUser);
+        localStorage.setItem('idUser', res.data.user.ID_USER);
       }
       Router.push('/');
     })
