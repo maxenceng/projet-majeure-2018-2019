@@ -5,7 +5,7 @@
   & svg {
     & path {
       @include transition();
-      fill: black;
+      fill: $color-secondary;
     }
     &:hover path {
       fill: lighten(black, 25%);

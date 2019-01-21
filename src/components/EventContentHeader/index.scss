@@ -4,6 +4,7 @@
   flex-direction: row;
   border-bottom: solid 2px $color-primary;
   height: 100%;
+  background-color: $color-secondary;
   .buttonbox{
     display: flex;
     flex-direction: column;
@@ -19,10 +20,11 @@
     margin : 2%;  
     h1{
     margin: 2%;
+    color: $color-title;
     }
     h2{
       margin: 2%;
-      color: $color-secondary;
+      color: $color-terciary;
     }
     button{
       margin:2%;

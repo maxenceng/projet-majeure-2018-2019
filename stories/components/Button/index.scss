@@ -19,9 +19,9 @@
   }
 
   &.inverse {
-    background-color: #967660;
+    background-color: $color-terciary;
     color:white;
-    border:1px solid #967660;
+    border:1px solid $color-terciary;
     &:hover{
       color:#d6b095;
     }
