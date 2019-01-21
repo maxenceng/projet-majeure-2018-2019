@@ -38,9 +38,9 @@ const EventContentHeader = ({
         <Button className="inverse event_participate" onClick={onClickParticipate}>Participer</Button>
       )}
       {statusFavorite === 'favorite' ? (
-        <Button className="inverse event_participate" onClick={onClickUnFavorite}>Remove from Fav</Button>
+        <Button className="inverse event_participate" onClick={onClickUnFavorite}>X Favoris</Button>
       ) : (
-        <Button className="inverse event_participate" onClick={onClickFavorite}>Add to Fav</Button>
+        <Button className="inverse event_participate" onClick={onClickFavorite}>Favoris</Button>
       )}
     </div>
   </div>

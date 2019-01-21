@@ -14,7 +14,7 @@ const EventContentParticipantList = ({ participants, title }) => (
       participants.map(part => (
         idUser !== part.ID_USER && (
         <React.Fragment>
-          <div key={part.ID_USER}>
+          <div key={part.ID_USER} className="participant">
             <EventContentParticipant
               participant={part}
             />
