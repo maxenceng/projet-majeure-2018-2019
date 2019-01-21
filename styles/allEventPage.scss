@@ -17,18 +17,18 @@
       flex-direction: row;
       flex-wrap: nowrap;
       .locationFilter{
-        border: 1px solid $color-background-secondary;
+        border: 1px solid $color-search$color-terciary;
         height: 20px;
         border-radius: 5px;
         outline: none;
-        color: $color-tertiary;
+        color: $color-search;
       }    
       .dateFilter{
-        border: 1px solid $color-background-secondary;
+        border: 1px solid $color-search$color-terciary;
         height: 20px;
         border-radius: 5px;
         outline: none;
-        color: $color-tertiary;
+        color: $color-search;
       }
     }
     .btn {

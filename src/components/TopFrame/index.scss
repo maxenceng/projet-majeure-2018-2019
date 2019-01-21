@@ -17,10 +17,10 @@
         font-size: 60px;
         font-weight: bold;
         font-style: italic;
-        color: #d4cec1;
+        color: $color-secondary;
         width: 40%;
         &:hover {
-          color: lighten(#d4cec1, 10%);
+          color: lighten($color-secondary, 10%);
         }
       }
       & .event-button-wrapper {
@@ -31,7 +31,7 @@
           @include transition();
           width: fit-content;
           font-size: 40px;
-          color: #d5ccbd;
+          color: $color-secondary;
           font-family: "Variane", serif;
           &:hover{
             color: #faf9f8;
