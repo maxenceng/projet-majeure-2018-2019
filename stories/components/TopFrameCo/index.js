@@ -9,6 +9,7 @@ const TopFrameCo = ({
   onclickAgenda,
   onclickMessage,
   onclickProfile,
+  onclickMap,
 }) => (
   <div className="topFrame">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossOrigin="anonymous" />
@@ -18,6 +19,9 @@ const TopFrameCo = ({
     </div>
     <div className="rightSide">
       <div className="buttonIcons">
+        <button type="button" onClick={onclickMap} className="buttonAgenda">
+          <i className="fas fa-map-marked-alt" />
+        </button>
         <button type="button" onClick={onclickAgenda} className="buttonAgenda">
           <i className="far fa-calendar-alt" />
         </button>
@@ -41,6 +45,7 @@ TopFrameCo.propTypes = {
   onclickAgenda: PropTypes.func.isRequired,
   onclickMessage: PropTypes.func.isRequired,
   onclickProfile: PropTypes.func.isRequired,
+  onclickMap: PropTypes.func.isRequired,
 };
 
 export default TopFrameCo;

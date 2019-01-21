@@ -29,9 +29,10 @@ class AgendaPage extends React.Component {
   }
 
   render() {
+    const { userEvents } = this.props;
     return (
       <div className="agenda_page">
-        <EventHistory userEvents={this.userEvents} />
+        <EventHistory userEvents={userEvents.events} />
       </div>
     );
   }

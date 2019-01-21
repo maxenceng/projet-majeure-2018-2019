@@ -62,9 +62,6 @@ class EventHub extends React.Component {
       idEvent,
       actions: { getStatusParticipationAction, getStatusFavoriteAction },
     } = this.props;
-    if (process.browser && this.findEvent()) {
-      localStorage.setItem('currentEvent', JSON.stringify(this.findEvent()));
-    }
     this.setState({ curEvent: this.findEvent() });
     getStatusParticipationAction(idEvent);
     getStatusFavoriteAction(idEvent);
@@ -72,6 +69,8 @@ class EventHub extends React.Component {
 
   findEvent = () => {
     const { idEvent, events } = this.props;
+    console.log(events);
+    console.log(idEvent);
     return events.find(event => event.ID_EVENT === idEvent);
   }
 

@@ -7,6 +7,7 @@
     "@zeit/next-sass": "^1.0.1",
     "axios": "^0.18.0",
     "cookie": "^0.3.1",
+    "google-map-react": "1.1.2",
     "js-cookie": "^2.2.0",
     "next": "^7.0.2",
     "next-fonts": "^0.16.0",
@@ -16,6 +17,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-facebook-login": "4.1.1",
+    "react-google-login": "5.0.0",
     "react-leaflet": "^2.2.0",
     "react-redux": "^5.1.1",
     "readline-sync": "^1.4.9",
@@ -26,10 +29,7 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "socket.io-client": "^2.2.0",
-    "url-loader": "^1.1.2",
-    "react-google-login": "5.0.0",
-    "react-facebook-login": "4.1.1",
-    "google-map-react": "1.1.2"
+    "url-loader": "^1.1.2"
   },
   "scripts": {
     "dev:start": "next",

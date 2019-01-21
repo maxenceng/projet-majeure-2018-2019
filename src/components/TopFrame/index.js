@@ -8,6 +8,7 @@ import Button from '../Button';
 import AgendaImage from '../../assets/images/calendar-alt-regular.svg';
 import MessageImage from '../../assets/images/envelope-regular.svg';
 import ProfileImage from '../../assets/images/user-regular.svg';
+import MapImage from '../../assets/images/map-solid.svg';
 
 export default class TopFrame extends React.Component {
   static propTypes = {
@@ -20,6 +21,10 @@ export default class TopFrame extends React.Component {
   }
 
   iconList = [
+    {
+      svg: MapImage,
+      link: '/map',
+    },
     {
       svg: AgendaImage,
       link: '/agendaPage',
