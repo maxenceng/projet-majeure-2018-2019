@@ -3,51 +3,27 @@ import './index.scss';
 import PropTypes from 'prop-types';
 import EventHistory from '../../containers/EventHistory';
 
-const getDate = (EVENT_DATE) => {
-  const date = new Date(EVENT_DATE * 1);
-  const dateS = date.toString().split(' ');
-  return `${dateS[1]} ${dateS[2]} ${dateS[3]}`;
-};
-
 const EventHistoryMyEvents = ({ userEvents }) => (
   <div className="agendaEventList">
     <h2>Participating To</h2>
-    {userEvents && userEvents.map(({
-      EVENT_NAME,
-      EVENT_DATE,
-      MEDIA_CONTENT,
-      ID_EVENT,
-      PARTICIPATE,
-    }) => {
-      if (PARTICIPATE) {
+    {userEvents && userEvents.map((event) => {
+      if (event.PARTICIPATE) {
         return (
           <EventHistory
-            key={ID_EVENT}
-            EVENT_NAME={EVENT_NAME}
-            DATE={getDate(EVENT_DATE)}
-            MEDIA_CONTENT={MEDIA_CONTENT}
-            ID_EVENT={ID_EVENT}
+            key={event.ID_EVENT}
+            event={event}
           />);
       }
       return '';
     })}
 
     <h2>Favorite</h2>
-    {userEvents && userEvents.map(({
-      EVENT_NAME,
-      EVENT_DATE,
-      MEDIA_CONTENT,
-      ID_EVENT,
-      FAVORITE,
-    }) => {
-      if (FAVORITE) {
+    {userEvents && userEvents.map((event) => {
+      if (event.FAVORITE) {
         return (
           <EventHistory
-            key={ID_EVENT}
-            EVENT_NAME={EVENT_NAME}
-            DATE={getDate(EVENT_DATE)}
-            MEDIA_CONTENT={MEDIA_CONTENT}
-            ID_EVENT={ID_EVENT}
+            key={event.ID_EVENT}
+            event={event}
           />);
       }
       return '';

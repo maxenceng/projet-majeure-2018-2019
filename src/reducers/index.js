@@ -6,7 +6,7 @@ import conversation from './conversationReducer';
 import event from './eventReducer';
 import profile from './profileReducer';
 import connectionStatus from './connectionStatusReducer';
-import idEvent from './currentEventReducer';
+import currentEvent from './currentEventReducer';
 import participant from './participantReducer';
 import userEvents from './userEventsReducer';
 import interested from './interestedEventReducer';
@@ -23,7 +23,7 @@ export default combineReducers({
   event,
   profile,
   connectionStatus,
-  idEvent,
+  currentEvent,
   participant,
   participation,
   favorite,

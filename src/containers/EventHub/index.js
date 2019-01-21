@@ -7,8 +7,7 @@ import actions, { actionPropTypes } from '../../actions';
 class EventHub extends React.Component {
   static propTypes = {
     actions: actionPropTypes.isRequired,
-    idEvent: PropTypes.string.isRequired,
-    events: PropTypes.arrayOf(PropTypes.shape({
+    currentEvent: PropTypes.shape({
       EVENT_DATE: PropTypes.string.isRequired,
       EVENT_DESC: PropTypes.string.isRequired,
       EVENT_NAME: PropTypes.string.isRequired,
@@ -19,7 +18,7 @@ class EventHub extends React.Component {
       LOC_LATITUDE: PropTypes.string.isRequired,
       LOC_LONGITUDE: PropTypes.string.isRequired,
       MEDIA_CONTENT: PropTypes.string.isRequired,
-    })),
+    }),
     participant: PropTypes.arrayOf(PropTypes.shape({
       ID_USER: PropTypes.string.isRequired,
       USER_FIRSTNAME: PropTypes.string.isRequired,
@@ -36,105 +35,63 @@ class EventHub extends React.Component {
     favorite: PropTypes.string.isRequired,
   };
 
-  state = {
-    curEvent: {
-      EVENT_DATE: '',
-      EVENT_DESC: '',
-      EVENT_NAME: '',
-      ID_EVENT: '',
-      ID_LOCATION: '',
-      LOC_DISCTRICT: '',
-      LOC_EVENT: '',
-      LOC_LATITUDE: '',
-      LOC_LONGITUDE: '',
-      MEDIA_CONTENT: '',
-    },
-  };
-
   static defaultProps = {
-    events: [],
+    currentEvent: [],
     participant: [],
     interested: [],
   }
 
-  componentWillMount() {
-    const {
-      idEvent,
-      actions: { getStatusParticipationAction, getStatusFavoriteAction },
-    } = this.props;
-    this.setState({ curEvent: this.findEvent() });
-    getStatusParticipationAction(idEvent);
-    getStatusFavoriteAction(idEvent);
-  }
-
-  findEvent = () => {
-    const { idEvent, events } = this.props;
-    console.log(events);
-    console.log(idEvent);
-    return events.find(event => event.ID_EVENT === idEvent);
-  }
-
-  getDate = (curEvent) => {
-    const date = new Date(curEvent.EVENT_DATE * 1);
+  getDate = () => {
+    const { currentEvent } = this.props;
+    const date = new Date(currentEvent.EVENT_DATE * 1);
     const dateS = date.toString().split(' ');
     return `${dateS[1]} ${dateS[2]} ${dateS[3]}`;
   }
 
-  getSchedule = (curEvent) => {
-    const date = new Date(curEvent.EVENT_DATE * 1);
+  getSchedule = () => {
+    const { currentEvent } = this.props;
+    const date = new Date(currentEvent.EVENT_DATE * 1);
     const hour = date.toString().split(' ');
     return `${hour[4]}`;
   }
 
   onClickParticipate = () => {
-    const { idEvent, actions: { participateEventAction } } = this.props;
-    participateEventAction(idEvent);
+    const { currentEvent, actions: { participateEventAction } } = this.props;
+    participateEventAction(currentEvent.ID_EVENT);
   }
 
   onClickUnParticipate = () => {
-    const { idEvent, actions: { unParticipateEventAction } } = this.props;
-    unParticipateEventAction(idEvent);
+    const { currentEvent, actions: { unParticipateEventAction } } = this.props;
+    unParticipateEventAction(currentEvent.ID_EVENT);
   }
 
   onClickFavorite = () => {
-    const { idEvent, actions: { addFavEventAction } } = this.props;
-    addFavEventAction(idEvent);
+    const { currentEvent, actions: { addFavEventAction } } = this.props;
+    addFavEventAction(currentEvent.ID_EVENT);
   }
 
   onClickUnFavorite = () => {
-    const { idEvent, actions: { removeFavEventAction } } = this.props;
-    removeFavEventAction(idEvent);
+    const { currentEvent, actions: { removeFavEventAction } } = this.props;
+    removeFavEventAction(currentEvent.ID_EVENT);
   }
-
-  /* componentWillReceiveProps(newProps) {
-    const { participant: { event: newEvents } } = newProps;
-    const { participant: { event } } = this.props;
-    const idUser = localStorage.getItem('idUser');
-    if (!event && newEvents) {
-      if (event.find(part => part.ID_USER === idUser)) {
-        this.initialStatus = 'OK';
-      }
-    }
-  } */
 
   render() {
     const {
-      idEvent,
+      currentEvent,
       interested,
       participant,
       participation,
       favorite,
     } = this.props;
-    const { curEvent } = this.state;
     return (
       <EventPage
-        idEvent={idEvent}
-        eventPicture={curEvent.MEDIA_CONTENT}
-        eventName={curEvent.EVENT_NAME}
-        eventDesc={curEvent.EVENT_DESC}
-        eventLoc={curEvent.LOC_DISTRICT}
-        eventDate={this.getDate(curEvent)}
-        eventSchedule={this.getSchedule(curEvent)}
+        idEvent={currentEvent.ID_EVENT}
+        eventPicture={currentEvent.MEDIA_CONTENT}
+        eventName={currentEvent.EVENT_NAME}
+        eventDesc={currentEvent.EVENT_DESC}
+        eventLoc={currentEvent.LOC_DISTRICT}
+        eventDate={this.getDate()}
+        eventSchedule={this.getSchedule()}
         participants={participant.event}
         interested={interested.event}
         onClickParticipate={this.onClickParticipate}
@@ -149,15 +106,13 @@ class EventHub extends React.Component {
 }
 
 const mapStateToProps = ({
-  idEvent,
-  event: { data: { events } },
+  currentEvent,
   participant,
   participation,
   favorite,
   interested,
 }) => ({
-  idEvent,
-  events,
+  currentEvent,
   participant: participant.data,
   participation,
   favorite,

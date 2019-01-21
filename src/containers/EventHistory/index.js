@@ -8,14 +8,17 @@ import actions, { actionPropTypes } from '../../actions';
 class EventHistory extends React.Component {
   static propTypes = {
     actions: actionPropTypes.isRequired,
-    ID_EVENT: PropTypes.string.isRequired,
-    EVENT_NAME: PropTypes.string.isRequired,
-    DATE: PropTypes.string.isRequired,
-    MEDIA_CONTENT: PropTypes.string.isRequired,
+    event: PropTypes.arrayOf(PropTypes.shape({
+      EVENT_NAME: PropTypes.string.isRequired,
+      EVENT_DESC: PropTypes.string.isRequired,
+      EVENT_DATE: PropTypes.string.isRequired,
+      MEDIA_CONTENT: PropTypes.string.isRequired,
+      PARTCIPATE: PropTypes.bool.isRequired,
+    })).isRequired,
   };
 
   handleOnEventSelected = () => {
-    const { ID_EVENT } = this.props;
+    const { event } = this.props;
     const {
       actions: {
         currentEventAction,
@@ -23,25 +26,24 @@ class EventHistory extends React.Component {
         getInterestedEventAction,
       },
     } = this.props;
-    currentEventAction(ID_EVENT);
+    currentEventAction(event);
     getParticipantEventAction({
-      idEvent: ID_EVENT,
+      idEvent: event.ID_EVENT,
     });
     getInterestedEventAction({
-      idEvent: ID_EVENT,
+      idEvent: event.ID_EVENT,
     });
-    console.log(ID_EVENT);
     Router.push('/eventPage');
   }
 
   render() {
-    const { DATE, EVENT_NAME, MEDIA_CONTENT } = this.props;
+    const { event } = this.props;
     return (
       <div>
         <EventHistoryListing
-          eventDate={DATE}
-          eventName={EVENT_NAME}
-          eventPicture={MEDIA_CONTENT}
+          eventDate={event.DATE}
+          eventName={event.EVENT_NAME}
+          eventPicture={event.MEDIA_CONTENT}
           onClickbutton={this.handleOnEventSelected}
         />
       </div>

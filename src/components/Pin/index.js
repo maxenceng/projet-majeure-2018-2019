@@ -11,6 +11,13 @@ class Pin extends React.Component {
     idEvent: PropTypes.string.isRequired,
     EVENT_NAME: PropTypes.string.isRequired,
     MEDIA_CONTENT: PropTypes.string.isRequired,
+    event: PropTypes.shape({
+      EVENT_NAME: PropTypes.string.isRequired,
+      EVENT_DESC: PropTypes.string.isRequired,
+      EVENT_DATE: PropTypes.string.isRequired,
+      MEDIA_CONTENT: PropTypes.string.isRequired,
+      PARTCIPATE: PropTypes.bool.isRequired,
+    }).isRequired,
   };
 
   state = {
@@ -18,7 +25,7 @@ class Pin extends React.Component {
   }
 
   handleOnClick = () => {
-    const { idEvent } = this.props;
+    const { idEvent, event } = this.props;
     const {
       actions: {
         currentEventAction,
@@ -26,7 +33,7 @@ class Pin extends React.Component {
         getInterestedEventAction,
       },
     } = this.props;
-    currentEventAction(idEvent);
+    currentEventAction(event);
     getParticipantEventAction({
       idEvent,
     });

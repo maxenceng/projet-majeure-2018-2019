@@ -41,6 +41,7 @@ class Map extends React.Component {
           EVENT_NAME={event.EVENT_NAME}
           LOC_DISTRICT={event.LOC_DISTRICT}
           MEDIA_CONTENT={event.MEDIA_CONTENT}
+          event={event}
         />,
       );
     });
