@@ -2,6 +2,11 @@ import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
 
+/*
+  Ce composant permet d'afficher les événements de la page 'AgendaPage'.
+  Props:
+  -param de l'événément courant
+*/
 const EventHistoryListing = ({
   eventDate,
   eventName,

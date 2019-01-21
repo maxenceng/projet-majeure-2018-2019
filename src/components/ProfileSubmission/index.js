@@ -79,7 +79,7 @@ const ProfileSubmission = ({
             </div>
           </div>
           <div className="buttonSave">
-            <Button type="submit">Send</Button>
+            <Button type="submit" className="inverse event_participate">Envoyer</Button>
           </div>
         </div>
       </div>

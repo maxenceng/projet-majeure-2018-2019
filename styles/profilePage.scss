@@ -1,7 +1,7 @@
 .profilePage{
-  background-color: rgb(250, 246, 242);
+  background-color:$color-background-primary;
   height: 100vh;
-  margin:0;
+  margin:4% 10%;
   .profile{
     display: flex;
     flex-direction: column;
@@ -11,10 +11,9 @@
     width:50%;
     margin-left: auto;
     margin-right: auto;
-    padding:5% 0 0 0;
-
     .profilePart{
       padding: 2%;
+      border-radius: 5%;
     }
     
     .topProfile, .bottomProfile, .buttonSave{
@@ -28,8 +27,10 @@
     }
      
     .topProfile{
+      //background-color: gold;
       .image{
         width: 35%;
+        //background-color: aqua;
       }
       .avatar{
           width: 100%;

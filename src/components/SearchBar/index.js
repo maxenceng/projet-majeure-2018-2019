@@ -2,6 +2,12 @@ import React from 'react';
 import './index.scss';
 import PropTypes from 'prop-types';
 
+/*
+  Ce composant React permet d'afficher la SearchBar est de récupèrer le terme à filter pour
+  l'affichage des événements.
+  Ce composant est appelé par: 'SearchBar' qui lui envoit la fonction handleReseachButton qui
+  permet de déclencher l'action de recherche d'événement.
+*/
 export default class SearchBar extends React.Component {
   static propTypes = {
     onclicktype: PropTypes.func.isRequired,
@@ -11,10 +17,16 @@ export default class SearchBar extends React.Component {
     value: '',
   }
 
+  // Cette méthode met à jour la valeur 'value' qui sera envoyé dans la méthode getFilter
   onChange = ({ target: { value } }) => {
     this.setState({ value });
   }
 
+  /*
+    Cette méthode est déclenchée par le bouton de recherche et permet de déclencher
+    l'action qui va effectuer l'appel réseau.
+    *onclick: méthode de SearchBar qui prend en paramètre le mot filtre.
+  */
   getFilter = (event) => {
     event.preventDefault();
     const { onclicktype } = this.props;

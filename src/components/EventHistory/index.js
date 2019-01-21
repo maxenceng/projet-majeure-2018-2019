@@ -3,6 +3,9 @@ import './index.scss';
 import PropTypes from 'prop-types';
 import EventHistoryMyEvents from '../EventHistoryMyEvents';
 
+/*
+  Composant qui transmet les événements d'un utilisateur au composant 'EventHistoryMyEvents'.
+*/
 const EventHistory = ({ userEvents }) => (
   <div className="event_history">
     <EventHistoryMyEvents

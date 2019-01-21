@@ -5,21 +5,26 @@ import actions, { actionPropTypes } from '../src/actions';
 import EventHistory from '../src/components/EventHistory';
 import '../styles/allEventPage.scss';
 
+/*
+  La page Agenda permet de répertorier tous les événements auxquels l'utilisateur
+  participe et ceux ajouter aux favoris.
+  PropsType:
+    userEvents: les événements auxquels l'utilisateur participe.
+    actions: userEvensAction
+*/
 class AgendaPage extends React.Component {
   static propTypes = {
     userEvents: PropTypes.instanceOf(Object).isRequired,
     actions: actionPropTypes.isRequired,
   }
 
-  fetchUserEvents() {
+  // Déclenche l'action: userEventsAction()
+  componentWillMount() {
     const { actions: { userEventsAction } } = this.props;
     userEventsAction();
   }
 
-  componentWillMount() {
-    this.fetchUserEvents();
-  }
-
+  // Récupère les événéments de l'utilisateur
   get userEvents() {
     const { userEvents: { events } } = this.props;
     if (!events) {
