@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import actions, { actionPropTypes } from '../src/actions';
-import '../styles/eventPage.scss';
 import EventHub from '../src/containers/EventHub';
 
 

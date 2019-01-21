@@ -15,9 +15,11 @@
 }
 
 .boxEvent:hover{
+  @include transition();
   background-color: $color-hover;
 }
 
 .boxEvent:hover .boxDate{
+  @include transition();
   border-top: solid 2px $color-hover;
 }
