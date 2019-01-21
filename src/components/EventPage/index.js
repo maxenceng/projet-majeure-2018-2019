@@ -37,7 +37,7 @@ const EventPage = ({
     <div className="event_content_info">
       <EventContentDetails eventPicture={eventPicture} eventDesc={eventDesc} />
       <EventContentParticipantList title="Participants" participants={participants} />
-      <EventContentParticipantList title="Interested" participants={interested} />
+      <EventContentParticipantList title="Intéressés" participants={interested} />
     </div>
   </div>
 );

@@ -17,6 +17,12 @@ class EventHistory extends React.Component {
     })).isRequired,
   };
 
+  getDate = (EVENT_DATE) => {
+    const date = new Date(EVENT_DATE * 1);
+    const dateS = date.toString().split(' ');
+    return `${dateS[1]} ${dateS[2]} ${dateS[3]}`;
+  };
+
   handleOnEventSelected = () => {
     const { event } = this.props;
     const {
@@ -41,7 +47,7 @@ class EventHistory extends React.Component {
     return (
       <div>
         <EventHistoryListing
-          eventDate={event.DATE}
+          eventDate={this.getDate(event.EVENT_DATE)}
           eventName={event.EVENT_NAME}
           eventPicture={event.MEDIA_CONTENT}
           onClickbutton={this.handleOnEventSelected}

@@ -84,7 +84,6 @@ class AllEvents extends React.Component {
         <div className="bottomFilter">
           <button id="btnAllEventsMode" onClick={() => this.handleClickMode('btnAllEventsMode')} type="button" className="btn"> Tous les événements</button>
           <button id="btnEventsForMeMode" onClick={() => this.handleClickMode('btnEventsForMeMode')} type="button" className="btn"> Pour moi </button>
-          <button id="randomEventMode" onClick={() => this.handleClickMode('randomEventMode')} type="button" className="btn"> Surprises </button>
         </div>
       </div>
     );
