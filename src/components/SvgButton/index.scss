@@ -8,7 +8,7 @@
       fill: $color-secondary;
     }
     &:hover path {
-      fill: lighten(black, 25%);
+      fill: $color-hover;
     }
   }
 }

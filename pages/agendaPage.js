@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import actions, { actionPropTypes } from '../src/actions';
 import EventHistory from '../src/components/EventHistory';
-import '../styles/allEventPage.scss';
 
 class AgendaPage extends React.Component {
   static propTypes = {

@@ -75,16 +75,9 @@ class AllEvents extends React.Component {
   render() {
     const { events } = this.props;
     const navigationMode = (
-      <div className="filter">
-        <div className="topFilter">
-          <input type="text" className="locationFilter" placeholder="Lieu" />
-          <input type="date" className="dateFilter" placeholder="2019-01-01" min="2019-01-01" max="2020-12-31" />
-          <button type="button">Go</button>
-        </div>
-        <div className="bottomFilter">
-          <button id="btnAllEventsMode" onClick={() => this.handleClickMode('btnAllEventsMode')} type="button" className="btn"> Tous les événements</button>
-          <button id="btnEventsForMeMode" onClick={() => this.handleClickMode('btnEventsForMeMode')} type="button" className="btn"> Pour moi </button>
-        </div>
+      <div className="modeMenu">
+        <button id="btnAllEventsMode" onClick={() => this.handleClickMode('btnAllEventsMode')} type="button" className="btn"> Tous les événements</button>
+        <button id="btnEventsForMeMode" onClick={() => this.handleClickMode('btnEventsForMeMode')} type="button" className="btn"> Pour moi </button>
       </div>
     );
     return (

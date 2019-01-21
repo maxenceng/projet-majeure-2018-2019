@@ -6,7 +6,7 @@ import Event from '../../containers/Event';
 const AllEvents = ({ events }) => (
   <div className="events">
     {events.map(event => (
-      <div key={event.ID_EVENT}>
+      <div className="eventThumbnail" key={event.ID_EVENT}>
         <Event event={event} />
       </div>
     ))}

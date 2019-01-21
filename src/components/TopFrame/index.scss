@@ -21,7 +21,7 @@
         width: 40%;
         min-width:110px;
         &:hover {
-          color: lighten($color-secondary, 10%);
+          color: $color-hover;
         }
       }
       & .event-button-wrapper {
@@ -36,7 +36,7 @@
           color: $color-secondary;
           font-family: "Variane", serif;
           &:hover{
-            color: #faf9f8;
+            color: $color-hover;
           }
         }
       }
