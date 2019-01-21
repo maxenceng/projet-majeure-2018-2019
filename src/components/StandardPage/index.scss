@@ -7,7 +7,7 @@ body{
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  background: #4087a3;
+  background: $color-primary;
   
   #fixedHeader{
     flex: 0 0 auto;

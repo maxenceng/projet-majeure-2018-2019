@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #4087a3;
+  background-color: $color-primary;
   padding: 20px 20px;
   height: $header-height - 2*20px;
     & .left-side {
