@@ -1,6 +1,17 @@
 import socketIOClient from 'socket.io-client';
 import { BASE_URL } from './common';
 
-const socket = socketIOClient(BASE_URL);
+export default class Socket {
+  constructor() {
+    this.socket = socketIOClient(BASE_URL);
+    this.rules = [];
+  }
 
-export default socket;
+  on = (name, func) => {
+    if (!this.rules.includes(name)) {
+      this.socket.on(name, func);
+    }
+  }
+
+  emit = (name, obj = null) => this.socket.emit(name, obj);
+}

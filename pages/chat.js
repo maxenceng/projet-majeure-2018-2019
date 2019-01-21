@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ChatPage from '../src/components/ChatPage';
 import actions, { actionPropTypes } from '../src/actions';
-import socket from '../src/helpers/socket';
+import Socket from '../src/helpers/socket';
 import { getLocalStorageItem } from '../src/helpers/common';
 
 class Chat extends React.Component {
@@ -24,11 +24,13 @@ class Chat extends React.Component {
     messages: null,
   }
 
+  socket = new Socket();
+
   componentWillMount() {
     const { actions: { getConversationsAction } } = this.props;
     getConversationsAction();
     if (process.browser) {
-      socket.on('sendMessage', (result) => {
+      this.socket.on('sendMessage', (result) => {
         const { actions: { addMessageAction } } = this.props;
         if (!result.err) {
           addMessageAction({
@@ -38,7 +40,7 @@ class Chat extends React.Component {
           });
         }
       });
-      socket.on('message', (result) => {
+      this.socket.on('message', (result) => {
         const { actions: { addMessageAction }, currentConv } = this.props;
         if (!result.err) {
           addMessageAction({
@@ -69,15 +71,15 @@ class Chat extends React.Component {
   }
 
   componentDidMount() {
-    window.onbeforeunload = () => socket.emit('disconnect');
+    window.onbeforeunload = () => this.socket.emit('disconnect');
   }
 
-  connect = () => process.browser && socket.emit('chatConnection', { idUser: getLocalStorageItem('idUser') });
+  connect = () => process.browser && this.socket.emit('chatConnection', { idUser: getLocalStorageItem('idUser') });
 
   sendMessage = (message) => {
     const { currentConv: { idUser: idDest } } = this.props;
     if (process.browser) {
-      socket.emit('sendMessage', {
+      this.socket.emit('sendMessage', {
         message,
         exp: getLocalStorageItem('idUser'),
         idDest,
