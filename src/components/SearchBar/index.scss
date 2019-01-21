@@ -13,6 +13,15 @@
     border-bottom-right-radius: 1px;
     outline: none;
     color: $color-search;
+    background-color: white;
+  }
+
+  .searchTerm:hover {
+    background-color: $color-secondary;
+  }
+
+  .searchTerm:active {
+    background-color: $color-secondary;
   }
   
   .searchButton {

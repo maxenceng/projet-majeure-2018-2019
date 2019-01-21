@@ -21,7 +21,7 @@ const EventContentHeader = ({
 }) => (
   <div className="event_header">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossOrigin="anonymous" />
-    <div className="buttonbox">
+    <div id="backArrowBtn" className="buttonbox">
       <Link href="/">
         <SvgButton Svg={ChevronLeft} />
       </Link>
