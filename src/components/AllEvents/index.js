@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import './index.scss';
 import Event from '../../containers/Event';
 
+/**
+ * Ce composant permet d'afficher la liste des événements.
+ * @param {object} events : Array de tous les événements.
+ */
 const AllEvents = ({ events }) => (
   <div className="events">
     {events.map(event => (

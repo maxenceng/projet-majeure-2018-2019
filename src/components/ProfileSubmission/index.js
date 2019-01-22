@@ -20,10 +20,10 @@ const ProfileSubmission = ({
     <form onSubmit={onSubmit} className="formulaire">
       <div className="profilePage">
         <div className="profile">
-          <h2 className="yourProfile">My Profile:</h2>
+          <h2 className="yourProfile">Mon Profil:</h2>
           <div className="topProfile">
             <div className="profilePart image">
-              <h4>Change My PP:</h4>
+              <h4>Changer ma photo de profil:</h4>
               <img src={PROFILE_AVATAR} alt="pp" className="profilePart avatar" />
               <Input
                 type="text"

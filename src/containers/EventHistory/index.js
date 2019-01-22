@@ -35,9 +35,9 @@ class EventHistory extends React.Component {
   /*
     Lorsque l'utilisateur va cliquer sur un événement, cette méthode va déclencher
     plusieurs actions qui vont permettre de mettre à jour l'événement courant.
-    *currentEventAction: Récupère le nouvel événement courant
-    *getParticipantEventAction: Récupère les participants du nouvel événement courant
-    *getInterestedEventAction: Récupère les intéréssés du nouvel événement courant
+      -currentEventAction: Récupère le nouvel événement courant
+      -getParticipantEventAction: Récupère les participants du nouvel événement courant
+      -getInterestedEventAction: Récupère les intéréssés du nouvel événement courant
   */
   handleOnEventSelected = () => {
     const { event } = this.props;

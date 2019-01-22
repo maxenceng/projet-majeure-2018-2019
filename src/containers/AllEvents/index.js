@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import AllEventsComponent from '../../components/AllEvents';
 import actions, { actionPropTypes } from '../../actions';
 
-
+/**
+ * Ce composant React permet l'affichage de tous les événements disponibles.
+ */
 class AllEvents extends React.Component {
   static propTypes = {
     actions: actionPropTypes.isRequired,
@@ -34,6 +36,9 @@ class AllEvents extends React.Component {
     },
   }
 
+  /**
+   * Ce composant permet de récupérer tous les événements.
+   */
   componentWillMount = () => {
     const { actions: { getAllEventsAction }, location, eventMode } = this.props;
     eventMode.data = 'btnAllEventsMode';
@@ -45,6 +50,10 @@ class AllEvents extends React.Component {
     }
   }
 
+  /**
+   * Mettre à jour le tableau de tous les événements.
+   * @param {*} newProps : récupère les nouvelles données dès réception d'un nouveau prop
+   */
   componentWillReceiveProps(newProps) {
     const { actions: { getAllEventsAction }, location } = this.props;
     const { location: newLocation } = newProps;
@@ -56,6 +65,10 @@ class AllEvents extends React.Component {
     }
   }
 
+  /**
+   * Cette méthode permet de passer du mode "Evénements pour moi" au mode "Tous les événements"
+   * En fonction du mode, on déclenche l'action relative au mode.
+   */
   handleClickMode = (mode) => {
     const {
       actions: { switchEventModeAction, getEventForMeAction, getAllEventsAction },

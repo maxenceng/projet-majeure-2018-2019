@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 import PictureEvent from '../PictureEvent';
 import DateBox from '../DateBox';
 
+/**
+ * Composant qui affiche la miniature de l'événement sur la apge 'index'.
+ * @param {object} event : les propriétés de l'événement
+ */
 const EventComponent = ({
   event: {
     EVENT_DATE,
