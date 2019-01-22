@@ -48,7 +48,6 @@ class Connexion extends React.Component {
   }
 
   googleLogin = (event) => {
-    console.log(event);
     const { actions: { openIdLoginAction } } = this.props;
     const {
       email,
@@ -67,7 +66,6 @@ class Connexion extends React.Component {
 
 
   facebookLogin = (event) => {
-    console.log(event);
     const { actions: { openIdLoginAction } } = this.props;
     const {
       email,

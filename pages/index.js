@@ -13,7 +13,7 @@ const Index = () => (
         <ImgHome />
       </div>
       <div className="front">
-        <AllEvents />
+        <AllEvents key="1" />
       </div>
     </div>
   </div>

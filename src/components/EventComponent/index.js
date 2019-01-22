@@ -37,7 +37,6 @@ EventComponent.propTypes = {
     EVENT_NAME: PropTypes.string.isRequired,
     ID_EVENT: PropTypes.string.isRequired,
     LOC_DISTRICT: PropTypes.string.isRequired,
-    LOC_EVENT: PropTypes.string.isRequired,
     LOC_LATITUDE: PropTypes.string.isRequired,
     LOC_LONGITUDE: PropTypes.string.isRequired,
     MEDIA_CONTENT: PropTypes.string.isRequired,

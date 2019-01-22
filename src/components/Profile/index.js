@@ -55,7 +55,7 @@ Profile.propTypes = {
   profile: PropTypes.shape({
     PROFILE_AVATAR: PropTypes.string.isRequired,
     PROFILE_DESC: PropTypes.string.isRequired,
-    TAG_TEXT: PropTypes.string.isRequired,
+    tags: PropTypes.array.isRequired,
     USER_FIRSTNAME: PropTypes.string.isRequired,
     USER_NAME: PropTypes.string.isRequired,
   }).isRequired,

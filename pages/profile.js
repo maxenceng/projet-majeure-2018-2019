@@ -20,10 +20,6 @@ class Profile extends React.Component {
   componentWillReceiveProps(newProps) {
     const { profile } = this.props;
     const { profile: newProfile } = newProps;
-    console.log('1');
-    console.log(newProfile);
-    console.log('2');
-    console.log(profile);
     if (newProfile.length !== profile.length) {
       this.getProfile(newProfile);
     }

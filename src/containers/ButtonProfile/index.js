@@ -23,7 +23,7 @@ class ButtonProfile extends React.Component {
       profile: {
         PROFILE_AVATAR,
         PROFILE_DESC,
-        TAG_TEXT,
+        tags,
         USER_FIRSTNAME,
         USER_NAME,
       },
@@ -35,7 +35,7 @@ class ButtonProfile extends React.Component {
         </ButtonComponent>
         <div>{ PROFILE_AVATAR }</div>
         <div>{ PROFILE_DESC }</div>
-        <div>{ TAG_TEXT }</div>
+        <div>{ tags }</div>
         <div>{ USER_FIRSTNAME }</div>
         <div>{ USER_NAME }</div>
       </div>

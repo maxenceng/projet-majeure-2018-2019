@@ -30,7 +30,6 @@ export default ({
       dispatch(registerSuccess(res));
       const idUser = res.data.idUser ? res.data.idUser : res.data.user.ID_USER;
       if (process.browser) {
-        console.log(res.data.token);
         localStorage.setItem('userToken', res.data.token);
         localStorage.setItem('idUser', idUser);
       }
