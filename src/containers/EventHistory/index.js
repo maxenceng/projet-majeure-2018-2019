@@ -5,6 +5,14 @@ import PropTypes from 'prop-types';
 import EventHistoryListing from '../../components/EventHistoryListing';
 import actions, { actionPropTypes } from '../../actions';
 
+/*
+  Ce composant React est un composant qui représente un événement de la page
+  'AgendaPage' (Favoris ou participe) et qui permet d'afficher la bonne fiche événements
+  une fois l'événement sélectionné (click).
+  Props:
+    -action: currentEventAction, getParticipantEventAction, getInterestedEventAction
+    -event: l'événement courant
+*/
 class EventHistory extends React.Component {
   static propTypes = {
     actions: actionPropTypes.isRequired,
@@ -17,12 +25,20 @@ class EventHistory extends React.Component {
     })).isRequired,
   };
 
+  // Permet de convertir une date au format EPOCH en date string
   getDate = (EVENT_DATE) => {
     const date = new Date(EVENT_DATE * 1);
     const dateS = date.toString().split(' ');
     return `${dateS[1]} ${dateS[2]} ${dateS[3]}`;
   };
 
+  /*
+    Lorsque l'utilisateur va cliquer sur un événement, cette méthode va déclencher
+    plusieurs actions qui vont permettre de mettre à jour l'événement courant.
+    *currentEventAction: Récupère le nouvel événement courant
+    *getParticipantEventAction: Récupère les participants du nouvel événement courant
+    *getInterestedEventAction: Récupère les intéréssés du nouvel événement courant
+  */
   handleOnEventSelected = () => {
     const { event } = this.props;
     const {

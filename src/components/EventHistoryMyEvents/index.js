@@ -3,9 +3,19 @@ import './index.scss';
 import PropTypes from 'prop-types';
 import EventHistory from '../../containers/EventHistory';
 
+/*
+  Ce composant permet l'affichage des:
+    -événements auxquels l'utilisateur participe
+    -événements ajouté en favoris par l'utilisateur
+  En fonction des paramètres 'PARTICIPATE' et 'FAVORITE', on affichera les événements
+  que l'utilisateur a ajouté.
+  Ce composant ce situe dans la page: AgendaPage.
+  Props:
+    -userEvents: les événements auxquels l'utilisateur participe
+*/
 const EventHistoryMyEvents = ({ userEvents }) => (
   <div className="agendaEventList">
-    <h2>Participating To</h2>
+    <h2>Mes événements:</h2>
     {userEvents && userEvents.map((event) => {
       if (event.PARTICIPATE) {
         return (
@@ -17,7 +27,7 @@ const EventHistoryMyEvents = ({ userEvents }) => (
       return '';
     })}
 
-    <h2>Favorite</h2>
+    <h2>Mes événements favoris:</h2>
     {userEvents && userEvents.map((event) => {
       if (event.FAVORITE) {
         return (

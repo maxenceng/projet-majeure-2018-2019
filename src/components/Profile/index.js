@@ -15,7 +15,7 @@ const Profile = ({
 }) => (
   <div className="profilePage">
     <div className="profile">
-      <h2 className="yourProfile">My Profile:</h2>
+      <h2 className="yourProfile">Mon Profil:</h2>
       <div className="topProfile">
         <div className="profilePart image">
           <img src={PROFILE_AVATAR} alt="pp" className="profilePart avatar" />
@@ -28,23 +28,22 @@ const Profile = ({
       <div className="bottomProfile">
         <div className="profilePart userInfo">
           <div className="firstname">
-            <h4>Firstname:</h4>
+            <h4>Prénom:</h4>
             <p>{USER_FIRSTNAME}</p>
           </div>
           <div className="lastname">
-            <h4>Lastname:</h4>
+            <h4>Nom de Famille:</h4>
             <p>{USER_NAME}</p>
           </div>
         </div>
         <div className="profilePart tags">
-          <h4>My Tags:</h4>
+          <h4>Mes Tags:</h4>
           <p>{tags.join(' ')}</p>
         </div>
       </div>
       <div className="profilePart btnEdit">
-        <h4>Edit my Profile:</h4>
         <div className="buttonEdit">
-          <Button onClick={onCLickEditProfile}>Edit Profile</Button>
+          <Button className="inverse event_participate" onClick={onCLickEditProfile}>Editer Profil</Button>
         </div>
       </div>
     </div>
