@@ -3,41 +3,47 @@ import './index.scss';
 import PropTypes from 'prop-types';
 import EventHistory from '../../containers/EventHistory';
 
-/*
-  Ce composant permet l'affichage des:
+/**
+ * Ce composant permet l'affichage des:
     -événements auxquels l'utilisateur participe
     -événements ajouté en favoris par l'utilisateur
   En fonction des paramètres 'PARTICIPATE' et 'FAVORITE', on affichera les événements
   que l'utilisateur a ajouté.
   Ce composant ce situe dans la page: AgendaPage.
-  Props:
-    -userEvents: les événements auxquels l'utilisateur participe
-*/
+ * @param {object} userEvents :les événements relatifs au participant
+ */
 const EventHistoryMyEvents = ({ userEvents }) => (
   <div className="agendaEventList">
-    <h2>Mes événements:</h2>
-    {userEvents && userEvents.map((event) => {
-      if (event.PARTICIPATE) {
-        return (
-          <EventHistory
-            key={event.ID_EVENT}
-            event={event}
-          />);
-      }
-      return '';
-    })}
+    <div id="myParticpatingEvent" className="eventListUsers">
+      <h2>Mes événements:</h2>
+      {userEvents && userEvents.map((event) => {
+        if (event.PARTICIPATE) {
+          return (
+            <EventHistory
+              key={event.ID_EVENT}
+              event={event}
+            />
+          );
+        }
+        return '';
+      })}
+    </div>
 
-    <h2>Mes événements favoris:</h2>
-    {userEvents && userEvents.map((event) => {
-      if (event.FAVORITE) {
-        return (
-          <EventHistory
-            key={event.ID_EVENT}
-            event={event}
-          />);
-      }
-      return '';
-    })}
+    <div id="myFavEvent" className="eventListUsers">
+      <h2>Mes événements favoris:</h2>
+      {userEvents && userEvents.map((event) => {
+        if (event.FAVORITE) {
+          return (
+            <div className="eventListUsers">
+              <EventHistory
+                key={event.ID_EVENT}
+                event={event}
+              />
+            </div>);
+        }
+        return '';
+      })}
+    </div>
   </div>
 );
 

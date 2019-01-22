@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import EventHistoryMyEvents from '../EventHistoryMyEvents';
 
-/*
-  Composant qui transmet les événements d'un utilisateur au composant 'EventHistoryMyEvents'.
-*/
+
+/**
+ * Composant qui transmet les événements d'un utilisateur au composant 'EventHistoryMyEvents'.
+ * @param {*} userEvents :événements relatifs au participant
+ */
 const EventHistory = ({ userEvents }) => (
   <div className="event_history">
     <EventHistoryMyEvents

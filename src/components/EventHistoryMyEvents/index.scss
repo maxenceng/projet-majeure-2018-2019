@@ -1,3 +1,17 @@
 h2{
     color: $color-title;
 }
+
+.agendaEventList{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    .eventListUsers{
+        width: 100%;
+    }
+    h2{
+        margin: 2%;
+    }
+}

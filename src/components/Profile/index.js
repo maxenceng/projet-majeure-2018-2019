@@ -38,7 +38,7 @@ const Profile = ({
         </div>
         <div className="profilePart tags">
           <h4>Mes Tags:</h4>
-          <p>{tags.join(' ')}</p>
+          <p>{typeof tags === 'string' ? tags : tags.join(' ')}</p>
         </div>
       </div>
       <div className="profilePart btnEdit">

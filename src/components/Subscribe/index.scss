@@ -21,7 +21,7 @@
         font-family: "Variane", serif;
         font-size:40px;
         padding: 20% 0 0 0;
-        color: rgb(182, 156, 111);
+        color: $color-primary;
       }
       .username{
         padding:5px;
@@ -32,10 +32,6 @@
       .password{
         padding:5px;
       }
-      .validation{
-        padding:15px;
-        cursor: pointer;
-      }
     }
     .openIds{
       text-align: center;
@@ -45,5 +41,20 @@
         margin-bottom: 10px;
       }
     }
+  }
+}
+
+.validationAuth{
+  padding:15px;
+  cursor: pointer;
+  button{
+    background-color: $color-secondary;
+    color: $color-primary;
+    border: solid 2px $color-primary;
+  }
+  button:hover{
+    background-color: lighten($color-secondary,10%);
+    color: $color-terciary;
+    border: solid 2px $color-terciary;
   }
 }

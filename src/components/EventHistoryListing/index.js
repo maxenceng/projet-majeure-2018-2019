@@ -23,7 +23,7 @@ const EventHistoryListing = ({
         />
       </div>
       <div className="event_history_listing_item">
-        <h3>{eventDate} : {eventName}</h3>
+        <h3><span>{eventDate}</span> : {eventName}</h3>
       </div>
     </div>
   </button>

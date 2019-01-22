@@ -5,6 +5,9 @@ import actions, { actionPropTypes } from '../src/actions';
 import '../styles/profilePage.scss';
 import ProfileSubmission from '../src/components/ProfileSubmission';
 
+/**
+ * Ce composant React permet l'affichage de la page profil.
+ */
 class profilePage extends React.Component {
   static propTypes = {
     actions: actionPropTypes.isRequired,
@@ -27,6 +30,10 @@ class profilePage extends React.Component {
     });
   }
 
+  /**
+   * Récupère le profil courant ou s'il n'est pas défini, il récupère le nouveau profil
+   * @param {*} newProps :  profil courant ou le nouveau profil
+   */
   componentWillReceiveProps(newProps) {
     if (this.getProfile(this.props).PROFILE_AVATAR === '' && this.getProfile(newProps).PROFILE_AVATAR !== '') {
       const {
@@ -70,6 +77,9 @@ class profilePage extends React.Component {
     }
   }
 
+  /**
+   * Récupère les propriétés du profil du props et retourne les propriétés.
+   */
   getProfile = (props) => {
     const { profile: { profile } } = props;
     if (!profile) {
@@ -97,6 +107,10 @@ class profilePage extends React.Component {
     };
   }
 
+  /**
+   * Cette méthode est déclenché lors de l'envoi du formulaire du profil.
+   * Elle permet de sauvegarder le profil de l'utilisateur.
+   */
   onSubmit = (event) => {
     event.preventDefault();
     const { actions: { profileSaveAction } } = this.props;
@@ -117,6 +131,9 @@ class profilePage extends React.Component {
     Router.push('/profile');
   }
 
+  /**
+   * Cette méthode est déclenchée lors d'un changement de l'URL de l'image du profil.
+   */
   onChange = name => ({ target: { value } }) => {
     this.setState({ [name]: value });
   }

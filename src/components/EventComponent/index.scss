@@ -16,10 +16,10 @@
 
 .boxEvent:hover{
   @include transition();
-  background-color: $color-hover;
+  background-color: $color-terciary;
 }
 
 .boxEvent:hover .boxDate{
   @include transition();
-  border-top: solid 2px $color-hover;
+  border-top: solid 2px $color-terciary;
 }

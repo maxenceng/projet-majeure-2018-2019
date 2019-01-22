@@ -11,8 +11,8 @@
   @include transition();
 
   &:hover {
-    color: $color-hover;
-    border-color: $color-hover;
+    color: $color-terciary;
+    border-color: $color-terciary;
   }
 
   &.inverse {

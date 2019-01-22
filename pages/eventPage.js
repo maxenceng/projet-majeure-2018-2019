@@ -45,7 +45,6 @@ class EventPage extends React.Component {
       currentEvent,
       actions: { getStatusParticipationAction, getStatusFavoriteAction },
     } = this.props;
-    console.log(currentEvent.ID_EVENT);
     getStatusParticipationAction(currentEvent.ID_EVENT);
     getStatusFavoriteAction(currentEvent.ID_EVENT);
   }

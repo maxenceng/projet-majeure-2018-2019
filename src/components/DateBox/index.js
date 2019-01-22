@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import { getDay, getMonth } from '../../helpers/common';
 import './index.scss';
 
+/**
+ * Affichage des détails de l'événement sur la miniature de la page 'index'.
+ * @param {string} date : date de l'événement
+ * @param {string} name : nom de l'événement
+ * @param {string} district : nom du quartier
+ */
 const DateBox = ({ date, name, district }) => (
   <div className="boxDate">
     <div className="dateEvent">

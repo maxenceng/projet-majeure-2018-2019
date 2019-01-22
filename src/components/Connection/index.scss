@@ -13,7 +13,7 @@
       font-family: "Variane", serif;
       font-size:40px;
       padding: 20% 0 0 0;
-      color: rgb(182, 156, 111);
+      color: $color-primary;
     }
     .mail{
       padding:5px;
@@ -21,7 +21,7 @@
     .password{
       padding:5px;
     }
-    .validation{
+    .validationAuth{
       padding:15px;
       cursor: pointer;
     }
