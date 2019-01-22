@@ -1,6 +1,6 @@
 .DiscussionMessages {
   height: calc(100% - 2px);
-  border: 1px solid #00b3ff;
+  border: 1px solid $color-primary;
   overflow-y: auto;
   & .event-mentioned {
     display: flex;

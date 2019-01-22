@@ -14,29 +14,36 @@ import EventHistory from '../../containers/EventHistory';
  */
 const EventHistoryMyEvents = ({ userEvents }) => (
   <div className="agendaEventList">
-    <h2>Mes événements:</h2>
-    {userEvents && userEvents.map((event) => {
-      if (event.PARTICIPATE) {
-        return (
-          <EventHistory
-            key={event.ID_EVENT}
-            event={event}
-          />);
-      }
-      return '';
-    })}
+    <div id="myParticpatingEvent" className="eventListUsers">
+      <h2>Mes événements:</h2>
+      {userEvents && userEvents.map((event) => {
+        if (event.PARTICIPATE) {
+          return (
+            <EventHistory
+              key={event.ID_EVENT}
+              event={event}
+            />
+          );
+        }
+        return '';
+      })}
+    </div>
 
-    <h2>Mes événements favoris:</h2>
-    {userEvents && userEvents.map((event) => {
-      if (event.FAVORITE) {
-        return (
-          <EventHistory
-            key={event.ID_EVENT}
-            event={event}
-          />);
-      }
-      return '';
-    })}
+    <div id="myFavEvent" className="eventListUsers">
+      <h2>Mes événements favoris:</h2>
+      {userEvents && userEvents.map((event) => {
+        if (event.FAVORITE) {
+          return (
+            <div className="eventListUsers">
+              <EventHistory
+                key={event.ID_EVENT}
+                event={event}
+              />
+            </div>);
+        }
+        return '';
+      })}
+    </div>
   </div>
 );
 

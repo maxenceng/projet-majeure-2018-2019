@@ -20,12 +20,12 @@
       font-size: 14px;
     }
     .btn:hover {
-      background-color: $color-hover;
+      background-color: $color-terciary;
     }
     
     .btn.active {
       background-color: rgb(120, 98, 74);
-      color: $color-hover;
+      color: $color-terciary;
     }
   }
   

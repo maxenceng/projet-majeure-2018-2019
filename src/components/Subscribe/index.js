@@ -14,7 +14,7 @@ const Subscribe = ({
       <form onSubmit={onSubmit} className="formulaire">
         <div className="inscription">Inscription</div>
         <InputList list={inputList} onChange={onChange} />
-        <div className="validation">
+        <div className="validationAuth">
           <Button type="submit">Confirmer</Button>
         </div>
       </form>

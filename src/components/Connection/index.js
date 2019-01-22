@@ -23,7 +23,7 @@ const Connection = ({
       <form onSubmit={onSubmit} className="formulaire">
         <div className="connexion">Connexion</div>
         <InputList list={inputList} onChange={onChange} />
-        <div className="validation">
+        <div className="validationAuth">
           <Button type="submit">Connexion</Button>
         </div>
         <div className="openIds">

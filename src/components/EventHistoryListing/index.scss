@@ -1,15 +1,21 @@
 .event_history_listing{
     
-    background-color: whitesmoke;
+    background-color: #ffffd7;
+    border: solid 1px $color-primary;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    margin: 2px;
     
     .event_history_listing_item{
         flex-grow: 0;
         margin: 1%;
+        color: $color-primary;
+        span {
+            color: $color-terciary;
+        }
     }
     
     .event_history_listting_picture{
@@ -17,7 +23,14 @@
         width : 100px;
         height: 100px;
         border-radius: 30%;
+        border: solid 1px $color-primary;
     }
+}
+.event_history_listing:hover {
+    @include transition();
+    background-color: lighten($color-terciary, 50%) !important;
+    cursor: pointer;
+    background-color: $color-secondary;
 }
 
 .button{
