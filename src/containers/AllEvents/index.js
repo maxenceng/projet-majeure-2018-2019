@@ -15,8 +15,7 @@ class AllEvents extends React.Component {
       EVENT_DESC: PropTypes.string.isRequired,
       EVENT_NAME: PropTypes.string.isRequired,
       ID_EVENT: PropTypes.string.isRequired,
-      ID_LOCATION: PropTypes.string.isRequired,
-      LOC_DISCTRICT: PropTypes.string.isRequired,
+      LOC_DISTRICT: PropTypes.string.isRequired,
       LOC_EVENT: PropTypes.string.isRequired,
       LOC_LATITUDE: PropTypes.string.isRequired,
       LOC_LONGITUDE: PropTypes.string.isRequired,
@@ -25,7 +24,7 @@ class AllEvents extends React.Component {
       lng: PropTypes.number.isRequired,
       lat: PropTypes.number.isRequired,
     }),
-    eventMode: PropTypes.string.isRequired,
+    eventMode: PropTypes.instanceOf(Object).isRequired,
   };
 
   static defaultProps = {
